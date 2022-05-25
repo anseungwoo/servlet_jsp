@@ -10,7 +10,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.annotation.WebServlet;
 
-@WebFilter("/*")
+@WebFilter("*.jsp")
 public class CharacterEncodingFilter implements Filter {
 
 	@Override
