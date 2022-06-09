@@ -99,8 +99,8 @@ public class NoticeService {
 	}
 
 	public Notice getNotice(int id) {
-		Notice notice=null;
 		String sql = "select * from notice WHERE ID=?";
+		Notice notice=null;
 		try {
 			con = JdbcUtill.getConnection();
 			pstmt = con.prepareStatement(sql);
@@ -124,18 +124,65 @@ public class NoticeService {
 		JdbcUtill.close(rs);
 		JdbcUtill.close(pstmt);
 		JdbcUtill.close(con);
-		return null;
+		return notice;
 	}
 
 	public Notice getNextNotice(int id) {
 		String sql = "select * from notice where  ID>? order by regdate desc limit 1;";
+		Notice notice=null;
+		try {
+			con = JdbcUtill.getConnection();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, id);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				int id1= rs.getInt("ID");
+				String title = rs.getString("TITLE");
+				String writerId = rs.getString("WRITER_ID");
+				Date regDate = rs.getDate("REGDATE");
+				String content = rs.getString("CONTENT");
+				int hit = rs.getInt("hit");
+				String files = rs.getString("FILES");
 
-		return null;
+				notice = new Notice(id1, title, writerId, regDate, content, hit, files);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		JdbcUtill.close(rs);
+		JdbcUtill.close(pstmt);
+		JdbcUtill.close(con);
+		return notice;
 	}
 
 	public Notice getPrewNotice(int id) {
 		String sql = "select * from notice where  ID<? order by regdate desc limit 1;";
-		return null;
+		Notice notice=null;
+		try {
+			con = JdbcUtill.getConnection();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, id);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				int id1= rs.getInt("ID");
+				String title = rs.getString("TITLE");
+				String writerId = rs.getString("WRITER_ID");
+				Date regDate = rs.getDate("REGDATE");
+				String content = rs.getString("CONTENT");
+				int hit = rs.getInt("hit");
+				String files = rs.getString("FILES");
+
+				notice = new Notice(id1, title, writerId, regDate, content, hit, files);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		JdbcUtill.close(rs);
+		JdbcUtill.close(pstmt);
+		JdbcUtill.close(con);
+		return notice;
 	}
 
 }
