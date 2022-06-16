@@ -10,31 +10,58 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.newlecture.web.entity.Notice;
+import com.newlecture.web.entity.NoticeView;
 
 public class NoticeService {
+    public int	removeNoticeAll(int[] ids){
+    	
+    	return 0;
+    }
+    
+    public int pubNoticeAll(int[] ids){
+    	return 0;
+    }
+    public int insertNotice(Notice notice){
+    	return 0;
+    }
+	
+    public int deleteNotice(int id){
+    	return 0;
+    }
+    public int updateNotice(Notice notice){
+    	return 0;
+    }
+    public List<Notice> getNoticeNewestList(){
+    	return null;
+    }
+	
+	
+	
+	
+	
 	private Connection con = null;
 	private PreparedStatement pstmt = null;
 	private ResultSet rs = null;
 
-	public List<Notice> getNoticeList() {
+	public List<NoticeView> getNoticeList() {
 		return getNoticeList(1, "title", "");
 	}
 
-	public List<Notice> getNoticeList(int page) {
+	public List<NoticeView> getNoticeList(int page) {
 		return getNoticeList(page, "title", "");
 	}
 
-	public List<Notice> getNoticeList(int page, String field, String query) {
+	public List<NoticeView> getNoticeList(int page, String field, String query) {
 		int listLimit = 10;
 		int pageLimit = 10;
 
-		int start = ((int) ((double) page / pageLimit + 0.9) - 1) * pageLimit + 1;
+		int start = (page-1) *10;
 
 		int end = 10; // 10, 20, 30, 40...
 
-		String sql = "select * from notice WHERE " + field + " LIKE ? ORDER BY REGDATE DESC LIMIT ?,?";
+		String sql = "select * from notice_view WHERE " + field + " LIKE ? ORDER BY REGDATE DESC LIMIT ?,?";
 
-		List<Notice> list = new ArrayList<Notice>();
+		List<NoticeView> list = new ArrayList<NoticeView>();
 
 		try {
 			con = JdbcUtill.getConnection();
@@ -51,8 +78,13 @@ public class NoticeService {
 				String content = rs.getString("CONTENT");
 				int hit = rs.getInt("hit");
 				String files = rs.getString("FILES");
+				int cmtCount= rs.getInt("cmt_count");
 
-				Notice notice = new Notice(id, title, writerId, regDate, content, hit, files);
+				NoticeView notice = new NoticeView(
+						id, title, writerId, 
+						regDate, content, hit, 
+						files, cmtCount
+						);
 
 				list.add(notice);
 
@@ -76,12 +108,11 @@ public class NoticeService {
 		int count=0;
 		String sql = "select COUNT(ID) from notice";
 
-		List<Notice> list = new ArrayList<Notice>();
 
 		try {
 			con = JdbcUtill.getConnection();
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, "%" + query + "%");
+		
 			
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
@@ -128,7 +159,7 @@ public class NoticeService {
 	}
 
 	public Notice getNextNotice(int id) {
-		String sql = "select * from notice where  ID>? order by regdate desc limit 1;";
+		String sql = "select * from notice where  ID>? order by regdate desc limit 1";
 		Notice notice=null;
 		try {
 			con = JdbcUtill.getConnection();
@@ -157,7 +188,7 @@ public class NoticeService {
 	}
 
 	public Notice getPrewNotice(int id) {
-		String sql = "select * from notice where  ID<? order by regdate desc limit 1;";
+		String sql = "select * from notice where  ID<? order by regdate desc limit 1";
 		Notice notice=null;
 		try {
 			con = JdbcUtill.getConnection();
@@ -183,6 +214,34 @@ public class NoticeService {
 		JdbcUtill.close(pstmt);
 		JdbcUtill.close(con);
 		return notice;
+	}
+
+	public int deleteNoticeAll(int[] ids) {
+		int result=0;
+		String params="";
+		for(int i=0;i<ids.length;i++) {
+			params+=ids[i];
+			if(i<ids.length-1) {
+				params+=",";
+				
+			}
+		}
+		String sql = "DELTE FROM NOTICE WHERE ID IN ("+params+")";
+		Notice notice=null;
+		try {
+			con = JdbcUtill.getConnection();
+			pstmt = con.prepareStatement(sql);
+			result = pstmt.executeUpdate();
+	
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		JdbcUtill.close(rs);
+		JdbcUtill.close(pstmt);
+		JdbcUtill.close(con);
+
+		return result;
 	}
 
 }
