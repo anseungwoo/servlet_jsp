@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.newlecture.web.entity.Notice;
@@ -18,11 +19,77 @@ public class NoticeService {
     	return 0;
     }
     
-    public int pubNoticeAll(int[] ids){
+    public int pubNoticeAll(int[] oids,int[] cids){
+    	List<String> oidsList =new ArrayList<>();
+    	for(int i=0;i<oids.length;i++) {
+    		oidsList.add(String.valueOf(oids[i]));
+    	}
+    	List<String> cidsList =new ArrayList<>();
+    	for(int i=0;i<cids.length;i++) {
+    		oidsList.add(String.valueOf(cids[i]));
+    	}
+    	return pubNoticeAll(oidsList, cidsList);
+    }
+    public int pubNoticeAll(List<String> oids,List<String> cids){
+    	String oidsCSV =String.join(",", oids);
+    	String cidsCSV=String.join(",", cids);
+    	return pubNoticeAll(oidsCSV, cidsCSV);
+    }
+    public int pubNoticeAll(String oidsCSV,String cidsCSV){
+    	String sqlOpen="UPDATE NOTICE SET PUB=1 WHERE ID IN ("+oidsCSV+")";
+    	String sqlClose="UPDATE NOTICE SET PUB=0 WHERE ID IN ("+cidsCSV+")";
+    	int result=0;
+    	PreparedStatement pstmt2=null;
+    	con = JdbcUtill.getConnection();
+    	try {
+    		pstmt2=con.prepareStatement(sqlClose);
+    		result += pstmt2.executeUpdate();
+			pstmt = con.prepareStatement(sqlOpen);
+			result += pstmt.executeUpdate();
+	
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
+    	JdbcUtill.close(pstmt2);
+		JdbcUtill.close(pstmt);
+		JdbcUtill.close(con);
+    	
     	return 0;
     }
     public int insertNotice(Notice notice){
-    	return 0;
+    	
+    	int result=0;
+    	String sql = "SELECT MAX(id) FROM NOTICE";
+		int idx = 1;
+		try {
+			con = JdbcUtill.getConnection();
+
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				idx = rs.getInt(1) + 1;
+			}
+			sql = "INSERT INTO NOTICE VALUES(?,?,?,?,now(),0,?,?)";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, idx);
+			pstmt.setString(2, notice.getTitle());
+			pstmt.setString(3, notice.getWriterId());
+			pstmt.setString(4, notice.getContent());
+			pstmt.setString(5, notice.getFiles());
+			pstmt.setBoolean(6, notice.getPub());
+			result = pstmt.executeUpdate();
+	
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		JdbcUtill.close(rs);
+		JdbcUtill.close(pstmt);
+		JdbcUtill.close(con);
+
+		return result;
     }
 	
     public int deleteNotice(int id){
@@ -79,11 +146,12 @@ public class NoticeService {
 				int hit = rs.getInt("hit");
 				String files = rs.getString("FILES");
 				int cmtCount= rs.getInt("cmt_count");
+				boolean pub =rs.getBoolean("PUB");
 
 				NoticeView notice = new NoticeView(
 						id, title, writerId, 
 						regDate, content, hit, 
-						files, cmtCount
+						files,pub, cmtCount
 						);
 
 				list.add(notice);
@@ -98,6 +166,54 @@ public class NoticeService {
 		JdbcUtill.close(con);
 		return list;
 
+	}
+	public List<NoticeView> getNoticePubList(int page, String field, String query) {
+		int listLimit = 10;
+		int pageLimit = 10;
+
+		int start = (page-1) *10;
+
+		int end = 10; // 10, 20, 30, 40...
+
+		String sql = "select * from notice_view WHERE " + field + " LIKE ? AND PUB=1 ORDER BY REGDATE DESC LIMIT ?,?";
+
+		List<NoticeView> list = new ArrayList<NoticeView>();
+
+		try {
+			con = JdbcUtill.getConnection();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, "%" + query + "%");
+			pstmt.setInt(2, start);
+			pstmt.setInt(3, end);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				int id = rs.getInt("ID");
+				String title = rs.getString("TITLE");
+				String writerId = rs.getString("WRITER_ID");
+				Date regDate = rs.getDate("REGDATE");
+				String content = rs.getString("CONTENT");
+				int hit = rs.getInt("hit");
+				String files = rs.getString("FILES");
+				int cmtCount= rs.getInt("cmt_count");
+				boolean pub =rs.getBoolean("PUB");
+
+				NoticeView notice = new NoticeView(
+						id, title, writerId, 
+						regDate, content, hit, 
+						files,pub, cmtCount
+						);
+
+				list.add(notice);
+
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		JdbcUtill.close(rs);
+		JdbcUtill.close(pstmt);
+		JdbcUtill.close(con);
+		return list;
 	}
 
 	public int getNoticeCount() {
@@ -145,8 +261,8 @@ public class NoticeService {
 				String content = rs.getString("CONTENT");
 				int hit = rs.getInt("hit");
 				String files = rs.getString("FILES");
-
-				notice = new Notice(id1, title, writerId, regDate, content, hit, files);
+				boolean pub =rs.getBoolean("PUB");
+				notice = new Notice(id1, title, writerId, regDate, content, hit, files,pub);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -174,9 +290,8 @@ public class NoticeService {
 				String content = rs.getString("CONTENT");
 				int hit = rs.getInt("hit");
 				String files = rs.getString("FILES");
-
-				notice = new Notice(id1, title, writerId, regDate, content, hit, files);
-			}
+				boolean pub =rs.getBoolean("PUB");
+				notice = new Notice(id1, title, writerId, regDate, content, hit, files,pub);}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -203,8 +318,10 @@ public class NoticeService {
 				String content = rs.getString("CONTENT");
 				int hit = rs.getInt("hit");
 				String files = rs.getString("FILES");
+				
 
-				notice = new Notice(id1, title, writerId, regDate, content, hit, files);
+				boolean pub =rs.getBoolean("PUB");
+				notice = new Notice(id1, title, writerId, regDate, content, hit, files,pub);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -243,5 +360,7 @@ public class NoticeService {
 
 		return result;
 	}
+
+	
 
 }

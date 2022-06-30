@@ -10,6 +10,7 @@ public class Notice {
 	private String content;
 	private int hit;
 	private String files;
+	private boolean pub;
 	
 	public Notice() {
 		
@@ -19,7 +20,7 @@ public class Notice {
 
 
 
-	public Notice(int id, String title, String writerId, Date regDate, String content, int hit, String files) {
+	public Notice(int id, String title, String writerId, Date regDate, String content, int hit, String files,boolean pub) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -28,6 +29,7 @@ public class Notice {
 		this.content = content;
 		this.hit = hit;
 		this.files = files;
+		this.pub =pub;
 	}
 
 
@@ -77,6 +79,24 @@ public class Notice {
 
 	public void setFiles(String files) {
 		this.files = files;
+	}
+
+	public boolean getPub() {
+		return pub;
+	}
+
+	public void setPub(boolean pub) {
+		this.pub = pub;
+	}
+
+
+
+
+
+	@Override
+	public String toString() {
+		return "Notice [id=" + id + ", title=" + title + ", writerId=" + writerId + ", regDate=" + regDate
+				+ ", content=" + content + ", hit=" + hit + ", files=" + files + ", pub=" + pub + "]";
 	}
 	
 	

@@ -34,7 +34,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 		page= Integer.parseInt(page_);
 	}
 	NoticeService service =new NoticeService();
-	List<NoticeView> list = service.getNoticeList(page,field,query);
+	List<NoticeView> list = service.getNoticePubList(page,field,query);
 	int count = service.getNoticeCount(field,query);
 	
 
