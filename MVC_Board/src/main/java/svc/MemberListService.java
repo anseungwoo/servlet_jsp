@@ -18,6 +18,6 @@ public class MemberListService {
 		ArrayList<MemberDTO> list= dao.selectMemberList();
 		
 		close(con);
-		return list;
+		return list; 
 	}
 }

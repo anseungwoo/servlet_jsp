@@ -1,10 +1,9 @@
 package jsp15_java_mail2;
 
-
-
+import static jsp15_java_mail2.JdbcUtil.close;
+import static jsp15_java_mail2.JdbcUtil.getConnection;
 
 import java.sql.Connection;
-import static jsp15_java_mail2.JdbcUtil.*;
 public class MemberCheckDuplicateIdService {
 
 	public boolean checkDuplicateId(String id) {

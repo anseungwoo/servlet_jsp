@@ -1,12 +1,11 @@
 package jsp15_java_mail2;
 
-import static db.JdbcUtil.*;
+
+
+import static jsp15_java_mail2.JdbcUtil.close;
+import static jsp15_java_mail2.JdbcUtil.getConnection;
 
 import java.sql.Connection;
-
-import dao.MemberDAO;
-import vo.MemberDTO;
-
 public class MemberLoginProService {
 
 	public boolean loginMember(MemberDTO member) {

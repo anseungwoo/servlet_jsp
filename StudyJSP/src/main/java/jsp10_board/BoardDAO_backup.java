@@ -1,13 +1,11 @@
 package jsp10_board;
 
 import java.sql.Connection;
-import java.sql.Date;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-import jsp15_java_mail2.JdbcUtill;
+import jsp11_dbcp.JdbcUtill;
 
 public class BoardDAO_backup {
 	private Connection con=null;

@@ -4,8 +4,6 @@
 <%@page import="java.io.File"%>
 <%@page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
 <%@page import="com.oreilly.servlet.MultipartRequest"%>
-<%@page import="board.BoardDAO"%>
-<%@page import="board.BoardDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
@@ -29,13 +27,13 @@
         
         FileBoardDTO dto =new FileBoardDTO();
         dto.setName(name);
-        dto.setPasswd(pass);
+        dto.setPass(pass); 
         dto.setSubject(subject);
         dto.setContent(content);
         dto.setRealFile(realFile);
         dto.setOriginalFile(originalFile);
         FileBoardDAO dao=new FileBoardDAO();
-        insertCount=dao.insert(dto);
+        insertCount=dao.insertFileBoard(dto);   
         
         
         

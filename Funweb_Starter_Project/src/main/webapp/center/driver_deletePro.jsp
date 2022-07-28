@@ -1,6 +1,7 @@
 
-<%@page import="board.FileBoardDAO"%>
+
 <%@page import="board.FileBoardDTO"%>
+<%@page import="board.FileBoardDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
@@ -8,13 +9,13 @@ int idx = Integer.parseInt(request.getParameter("idx"));
 String passwd = request.getParameter("passwd");
 FileBoardDTO dto = new FileBoardDTO();
 dto.setIdx(idx);
-dto.setPasswd(passwd);
+dto.setPass(passwd); 
 
 FileBoardDAO dao = new FileBoardDAO();
- 
-boolean isCorrect= dao.checkPass(idx, dto.getPasswd()); 
+   
+boolean isCorrect= dao.checkPass(dto);   
 if(isCorrect){
-	int deleteCount = dao.deleteBoard(dto);  
+	int deleteCount = dao.deleteBoard(dto);   
 if(deleteCount == 0) {
 	%>
 	<script>

@@ -18,7 +18,7 @@ import vo.BoardDTO;
  * Action 인터페이스에 구현한 후 Action 클래스가 상속받아 추상메서드를 구현하면 실수를 방지 가능
  * => 추상메서드 execute() 구현을 강제 => 코드의 통일성과 안정성 향상
  */
-public class BoardWriteProAction implements Action {
+public class BoardWriteProAction implements Action { 
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {

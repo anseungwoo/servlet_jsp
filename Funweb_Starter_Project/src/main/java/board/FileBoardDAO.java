@@ -309,7 +309,7 @@ public class FileBoardDAO {
 	// 작성자가 입력한 패스워드 확인
 	// => board 테이블의 idx 가 일치하는 게시물의 패스워드를 비교
 	// => 파라미터 : BoardDTO 객체, 리턴타입 : boolean(isCorrectPass)
-	public boolean checkPass(BoardDTO board) {
+	public boolean checkPass(FileBoardDTO board) {  
 		boolean isCorrectPass = false;
 
 		PreparedStatement pstmt = null;
@@ -343,7 +343,7 @@ public class FileBoardDAO {
 	
 	// 글 수정 작업 수행하는 updateBoard() 메서드 정의
 	// => 파라미터 : BoardDTO 객체, 리턴타입 : int(updateCount)
-	public int updateBoard(BoardDTO board) {
+	public int updateBoard(FileBoardDTO board) {
 		int updateCount = 0;
 		
 		PreparedStatement pstmt = null;
@@ -373,11 +373,11 @@ public class FileBoardDAO {
 	
 	// 게시물 삭제 작업 수행하는 deleteBoard() 메서드 정의
 	// => 파라미터 : BoardDTO 객체, 리턴타입 : int(deleteCount)
-	public int deleteBoard(BoardDTO board) {
+	public int deleteBoard(FileBoardDTO board) {
 		int deleteCount = 0;
-		
+		 
 		PreparedStatement pstmt = null;
-		
+		 
 		Connection con = JdbcUtil.getConnection();
 		
 		try {

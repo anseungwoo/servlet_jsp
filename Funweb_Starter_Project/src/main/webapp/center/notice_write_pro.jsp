@@ -6,11 +6,11 @@
 request.setCharacterEncoding("UTF-8");
 BoardDTO dto = new BoardDTO();
 dto.setName(request.getParameter("name"));
-dto.setPasswd(request.getParameter("pass"));
+dto.setPass(request.getParameter("pass"));
 dto.setSubject(request.getParameter("subject"));
 dto.setContent(request.getParameter("content"));
 BoardDAO dao = new BoardDAO();
-int insertCount = dao.insert(dto);
+int insertCount = dao.insertBoard(dto);
 
 
 %>

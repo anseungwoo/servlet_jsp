@@ -3,7 +3,6 @@ package jsp15_java_mail2;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 public class MemberLogoutAction implements Action {
 
 	@Override
@@ -18,7 +17,7 @@ public class MemberLogoutAction implements Action {
 		
 		// 메인페이지 포워딩
 		forward = new ActionForward();
-		forward.setPath("./");
+		forward.setPath("./"); 
 		forward.setRedirect(true);
 		
 		return forward;

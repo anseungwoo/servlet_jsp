@@ -13,7 +13,7 @@ int pageNum = Integer.parseInt(request.getParameter("pageNum"));
 FileBoardDTO dto = new FileBoardDTO();
 dto.setIdx(idx);
 dto.setName(request.getParameter("name"));
-dto.setPasswd(request.getParameter("passwd"));
+dto.setPass(request.getParameter("passwd"));
 dto.setSubject(request.getParameter("subject"));
 dto.setContent(request.getParameter("content"));
 
@@ -22,9 +22,9 @@ dto.setContent(request.getParameter("content"));
 // BoardDAO 객체의 update() 메서드 호출하여 게시물 수정 작업 요청
 // => 패스워드가 틀렸을 경우 등 실패 여부를 판단하기 위해 int 타입 값 리턴받기
 // => 파라미터 : BoardDTO 객체   리턴타입 : int(updateCount)
-FileBoardDAO dao = new FileBoardDAO(); 
-
-boolean isCorrect= dao.checkPass(idx, dto.getPasswd()); 
+FileBoardDAO dao = new FileBoardDAO();  
+ 
+boolean isCorrect= dao.checkPass(dto); 
 
 
 // 수정 작업 결과 판별
@@ -34,10 +34,10 @@ boolean isCorrect= dao.checkPass(idx, dto.getPasswd());
 
 if(isCorrect){
 	int updateCount = dao.updateBoard(dto);
-if(updateCount == 0) {
+if(updateCount == 0) { 
 	%> 
-	<script>
-		alert("패스워드 틀림!"); 
+	<script> 
+		alert("패스워드 틀림!");  
 		history.back();
 	</script>
 	<%

@@ -32,7 +32,7 @@ String sId = (String)session.getAttribute("sId");
 	// => 새로운 메서드를 정의하는 것이 아닌 기존의 상세정보 조회 메서드 재사용
 	// => 파라미터 : 글번호(idx), 리턴타입 : BoardDTO(dto)
 	FileBoardDAO dao = new FileBoardDAO();
-	FileBoardDTO dto = dao.selectBoard(idx);
+	FileBoardDTO dto = dao.selectFileBoard(idx);
 	
 	// 만약, BoardDTO 객체가 null 이면, 자바스크립트 "잘못된 요청" 출력 후 이전페이지로 돌아가기
 	if(dto == null) { %>

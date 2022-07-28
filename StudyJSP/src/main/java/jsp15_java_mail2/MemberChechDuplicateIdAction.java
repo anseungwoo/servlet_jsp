@@ -9,7 +9,7 @@ public class MemberChechDuplicateIdAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println("MemberChechDuplicateIdAction");
 		
-		ActionForward forward = null;
+		ActionForward forward = null; 
 		
 		String id = request.getParameter("id");
 
