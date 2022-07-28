@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	// window 객체 사용법
+	// 1) 변수(속성)(window.속성명) - window.status, window.opener, windowInnerHeight 등
+	// 2) 함수(window.함수명()) - window.open(), window.close() 등
+	function func1() {
+		// window.open() 함수를 사용하여 새 창 열기
+		// < 기본 문법 > window.open("새 창에서 접속할 URL", "창이름", "창옵션(크기, 위치 등)")
+		window.open("http://www.itwillbs.co.kr", "창이름", "width=300,height=300");
+		// => 새 창의 크기를 가로(width) 300픽셀, 세로(height) 300픽셀로 지정하여
+		//    itwillbs.co.kr 주소를 접속하도록 새 창 열기
+	}
+
+	function func2() {
+		let url = prompt("접속할 주소를 입력하세요.");
+		window.open(url, "창이름", "width=600,height=600");
+	}
+
+	function func3() {
+		window.close();
+	}
+
+	function func4() {
+		// 인터넷 주소(URL) 대신 특정 파일을 새 창에서 열 수도 있다!
+		window.open("test20_1.html", "창이름", "width=300,height=300");
+	}
+</script>
+</head>
+<body>
+	<h1>test20.html</h1>
+	<input type="button" value="창 열기1" onclick="func1()">
+	<input type="button" value="창 열기2" onclick="func2()">
+	<input type="button" value="창 닫기" onclick="func3()">
+	<input type="button" value="test20_1.html 창 열기" onclick="func4()">
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

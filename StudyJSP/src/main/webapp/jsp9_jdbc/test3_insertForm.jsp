@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>insertForm.jsp</h1>
+	<h1>test3_insertForm.jsp</h1>
 	<form action="test3_insertPro.jsp" method="post">
 		<table border="1">
 			<tr>

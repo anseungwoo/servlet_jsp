@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/*
+	[ 자바스크립트의 내장 객체 ]
+	- 자바스크립트에서 미리 정의하여 제공하는 객체
+	- 사용자는 해당 객체에 접근하여 만들어져 있는 속성 및 함수 사용 가능
+	
+	[ window 객체 ]
+	- 자바스크립트 내장 객체 중 최상위 객체
+	- 웹브라우저의 창(browser window) 자체를 가리키는 용도로 사용되며
+	  웹브라우저 창에 대한 여러 작업을 수행할 수 있는 함수 제공
+	- 자바스크립트 전역에서 접근(사용) 가능한 객체
+	- window 객체명은 생략도 가능함
+	  ex) window.open() => open() 형태로 사용 가능
+	  
+	[ window 객체의 하위 객체들 ]
+	1. document
+	   - DOM(Document Object Model, 문서 객체 모델) 이라고 함
+	   - 웹 페이지 내의 모든 컨텐츠(내용)을 객체로 관리함(수정 가능한 객체)
+	   - 웹 페이지의 시작점 역할을 수행하므로 
+	     document 객체 이용하면 페이지 내의 모든 요소 변경/생성/삭제 등 가능
+	   
+	2. location, history, navigator 등...
+	
+	3. Object, Array, Function 등...
+	*/
+	
+	function showWindowInfo() {
+		// window 객체의 innerHeight 와 innerWidth 속성에 접근하여 창의 가로, 세로 크기 알아내기
+		alert("창 높이 : " + window.innerHeight + ", 창 너비 : " + window.innerWidth);
+	}
+	  
+	function closeWindow() {
+		// window 객체의 close() 함수를 호출하여 현재 창 닫기
+		window.close();
+	}
+	
+	function changeBackgroundColor() {
+		// document 객체를 사용하여 body 태그의 배경색 변경
+		// => window.document 대신 document 로 사용(window. 생략)
+		document.body.style.background = "RED";
+	}
+	
+	function showBrowserInfo() {
+		alert("브라우저 정보 : " + navigator.userAgent);
+		alert("브라우저 OS 정보 : " + navigator.platform);
+	}
+</script>
+</head>
+<body>
+	<input type="button" value="창 크기 확인" onclick="showWindowInfo()">
+	<input type="button" value="창 닫기" onclick="closeWindow()">
+	<input type="button" value="배경색 변경" onclick="changeBackgroundColor()">
+	<input type="button" value="브라우저 정보 확인" onclick="showBrowserInfo()">
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

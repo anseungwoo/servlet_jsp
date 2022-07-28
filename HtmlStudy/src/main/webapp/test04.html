@@ -1,0 +1,440 @@
+﻿<html>
+ <head>
+  <title>table - 표</title>
+  <style type="text/css">
+   table, th, td {
+    border:1px solid #e70;
+   }
+  </style>
+ </head>
+ <body>
+<hr>
+<h1>table - 표</h1>
+<table>
+ <tr>
+  <th>tag</th>
+  <th>설명</th>
+ </tr>
+ <tr>
+  <td>table</td>
+  <td>표를 구성하는 태그</td>
+ </tr>
+ <tr>
+  <td>tr</td>
+  <td>줄을 구성하는 태그</td>
+ </tr> 
+ <tr>
+  <td>th</td>
+  <td>제목칸을 구성하는 태그<br>
+      글자는 볼드체, 내용은 수평 중앙정렬 됨.
+  </td>
+ </tr>
+ <tr>
+  <td>td</td>
+  <td>(일반)칸을 구성하는 태그</td>
+ </tr>
+</table>
+<br>
+<h3>세로형</h3>
+<table>
+ <tr>
+  <th>ID</th>
+  <th>Name</th>
+ </tr>
+ <tr>
+  <td>lhj23</td>
+  <td>Lee hee ju</td>
+ </tr>
+ <tr>
+  <td>jej456</td>
+  <td>Ju eun ji</td>
+ </tr>
+</table>
+
+<h3>가로형</h3>
+<table>
+ <tr>
+  <th>ID</th>
+  <td>lhj23</td>
+  <td>jej456</td>
+ </tr>
+ <tr>
+  <th>Name</th>
+  <td>Lee hee ju</td>
+  <td>Ju eun ji</td>
+ </tr> 
+</table>
+
+<h4>문제. 표 만들기 - 1</h4>
+<table>
+ <tr>
+  <th>no.</th>
+  <th>name</th>
+  <th>id</th>
+  <th>date</th>
+ </tr>
+ <tr>
+  <td>01</td>
+  <td>Lee hee ju</td>
+  <td>jej456</td>
+  <td>2022.04.07</td>
+ </tr>
+ <tr>
+  <td>02</td>
+  <td>Ju eun ji</td>
+  <td>lhj23</td>
+  <td>2022.04.07</td>
+ </tr>
+ <tr>
+  <td>03</td>
+  <td>eun Ju ji</td>
+  <td>elhj23</td>
+  <td>2022.04.07</td>
+ </tr>
+</table>
+
+<h4>문제. 표 만들기 - 2</h4>
+<table>
+ <tr>
+  <th>a</th>
+  <th>b</th>
+  <th>c</th>
+ </tr>
+ <tr>
+  <td>1</td>
+  <td>2</td>
+  <td>3</td>
+ </tr>
+ <tr>
+  <td>4</td>
+  <td>5</td>
+  <td>6</td>
+ </tr>
+ <tr>
+  <td>7</td>
+  <td>8</td>
+  <td>9</td>
+ </tr>
+ <tr>
+  <td>10</td>
+  <td>11</td>
+  <td>12</td>
+ </tr>
+</table>
+
+
+<h2>칸(셀) 합치기</h2>
+<ul> 
+ <li><b>가로</b>로 합치기 - <b>colspan</b></li>
+ <li><b>세로</b>로 합치기 - <b>rowspan</b></li>
+</ul>
+
+<h3>1. 가로칸(셀) 합치기 - colspan="n"</h3>
+<table>
+ <tr>
+  <th colspan="3">title</th>
+ </tr>
+ <tr>
+  <td>a</td>
+  <td>b</td>
+  <td>c</td>
+ </tr>
+ <tr>
+  <td>1</td>
+  <td>2</td>
+  <td>3</td>
+ </tr>
+</table>
+
+<table>
+ <tr>
+  <th colspan="2">title</th>
+  <th>t</th>
+ </tr>
+ <tr>
+  <td>a</td>
+  <td>b</td>
+  <td>c</td>
+ </tr>
+ <tr>
+  <td>1</td>
+  <td>2</td>
+  <td>3</td>
+ </tr>
+</table>
+
+<table>
+ <tr>
+  <th>t</th>
+  <th colspan="2">title</th>
+ </tr>
+ <tr>
+  <td>a</td>
+  <td>b</td>
+  <td>c</td>
+ </tr>
+ <tr>
+  <td>1</td>
+  <td>2</td>
+  <td>3</td>
+ </tr>
+</table>
+
+<h5>1. table-1</h5>
+<table>
+ <tr>
+  <th>t</th>
+  <th>i</th>
+  <th>t</th>
+ </tr>
+ <tr>
+  <td>a</td>
+  <td colspan="2">bc</td>
+ </tr>
+ <tr>
+  <td>1</td>
+  <td>2</td>
+  <td>3</td>
+ </tr>
+</table>
+
+<h5>1. table-2</h5>
+<table>
+ <tr>
+  <th>t</th>
+  <th>i</th>
+  <th>t</th>
+ </tr>
+ <tr>
+  <td colspan="2">ab</td>
+  <td>c</td>
+ </tr>
+ <tr>
+  <td>1</td>
+  <td>2</td>
+  <td>3</td>
+ </tr>
+</table>
+
+<h5>1. table-3</h5>
+<table>
+ <tr>
+  <th>t</th>
+  <th>i</th>
+  <th>t</th>
+ </tr>
+ <tr>
+  <td>a</td>
+  <td>b</td>
+  <td>c</td>
+ </tr>
+ <tr>
+  <td colspan="3">123</td>
+ </tr>
+</table>
+
+<h5>1. table-4</h5>
+<table>
+ <tr>
+  <th>t</th>
+  <th>i</th>
+  <th>t</th>
+ </tr>
+ <tr>
+  <td colspan="3">abc</td>
+ </tr>
+ <tr>
+  <td>1</td>
+  <td colspan="2">2 3</td>
+ </tr>
+</table>
+
+<h3>2. 세로칸(셀) 합치기 - rowspan="n"</h3>
+<h5>2. table-1</h5>
+<table>
+ <tr>
+  <th rowspan="3">t<br>a<br>1</th>
+  <th>i</th>
+  <th>t</th>
+ </tr>
+ <tr>
+  <td>b</td>
+  <td>c</td>
+ </tr>
+ <tr>
+  <td>2</td>
+  <td>3</td>
+ </tr>
+</table>
+
+<h5>2. table-2</h5>
+<table>
+ <tr>
+  <th>t</th>
+  <th>i</th>
+  <th>t</th>
+ </tr>
+ <tr>
+  <td>a</td>
+  <td rowspan="2">b<br>2</td>
+  <td>c</td>
+ </tr>
+ <tr>
+  <td>1</td>
+  <td>3</td>
+ </tr>
+</table>
+
+<br>
+
+<h5>2. table-3</h5>
+<table>
+ <tr>
+  <th>t</th>
+  <th>i</th>
+  <th rowspan="3">t<br>c<br>3</th>
+ </tr>
+ <tr>
+  <td>a</td>
+  <td>b</td>
+ </tr>
+ <tr>
+  <td>1</td>
+  <td>2</td>
+ </tr>
+</table>
+
+<h5>2. table-4</h5>
+<table>
+ <tr>
+  <th>t</th>
+  <th>i</th>
+  <th rowspan="2">t<br>c</th>
+ </tr>
+ <tr>
+  <td rowspan="2">a<br>1</td>
+  <td>b</td>
+ </tr>
+ <tr>
+  <td>2</td>
+  <td>3</td>
+ </tr>
+</table>
+
+<h3>3. 복합칸(셀) 합치기</h3>
+<table>     
+ <tr>
+  <th colspan="4">문진표</th>
+ </tr>
+ <tr>
+  <th rowspan="3">학생</th>
+  <td>김미수</td>
+  <th rowspan="3">체온</th>
+  <td>36.5</td>
+ </tr>
+ <tr>
+  <td>이수지</td>
+  <td>37</td>
+ </tr>
+ <tr>
+  <td>오수아</td>
+  <td>34.3</td>
+ </tr>
+</table>
+
+
+<hr>
+<h4> 문제. 복합칸(셀) 합치기-1</h4>
+
+<table>
+ <tr>
+  <th colspan="4">아이티윌 게스트하우스 예약 안내</th>
+ </tr>
+ <tr>
+  <th>방 이름</th>
+  <th>대상</th>
+  <th>크기</th>
+  <th>가격</th>
+ </tr>
+ <tr>
+  <th>유채방</th>
+  <td>여성 도미토리</td>
+  <td rowspan="3">4인실</td>
+  <td rowspan="4">1인 20,000원</td>
+ </tr>
+ <tr>
+  <th rowspan="2">동백방</th>
+  <td>남성 도미토리</td>
+ </tr>
+ <tr>
+  <td>가족 1팀</td>
+ </tr>
+ <tr>
+  <th colspan="2">천혜향방</th>
+  <td>2인실</td>
+ </tr>
+ <tr>
+  <td colspan="4">
+   <b>바깥채 단독 : 전화문의</b> (010-777-5454)
+  </td>
+ </tr>
+</table>
+
+<hr>
+<h4> 문제. 복합칸(셀) 합치기-2</h4>
+
+<h2>[ 자바 개발자반 시간표 ]</h2> 
+<table> 
+  <tr> 
+    <th colspan="6">자바 개발자반</th> 
+  </tr> 
+  <tr> 
+    <th colspan="2">오라클</th> 
+    <th colspan="2">웹표준 UI</th> 
+    <th colspan="2">애플리케이션</th> 
+  </tr> 
+  <tr> 
+    <td rowspan="4">1교시<br>~<br>4교시</td> 
+    <td rowspan="4"><b>특강</b><br><small>강사</small><br>홍길동</td> 
+    <td colspan="2">1교시</td> 
+    <td colspan="2">1교시</td> 
+  </tr> 
+  <tr> 
+    <td colspan="2">2교시</td> 
+    <td colspan="2">2교시</td> 
+  </tr> 
+  <tr> 
+    <td colspan="2">3교시</td> 
+    <td colspan="2">3교시</td> 
+  </tr> 
+  <tr> 
+    <td colspan="2">4교시</td> 
+    <td colspan="2">4교시</td> 
+  </tr> 
+  <tr> 
+    <td colspan="2">5교시</td> 
+    <td rowspan="4">5교시<br>~<br>8교시</td> 
+    <td rowspan="4"><b>특강</b><br><small>강사</small><br>홍길순</td> 
+    <td colspan="2">5교시</td> 
+  </tr> 
+  <tr> 
+    <td colspan="2">6교시</td> 
+    <td colspan="2">6교시</td> 
+  </tr> 
+  <tr> 
+    <td colspan="2">7교시</td> 
+    <td rowspan="2">7교시<br>~<br>8교시</td> 
+    <td rowspan="2"><b>특강</b><br><small>강사</small><br>김갑을</td> 
+  </tr> 
+  <tr> 
+    <td colspan="2">8교시</td> 
+  </tr> 
+ </table>
+
+
+ </body>
+</html>
+
+
+
+

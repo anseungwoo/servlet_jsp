@@ -1,0 +1,85 @@
+﻿<html>
+ <head>
+  <title>web image</title>
+ </head>
+ <body>
+<hr>
+<h1>web image</h1>
+&lt;img src="이미지 경로" alt="이미지 대체텍스트"&gt;
+
+<img src="" alt="">
+
+
+
+<h2>경로</h2>
+<ul>
+ <li>절대 경로 - 항상 고정된 주소</li> 
+ <li>상대 경로 - 웹문서의 위치에 따라 달라지는 주소<br>
+   하위폴더는 폴더명/를, 상위폴더는 이동 횟수만큼 ../를 파일명 앞에 추가함.
+ </li> 
+</ul>
+
+<h3>절대 경로로 이미지 넣기</h3>
+<img src="https://www.w3schools.com/images/colorpicker2000.png" alt="colorpicker"> 
+
+<img src="https://www.w3schools.com/images/w3lynx_200.png" alt="banner">
+
+<h3>상대 경로로 이미지 넣기</h3>
+<p>하위폴더 img안에 있는 이미지 <br>
+ <img src="img/woman.jpg" alt="woman"><br><br>
+ 
+ 하위폴더 img안에 png안에 있는 이미지 <br>
+ <img src="img/png/monster.png" alt="monster">
+ <img src="img/png/arrow-up.png" alt="arrow-up"><br><br>
+
+ 한단계 상위폴더에 있는 이미지 <br>
+ <img src="../mqcap.jpg" alt="mqcap">
+
+ 한단계 상위폴더의 하위폴더 css안에 있는 이미지 <br>
+ <img src="../css/coffee2.jpg" alt="coffee2" width="600">
+</p>
+
+<hr>
+<h3>width/height 이미지의 가로/세로 크기 지정 속성 </h3>
+<p> width="600" 지정 <br>
+ <img src="../css/coffee2.jpg" alt="coffee2" width="600">
+ <br><br>
+  height="600" 지정 <br>
+ <img src="../css/coffee2.jpg" alt="coffee2" height="600">
+ <br><br>
+ width="600" height="600" 지정 <br>
+ <img src="../css/coffee2.jpg" alt="coffee2" width="600" height="600">
+ <br>
+ * 원본 크기 그대로 적용시에도 가로 세로 크기를 적으면 이미지가 빨리 뜸.
+</p>
+
+<h4>웹용 이미지 형식 대표 3가지 특징</h4>
+ <ul>
+  <li>*.gif - 최대 256가지의 색 표현 가능. 단순한 로고, 아이콘, 버튼 등에 적합.
+     투명 배경 지원, 움짤 가능.  </li>
+  <li>*.jpg - 트루색상 표현 가능. 실사 느낌의 사진 적합. </li>
+  <li>*.png - 트루색상 표현 가능. 투명 배경 지원. </li>
+ </ul>
+
+<!--
+ ★ 이미지 무료사이트 ★ 
+ https://pixabay.com
+ https://pexels.com 
+-->
+
+<h3>반응형웹에서의 이미지</h3>
+  picture, source 태그로 상황에 맞는 이미지를 불러옴.
+
+ <!-- https://www.w3schools.com/html/html_images_picture.asp -->
+
+ 
+ </body>
+</html>
+
+
+
+
+
+
+
+

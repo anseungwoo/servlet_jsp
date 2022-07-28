@@ -32,8 +32,8 @@
 	<section id="passForm">
 		<form action="BoardDeletePro.bo" name="deleteForm" method="post">
 			<!-- 입력받지 않은 글번호(board_num)와 페이지번호(pageNum)도 함께 포함시켜 전달 -->
-			<input type="text" name="board_num" value="${param.board_num }">
-			<input type="text" name="pageNum" value="${param.pageNum }">
+			<input type="hidden" name="board_num" value="${param.board_num }">
+			<input type="hidden" name="pageNum" value="${param.pageNum }">
 			<table>
 				<tr>
 					<td><label>글 비밀번호</label></td>

@@ -1,0 +1,146 @@
+﻿<html>
+ <head> 
+  <title>a태그로 링크 걸기</title>
+ </head>
+ <body>
+<nav>
+ <a href="test06.html">링크수업-1</a>
+ <a href="test06-1.html">링크수업-2</a>
+ <a href="test06-1.html#hr-pg">링크수업-2(Gallery Menu)</a>
+</nav>
+
+ <hr>
+<h1>a태그로 링크 걸기</h1>
+&lt;a href="이동할 경로(주소)"&gt <mark>...</mark> &lt;/a&gt; 
+
+ <h4><mark>링크 걸린 텍스트</mark>의 특징</h4>
+<ul> 
+ <li>색상 변화 
+  <ol>
+   <li>blue - 초기 링크. (이동한 적이 없는 주소)</li>
+   <li>red - 활성화 링크. (마우스커서로 누르는 동안)</li> 
+   <li>violet - 방문한 링크. (방문한 적이 있는 주소)</li>
+  </ol>
+ </li>
+ <li>밑줄</li>
+ <li>커서가 손모양으로 바뀜</li>
+</ul>
+
+<h2 id="h2-01">경로</h2>
+<ul>
+ <li>절대 경로 - 항상 고정된 주소</li>
+ <li>상대 경로 - 웹문서의 위치에 따라 달라지는 주소</li>
+</ul>
+
+<hr>
+<h3>1. 절대 경로(URL)로 링크 걸기</h3>
+ <a href="https://www.w3schools.com/">w3school</a>
+ <a href="https://www.daum.net/">daum</a>
+
+<hr>
+<h3>2. 상대 경로로 링크 걸기</h3>
+
+<h4>2-1. 상대 경로로 *.html/*.htm (웹페이지)로 링크 걸기</h4>
+<nav> <!-- nav 태그는 메뉴영역을 나타내는 레이아웃용 태그-->
+ <a href="test01.html">html기초 수업</a>
+ <a href="test02.html">글자tag 수업</a>
+ <a href="test03.html">목록 수업</a>
+ <a href="test04.html">테이블 수업</a>
+ <a href="test05.html">이미지 수업</a>
+ <a href="test06.html">링크 수업</a>
+</nav>
+
+<h4>2-2. 상대 경로로 *.jpg/*.gif/*.png/...(이미지 파일)로 링크 걸기</h4>
+ <a href="img/cat.jpg">cat</a>
+ <a href="img/woman.jpg">woman</a>
+ <a href="img/png/daum-logo.png">Daum</a>
+
+
+<h4>2-3. 상대 경로로 *.mp4/*.webm/*.ogg/...(동영상 파일)로 링크 걸기</h4>
+ <a href="blossom.mp4">봄꽃 영상</a>
+ <a href="nature.mp4">봄꽃 영상2</a>
+ 
+
+<h4>2-4. 상대 경로로 *.txt (텍스트 파일)로 링크 걸기</h4>
+ <a href="무료이미지주소.txt">무료이미지</a>
+
+<hr>
+<h4>3. 웹브라우저가 처리 불가한 파일(*.zip/*.hwp/ ...) 링크 걸기</h4>
+ <a href="img.zip">이미지 압축파일</a> ~ 다운로드 됨
+ 
+
+<h3>링크를 여는 방식 지정 - target="_self/_blank/..."</h3>
+<ol>
+ <li>_self - 기본값. 현재 위치에 링크가 열림</li>
+ <li><mark><b>_blank</b> - 새 탭에 링크가 열림</mark></li>
+ <li>_parent - 상위창에 링크가 열림</li>
+ <li>_top - (프레임구조에서) 나뉨없이 전체에 하나로 링크가 열림
+</ol> 
+
+<a href="https://www.w3schools.com/" target="_blank">
+ https://www.w3schools.com/(새 탭)</a>
+
+<a href="blossom.mp4" target="_blank">봄꽃 영상(새 탭)</a>
+문제. http://www.itwillbs.co.kr/로 이동하는 링크를 새 탭에 열리도록 코딩
+ (글자는 각자)
+<a href="http://www.itwillbs.co.kr/" target="_blank">아이티윌부산</a>
+
+<hr>
+<h3> 링크 걸린 이미지 (이미지에 링크 걸기)</h3>
+<p>&lt;a href="이동할 경로(주소)"&gt;
+ <mark>&lt;img src="이미지경로" alt="대체텍스트"&gt;</mark>&lt;/a&gt;
+</p>
+<p>로고클릭시 해당 사이트 열어주기 <br> 
+ <a href="https://www.daum.net/" target="_blank">
+  <img src="img/png/daum-logo.png" alt="daum" width="120"></a>
+
+ <a href="http://www.itwillbs.co.kr/" target="_blank">
+ <img src="img/png/itwill_logo.png" alt="itwillbs"></a>
+</p>
+
+<p>썸네일 클릭시 이미지 보여주기 <br> 
+ <a href="img/cat.jpg" target="_blank">
+ <img src="img/cat.jpg" alt="cat-thumnail" width="100"></a>
+
+ <a href="img/bear.jpg" target="_blank">
+ <img src="img/bear.jpg" alt="bear-thumnail" width="100"></a>
+</p>
+
+<hr>
+<h3><mark>mailto:이메일주소</mark> - 이메일링크 걸기</h3>
+<a href="mailto:master@itwilbs.co.kr">관리자에게 문의</a>
+<a href="mailto:class@itwillbs.co.kr">class@itwillbs.co.kr</a>
+<a href="mailto:itreset@daum.net">
+<img src="img/mail02.jpg" 
+ alt="itreset@daum.net로 이메일보내기" width="100"></a>
+
+<hr>
+<h5>Top링크 걸기</h5>
+<a href="#">Top</a>
+
+
+
+
+
+
+
+ </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

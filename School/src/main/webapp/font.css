@@ -1,0 +1,73 @@
+@charset "UTF-8";
+
+ body {font-family: 'Nanum Gothic', sans-serif; }
+
+ /* ctrl+shift+/ 주석태그 단축키 */
+
+  /* 1. font-size */
+/* section {font-size: 20px;} */
+.fs01 {font-size: 16px;}
+.fs02 {font-size: 12px;}
+.fs03 {font-size: 20px;}
+ 
+.fs04 {font-size: 1em;}
+.fs05 {font-size: 0.75em;}
+.fs06 {font-size: 1.25em;}
+
+.fs07 {font-size: 1rem;}
+.fs08 {font-size: 0.75rem;}
+.fs09 {font-size: 1.25rem;}
+
+
+   /* 2. font-weight */
+.fw01 {font-weight: 100;} 
+.fw02 {font-weight: 200;}
+.fw03 {font-weight: 300;}
+.fw04 {font-weight: 400;} 
+.fw05 {font-weight: 500;}
+.fw06 {font-weight: 600;}
+.fw07 {font-weight: 700;} 
+.fw08 {font-weight: 800;}
+.fw09 {font-weight: 900;}
+.fw10 {font-weight: bold;}
+.fw11 {font-size:12px;
+	font-weight: normal;
+	color: #e90;}
+.fwn {font-weight: normal;}
+
+
+
+ /* 3.font-style */
+.fst01 {font-style: italic;} 
+.fst02 {font-style: oblique;} 
+.fst03 {font-style: normal;}
+.fst03:hover {
+ /* 선택자 A:hover는
+ A에 마우스오버시 상태를 지정하는
+ 상태선택자  */	
+ font-style: italic; }
+
+
+ /* 4.font-family */
+
+.ff01 {font-family:"Georgia", "Garamond", serif; }
+.ff02 {font-family: "Verdana", "Helvetica", "Arial", sans-serif;}
+.ff03 {font-family: "Lucida Console", "Monaco", monospace; }
+ /* https://fonts.google.com/ 
+ 
+ font-family: 'Hi Melody', cursive;
+ font-family: 'Nanum Gothic', sans-serif;
+ font-family: '0, sans-serif; 
+ */
+.ff04 {font-family: 'Hi Melody', cursive;}
+
+
+
+
+
+
+
+
+
+
+

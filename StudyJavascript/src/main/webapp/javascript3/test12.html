@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/*
+	반복문을 활용한 배열 접근
+	- 주로 for문을 사용하여 배열에 차례대로 접근
+	
+	< 기본적인 for문을 사용한 배열 접근 기본 공식 >
+	for(let i = 0; i < 배열명.length; i++) {}
+	=> 배열명.length 를 통해 배열의 크기를 알아내면 
+	   0 부터 배열크기보다 작을 동안(배열크기-1 까지) 1씩 증가하면서 차례대로 반복 가능함
+	=> 사용자가 지정하는 범위에 따라 특정 범위만큼만 접근도 가능
+	   
+	< for...of 문을 사용한 배열 접근 방법 >
+	for(let 변수명 of 배열명) {}
+	=> of 우변의 배열 크기만큼 차례대로 반복하면서 좌변의 변수에 배열 데이터를 차례대로 꺼내서 저장
+	=> 무조건 처음부터 끝까지 차례대로 반복하므로 특정 구간에 대한 반복은 불가능
+	*/
+	
+	// 배열 fruits 생성 및 "사과", "딸기", "오렌지" 저장 후 출력
+	let fruits = ["사과", "딸기", "오렌지"];
+	
+// 	document.write(fruits[0] + "<br>");
+// 	document.write(fruits[1] + "<br>");
+// 	document.write(fruits[2] + "<br>");
+	
+	// 일반 for문을 사용하여 fruits 배열의 0번 인덱스부터 끝(2)까지 차례대로 접근하여 데이터 출력
+	for(let i = 0; i < 3; i++) {
+		// 제어변수 i값이 0 ~ 2 까지 1씩 증가하므로 배열의 인덱스에 제어변수 활용 가능함
+		document.write(fruits[i] + "<br>"); // i값이 배열 인덱스로 사용되어 0 ~ 2 까지 1씩 증가함
+	}
+	
+	document.write("<hr>");
+	
+	// 배열 nums 생성 및 10, 20, 30, 40, 50 저장 후 출력
+	let nums = [10, 20, 30, 40, 50];
+	for(let i = 0; i < 5; i++) { // 0 ~ 4 까지 반복
+		document.write(nums[i] + "<br>");
+	}
+	
+	// 만약, nums 배열의 여섯번째 데이터(5번 인덱스)에 값(60)을 추가할 경우
+	nums[5] = 60;
+	for(let i = 0; i < 6; i++) { // 0 ~ 5 까지 반복
+		document.write(nums[i] + "<br>");
+	}
+	// => 배열의 크기가 변할 경우 for문의 범위를 수정해야하는 일이 발생함
+	
+	document.write("<hr>");
+	
+	// 배열의 크기와 상관없이 무조건 처음부터 끝까지 반복할 경우
+	// => for(let i = 0; i < 배열명.length; i++) {} 사용
+	nums[6] = 70;
+	nums[7] = 80;
+	for(let i = 0; i < nums.length; i++) { // nums 배열 크기(8) 보다 작을 동안 반복(0 ~ 7)
+		document.write(nums[i] + "<br>");
+	}
+	
+	// 동일한 문장으로 nums 배열 대신 fruits 배열에 접근 시
+// 	for(let i = 0; i < fruits.length; i++) { // fruits 배열 크기(3) 보다 작을 동안 반복(0 ~ 2)
+// 		document.write(fruits[i] + "<br>");
+// 	}
+	
+	document.write("<hr>");
+	
+	for(let i = 0; i < fruits.length; i++) { // fruits 배열 크기(3) 보다 작을 동안 반복(0 ~ 2)
+		// fruits 배열에 저장된 과일을 하나씩 꺼내서 변수 fruits 에 저장
+		let fruit = fruits[i];
+		
+		document.write(fruit + "<br>");
+	}
+	
+	// 위의 기본 for문 대신 for...of 문을 사용할 경우
+	for(let fruit of fruits) { 
+		// 우변의 fruits 배열에서 차례대로 데이터를 꺼내서 좌변의 변수 fruit 에 저장(반복)
+		document.write(fruit + "<br>");
+	}
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

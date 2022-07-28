@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function func1(){
+// 		for(i of document.images){
+// 			alert(i.src)
+// 		}
+		alert(document.img1.src);
+	}
+	function func2(){
+		document.img1.width = 400;
+		document.img1.height = 400;
+		document.img1.border = 10;
+		document.img1.src = "2.jpg";
+	}
+	
+	function func3(){
+		document.images[1].src = "4.jpg";
+	}
+	function func4(img){
+		document.images[2].src = img;
+	}
+</script>
+</head>
+<body>
+	<h1>test27.html</h1>
+	<img src="1.jpg" width="200" height="200" border="2" title="펭수"
+		alt="펭수없음" name="img1">
+	<br>
+	<input type="button" value="이미지속성정보출력" onclick="func1()">
+	<input type="button" value="이미지속성정보변경" onclick="func2()">
+	<br>
+	<img src="2.jpg" width="200" height="200" onclick="func3()">
+	<br>
+	
+	<img src="3.jpg" width="200" height="200" onmouseover="func4('5.jpg')" onmouseout="func4('3.jpg')">
+	<br>
+
+</body>
+</html>

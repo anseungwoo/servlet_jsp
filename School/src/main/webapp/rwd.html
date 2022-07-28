@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>rwd</title>
+<link href="style.css" rel="stylesheet">
+<link href="rwd.css" rel="stylesheet">
+</head>
+<body>
+<h1>rwd(Responsive Web Design)</h1>
+ <p>
+  mobile first가 원칙~! <br>
+  작은 화면을 기준으로 기본 작업 후
+  각 사이즈별로 미디어커리로 소스를 추가함
+ </p>
+ 
+<h2>Viewport</h2>
+<p>
+뷰포트는 웹 페이지에서 사용자가 볼 수 있는 영역입니다. <br>
+태블릿과 휴대폰에서 브라우저는 전체 웹 페이지를 화면에 맞게 축소되므로 문제가 됨.<br>
+ => 뷰포트 설정<br>
+&lt;meta name="viewport" 
+content="width=device-width, initial-scale=1.0"&gt;<br>
+(장치의 화면 너비를 따르도록 페이지 너비를 설정,
+브라우저에서 페이지를 처음 로드할 때 초기 확대/축소 수준을 설정)
+</p>
+
+<h2>Media Queries 구문</h2>
+<pre>
+   @media <span class="mq01">장치종류</span> and <span class="mq02">(조건)</span> {
+      css선택자 {속성:속성값;}
+    }
+</pre>
+
+<div class="mq01">
+ <h3>Media Queries의 장치 종류</h3>
+ <ul>
+  <li>all - 모든 장치</li>
+  <li>print - 프린터</li>
+  <li>screen - screen으로 나타나는 모든 computer들 (tablets, smart-phones etc.)</li>
+  <li>speech - 음성낭독기</li>
+ </ul>
+</div>
+
+<div class="mq02">
+ <h3>Media Queries의 조건들</h3> 
+ <ul>
+  <li>width and height of the viewport - 뷰포트의 너비나 높이</li>
+  <li>width and height of the device - 장치의 너비나 높이</li>
+  <li>orientation - 화면 방향
+  (is the tablet/phone in landscape or portrait mode?)</li>
+  <li>resolution - 해상도</li>
+ </ul>
+</div>
+
+
+</body>
+</html>
+
+
+
+
+

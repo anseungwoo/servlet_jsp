@@ -7,6 +7,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+import jsp15_java_mail2.JdbcUtill;
+
 public class BoardDAO_backup {
 	private Connection con=null;
 	private PreparedStatement pstmt=null;

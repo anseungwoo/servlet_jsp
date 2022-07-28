@@ -1,0 +1,90 @@
+@charset "UTF-8";
+
+ /* 1. transform:translate(); 위치 변형 */
+#sec01>div {background-color: #4ef;
+border-bottom:2px solid #047;
+width: 200px; }
+
+.tr01 {
+-o-transform:translateX(1000px);
+-ms-transform:translateX(1000px);
+-moz-transform:translateX(1000px);
+-webkit-transform:translateX(1000px);	
+ /* -o-, -ms-, -moz-, -webkit- 는
+ 브라우저접두사(벤더프리픽스)로 최신 스타일소스를
+ 지원못하는 구형브라우저 지원용임.
+ 표준소스보다 먼저 기입. */
+transform:translateX(1000px);} 
+
+.tr02 {transform:translateX(-500px);}
+.tr03 {transform:translateY(5em);}
+.tr04 {transform:translateY(-3em);}
+.tr05 {transform:translate(30em,-8em);}
+.tr06 {transform:translate(-3em,10em);}
+
+#sec01:hover>.tr07 {
+transform:translate(100%,100%);	}
+
+#sec01 {height: 600px;
+position: relative;}
+
+.cnt {width:60% !important;
+height: 200px;
+white-space:pre;
+
+position: absolute;
+left: 50%; top:50%;
+transform:translate(-50%,-50%);}
+
+
+
+
+ /* 2. transform:scale(); 크기 변형 */
+#sec02>div {border: 1px solid #036;
+width: 300px;
+display: inline-block/* 나란히 배치 */;
+margin: 4em/* 요소간의 간격 */;}
+
+#sec02:hover>.sc01 {
+ transform:scaleX(2);}
+#sec02:hover>.sc02 {
+transform:scaleX(0.3);}
+#sec02:hover>.sc03 {
+ transform:scaleY(2);}
+#sec02:hover>.sc04 {
+transform:scaleY(0.3);}
+
+
+.sc05:hover {
+ transform:scale(0.25,0.2);	}
+
+.sc06 {overflow: hidden
+    /* 영역밖의 내용처리-숨김 */;}
+.sc06>b {position: relative;
+ left: -100px; top:-50px;}
+ 
+.sc06:hover>b {
+ left: 30px; top:2px;
+ transition:1.2s 1s /* 
+        진행시간 지연시간 */;}
+ 
+.sc06>img {opacity:0.5
+       /* 요소의 불투명도 */;
+ transform:scale(2,2);	}
+
+.sc06:hover>img {
+opacity:1;
+transform:scale(1,1);	
+transition:1s;}
+
+
+ /* 3.transform:rotate(); 회전 변형 */
+
+
+
+
+
+
+
+
+

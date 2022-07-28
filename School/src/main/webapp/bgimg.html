@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>background 배경</title>
+<link href="style.css" rel="stylesheet">
+<link href="bgimg.css" rel="stylesheet">
+</head>
+<body>
+<h1>background 배경</h1>
+ <ol id="bg">
+  <li class="bg-clr">background-color:색상; 배경색</li>
+  <li class="bg-img">background-image:url("이미지경로"); 배경이미지</li>
+ </ol>
+
+<h2>background-image의 속성들</h2>
+<ul id="ul-bg">
+ <li>background-repeat: ; 배경이미지 반복 지정
+  <ul>
+   <li>repeat 기본값. 양사방 반복</li>
+   <li>repeat-x 가로로만 반복</li>
+   <li>repeat-y 세로로만 반복</li>
+   <li>no-repeat 반복 안함</li>
+  </ul> 
+ </li>
+ <li>background-size: ; 배경이미지 크기 지정
+  <ul>
+   <li>cover 이미지 하나로만 영역을 덮음. <br>
+   (이미지가 잘려나갈 수도)</li>
+   <li>contain 이미지를 가로나 세로에 맞춰 최대한
+    영역을 덮음. (이미지 하나가 온전히 나옴. <br>
+    반복되거나 빈 공간이 생길 수도)</li>
+   <li>Xn Yn 가로 세로 순으로 직접 크기 지정.</li>
+  </ul> 
+ </li>
+ <li>background-position: ; 배경이미지 위치 지정
+  <ul>
+   <li>방향값 (left/center/right) (top/center/bottom) 중에서 수평 수직 순으로 조합하여 지정.</li>
+   <li>Xn Yn 가로 세로 순으로 직접 위치값 지정.</li>
+  </ul>
+ </li>
+ <li>background-attachment: ; 배경이미지 스크롤여부 지정
+  <ul>
+   <li>scroll 기본값. 자기 영역 스크롤바에는 고정, 브라우저 스크롤바에는 스크롤</li>
+   <li>fixed 자기 영역 스크롤바와 브라우저 스크롤바에 모두 고정</li>
+   <li>local 자기 영역 스크롤바와 브라우저 스크롤바에 모두 스크롤</li>
+  </ul> 
+ </li>
+</ul>
+
+<h2>배경이미지 2개 적용</h2>
+<p class="pre">
+    선택자 {background-image: 
+              url("A"), url("B");}
+
+   <i>기타 다른 배경 속성도 ,로 값을 추가함</i>
+</p>
+
+<section id="sec01">
+ <h2>특정 영역에서의 background-attachment</h2>
+ <ol>
+  <li>background-attachment:scroll; <br> 
+   기본값. 자기 영역 스크롤바에는 고정, 브라우저 스크롤바에는 스크롤</li>
+  <li>background-attachment:fixed; <br> 
+   자기 영역 스크롤바와 브라우저 스크롤바에 모두 고정</li>
+  <li>background-attachment:local; <br> 
+   자기 영역 스크롤바와 브라우저 스크롤바에 모두 스크롤</li>
+ </ol>
+ <p class="sc">background-attachment:scroll; <br><br><br><br><br>
+   background-attachment:scroll ; <br><br><br><br><br>
+   background-attachment:scroll ; <br><br><br><br><br> 
+ </p>
+ <p class="fx">background-attachment:fixed; <br><br><br><br><br>
+   background-attachment:fixed ; <br><br><br><br><br>
+   background-attachment:fixed ; <br><br><br><br><br> 
+ </p>
+ <p class="lc">background-attachment:local; <br><br><br><br><br>
+   background-attachment:local ; <br><br><br><br><br>
+   background-attachment:local ; <br><br><br><br><br> 
+ </p>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+
+

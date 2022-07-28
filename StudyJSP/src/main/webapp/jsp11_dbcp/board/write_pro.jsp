@@ -1,4 +1,3 @@
-
 <%@page import="jsp11_dbcp.BoardDAO"%>
 <%@page import="jsp11_dbcp.BoardDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"

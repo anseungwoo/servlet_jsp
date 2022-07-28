@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	let passwd = prompt("패스워드를 입력하세요.");
+// 	alert(passwd);
+	
+	// if문을 사용하여 입력받은 패스워드(passwd)가 "1234"일 경우 "로그인 성공!" 출력
+	// 아니면, "로그인 실패!" 출력
+// 	if(passwd == "1234") {
+// 		alert(passwd + " : 로그인 성공!");
+// 	} else {
+// 		alert(passwd + " : 로그인 실패!");
+// 	}
+	
+	// 위의 조건을 반복문과 결합하여 로그인 실패 시 패스워드 입력 과정을 반복하도록 작업(while)
+	// => 반복문 실행 전 조건식에 대한 판별 결과를 저장할 변수 먼저 선언 필요
+	//    (변수 값이 false 일 동안 반복하고, true 가 되면 반복문을 종료하기 위해 초기값 false)
+	let result = false; // 초기식
+
+	// while 문을 사용하여 변수 result 값이 false 일 때 반복
+	// => if문 또는 while 문 등의 조건식에서 boolean 타입 변수를 판별할 때
+	//    true 조건을 명시할 경우 while(변수명 === true) 대신 while(변수명) 만으로도 동일한 판별 가능
+	//    (변수값이 true 일 경우 조건식 결과도 true 이므로 블럭문 실행하게 됨)
+// 	while(result) { // result == true 와 동일한 조건식
+// 	}
+	
+	while(!result) { // result == false 또는 result != true 와 동일한 조건식
+		// if문을 사용하여 passwd 값 판별 후 제어변수 result 값을 변경
+		if(passwd == "1234") { // 로그인 성공 시
+			alert(passwd + " : 로그인 성공!");
+			// 제어변수 result 값을 true 로 변경
+			result = true;
+		} else { // 로그인 실패 시
+			alert(passwd + " : 로그인 실패!");
+			// 새로운 패스워드를 다시 입력받아 변수 passwd 에 저장 후 반복을 통해 다시 판별
+			passwd = prompt("패스워드를 입력하세요.");
+			// 주의! 제어변수 result 값은 그대로 false 유지하여 반복하도록 해야함
+		}
+	}
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>
+
+
+
+
+
+
+

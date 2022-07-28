@@ -1,0 +1,135 @@
+﻿<html>
+ <head> 
+  <title>a태그로 내부링크 걸기</title>
+ </head>
+ <body>
+<nav>
+ <a href="test06.html">링크수업-1</a>
+ <a href="test06.html#h2-01">링크수업-1(경로)</a>
+ <a href="test06-1.html">링크수업-2</a>
+</nav>
+
+ <hr>
+<h1>a태그로 내부링크 걸기</h1>
+<pre>
+&lt;tag <mark>id="def"</mark>&gt
+            --------- 이동할 곳(태그)에 id를 추가. 클릭시 위로 이동
+         ...
+
+&lt;a href="<mark>#id값</mark>"&gt...&lt;/a&gt; 
+
+         ...
+
+&lt;tag <mark>id="abc"</mark>&gt 
+           --------- 이동할 곳(태그)에 id를 추가. 클릭시 아래로 이동
+
+
+(페이지 내의 특정한 곳을 찾아 이동하는 링크는 
+ 해당 위치에 주소값으로 활용할 id가 있어야 함.
+ id는 중복적용 불가하므로 주소값으로 활용)
+
+다른 페이지의 특정한 곳을 찾아 이동하는 링크는
+ &lt;a href="*.html#id값"&gt;의 형식으로 지정.
+</pre>
+
+<hr id="hr-pg">
+<h2>Photo Gallery</h2>
+<nav>
+ <a href="#hr01">Photo-01</a>
+ <a href="#hr02">Photo-02</a>
+ <a href="#hr03">Photo-03</a>
+ <a href="#hr04">Photo-04</a>
+ <a href="#hr05">Photo-05</a>
+ <a href="#hr06">Photo-06</a>
+ <a href="#hr07">Photo-07</a>
+ <a href="#hr08">Photo-08</a>
+ <a href="#hr09">Photo-09</a>
+ <a href="#hr10">Photo-10</a>
+</nav>
+
+<hr id="hr01">
+<h3>1. Photo</h3>
+<img src="img/abend.jpg" height="500">
+<a href="#hr-pg">Gallery Menu</a>
+<br><br><br><br><br><br><br><br><br><br>
+
+<hr id="hr02">
+<h3>2. Photo</h3>
+<img src="img/art.jpg" height="500">
+<a href="#hr-pg">Gallery Menu</a>
+<br><br><br><br><br><br><br><br><br><br>
+
+<hr id="hr03">
+<h3>3. Photo</h3>
+<img src="img/away.jpg" height="500">
+<a href="#hr-pg">Gallery Menu</a>
+<br><br><br><br><br><br><br><br><br><br>
+
+<hr id="hr04">
+<h3>4. Photo</h3>
+<img src="img/backpack.jpg" height="500">
+<a href="#hr-pg">Gallery Menu</a>
+<br><br><br><br><br><br><br><br><br><br>
+
+<hr id="hr05">
+<h3>5. Photo</h3>
+<img src="img/bare.jpg" height="500">
+<a href="#hr-pg">Gallery Menu</a>
+<br><br><br><br><br><br><br><br><br><br>
+
+<hr id="hr06">
+<h3>6. Photo</h3>
+<img src="img/bear.jpg" height="500">
+<a href="#hr-pg">Gallery Menu</a>
+<br><br><br><br><br><br><br><br><br><br>
+
+<hr id="hr07">
+<h3>7. Photo</h3>
+<img src="img/cat.jpg" height="500">
+<a href="#hr-pg">Gallery Menu</a>
+<br><br><br><br><br><br><br><br><br><br>
+
+<hr id="hr08">
+<h3>8. Photo</h3>
+<img src="img/drop.jpg" height="500">
+<a href="#hr-pg">Gallery Menu</a>
+<br><br><br><br><br><br><br><br><br><br>
+
+<hr id="hr09">
+<h3>9. Photo</h3>
+<img src="img/squirrel.jpg" height="500">
+<a href="#hr-pg">Gallery Menu</a>
+<br><br><br><br><br><br><br><br><br><br>
+
+<hr id="hr10">
+<h3>10. Photo</h3>
+<img src="img/sea.jpg" height="500">
+<a href="#hr-pg">Gallery Menu</a>
+<br><br><br><br><br><br><br><br><br><br>
+
+<hr>
+<a href="#">
+<img src="img/png/arrow-up.png" height="50"></a>
+
+ 
+
+ </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

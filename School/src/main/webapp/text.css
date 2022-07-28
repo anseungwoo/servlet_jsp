@@ -1,0 +1,114 @@
+@charset "UTF-8";
+
+/* 1. text-align */
+.bg01 {background-color:#eee;
+ width: 400px;}
+
+.ta01 {text-align: left;}
+.ta02 {text-align: center;}
+.ta03 {text-align: right;}
+.ta04 {text-align: justify;}
+
+
+ /* 3. text-decoration */
+.td01 {text-decoration:overline;}
+.td02 {text-decoration: line-through;}
+.td03 {text-decoration: underline;}
+.td04 {text-decoration: none; }
+.td04:hover {
+	text-decoration: underline;}
+
+
+ /* 3.text-indent */
+.ti01 {text-indent: 10px;}
+.ti02 {text-indent: 1em;}
+.ti03 {border:1px solid;
+	text-indent: 10%;}
+.ti04 {text-indent: -10em;}
+.ti04:hover {
+ text-indent: 0;}
+.ti05 {text-indent: 5em;}
+
+
+ /* 4.text-transform */
+.tt01 {text-transform: none;}
+.tt02 {text-transform: lowercase;}
+.tt03 {text-transform: uppercase;}
+.tt04 {text-transform: capitalize;}
+
+
+ /* 5. text-shadow */
+#sec05>p {
+ /* 
+ 1. 관계선택자 A>B는 부모자식. 
+ 상위요소 A의 바로 한단계 아래, 안에
+ 있는 하위요소 B를 불러오는 선택자.
+ 
+ 2. 관계선택자 A B는 조상자손.
+ 상위요소 A의 아래, 안에 있는 
+ 모든 하위요소 B를 불러오는 선택자.
+ */
+ font-size: 50px;	
+ font-weight: bold;
+}
+
+.ts01 {
+text-shadow: 2px 3px 6px #000; }
+.ts02 {
+text-shadow: -2px -3px 6px #000;} 
+.ts03 {color:#fff;
+text-shadow: 0 3px 3px #000;}
+
+.ts04 {
+background-color: #000;	
+padding:0.5em;
+text-align: center;
+text-shadow: 0 0 20px #bef;}
+
+.ts05 {
+background-color: #000;	
+padding:0.5em;
+text-align: center;}
+
+.ts05:hover {
+ text-shadow: 0 0 30px #f02289;
+ transition:1.3s /* ~초 동안 속성값이 서서히 변화
+ (단순한 애니 효과) */;	}
+
+.ts06 {
+ text-shadow: 2px 2px 0 #e00, -2px -2px 0 #00e;	
+ color: #fff;}
+.ts06:hover {
+ text-shadow: 0 0 0 #eee, 0 0 0 #eee;	
+ color: #eaeaea;
+ transition:1.5s;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

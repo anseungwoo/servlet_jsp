@@ -9,4 +9,4 @@
 <body>
 	<h1>responseTest1_result.jsp</h1>
 </body>
-</html> 
+</html>

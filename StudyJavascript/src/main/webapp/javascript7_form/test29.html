@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	// 폼 태그 내의 각 요소에 접근 : document.폼이름.요소이름.속성명
+	// => 속성명 : name, type, value 등
+	function printId() {
+		// 아이디 입력 텍스트 상자에 대한 타입, 이름, 값 출력하기
+		alert(document.fr.id.type + "\n" + document.fr.id.name + "\n" + document.fr.id.value);
+		// "text, id, 입력한값" 순서대로 출력됨
+	}
+
+	function printPasswd() {
+		// 패스워드 입력 텍스트 상자에 대한 타입, 이름, 값 출력하기
+		alert(document.fr.passwd.type + "\n" + document.fr.passwd.name + "\n" + document.fr.passwd.value);
+	}
+
+	function printTextarea() {
+		// Textarea 에 대한 타입, 이름, 값 출력하기
+		alert(document.fr.ta.type + "\n" + document.fr.ta.name + "\n" + document.fr.ta.value);
+	}
+
+	function check() {
+		// 아이디, 패스워드, 텍스트에어리어 값 중 입력되지 않은 항목이 있을 경우
+		// 경고창을 통해 오류 메세지를 출력하고 해당 요소에 커서를 위치시킨 후 작업 중단
+		// => 특정 요소에 입력 값이 비어있는지 판별하는 방법
+		//    1) value 속성값이 "" 과 같을 경우(document.폼이름.요소이름.value)
+		//    2) value 속성값의 길이가 0 일 경우(document.폼이름.요소이름.value.length)
+// 		if(document.fr.id.value == "") {
+// 			alert("아이디를 입력하세요!");
+// 			document.fr.id.focus();
+// 		} else if(document.fr.passwd.value == "") {
+// 			alert("패스워드를 입력하세요!");
+// 			document.fr.passwd.focus();
+// 		} else if(document.fr.ta.value == "") {
+// 			alert("자기소개를 입력하세요!");
+// 			document.fr.ta.focus();
+// 		} else {
+// 			// 모든 항목이 입력되었을 경우 action 속성에 지정된 페이지(b.jsp)로 이동
+// 			// => submit() 함수를 직접 호출
+// 			document.fr.submit();
+// 		}
+		
+		if(document.fr.id.value.length == 0) {
+			alert("아이디를 입력하세요!");
+			document.fr.id.focus();
+			// 현재 수행중인 작업을 더 이상 진행하지 않기 위해 return 문 사용
+			return; // 현재 함수 수행이 즉시 종료됨
+		} else if(document.fr.passwd.value.length == 0) {
+			alert("패스워드를 입력하세요!");
+			document.fr.passwd.focus();
+			return; // 현재 함수 수행이 즉시 종료됨
+		} else if(document.fr.ta.value.length == 0) {
+			alert("자기소개를 입력하세요!");
+			document.fr.ta.focus();
+			return; // 현재 함수 수행이 즉시 종료됨
+		} 
+		
+		// 모든 항목이 입력되었을 경우 action 속성에 지정된 페이지(b.jsp)로 이동
+		// => submit() 함수를 직접 호출
+		document.fr.submit();
+	}
+	
+	function check2() {
+		// onsubmit="return check2()" 형식으로 이벤트 호출되면
+		// 함수 내에서 submit 동작을 취소해야하는 경우 false 값을 리턴하고
+		// submit 동작을 수행해야하는 경우 true 값을 리턴하거나 아무것도 리턴하지 않음
+		if(document.fr.id.value.length == 0) {
+			alert("아이디를 입력하세요!");
+			document.fr.id.focus();
+			return false; // 현재 함수 수행이 즉시 종료됨(submit 기능이 동작하지 않음)
+		} else if(document.fr.passwd.value.length == 0) {
+			alert("패스워드를 입력하세요!");
+			document.fr.passwd.focus();
+			return false; // 현재 함수 수행이 즉시 종료됨(submit 기능이 동작하지 않음)
+		} else if(document.fr.ta.value.length == 0) {
+			alert("자기소개를 입력하세요!");
+			document.fr.ta.focus();
+			return false; // 현재 함수 수행이 즉시 종료됨(submit 기능이 동작하지 않음)
+		} 
+		
+		// false 인 조건이 모두 아닐 때 true 값을 리턴하면 submit 기능이 동작
+		// 단, true 값 리턴 코드가 생략되어도 submit 기능 동작
+		return true; // 생략 가능
+	}
+</script>
+</head>
+<body>
+	<h1>test29.html</h1>
+	<!-- onsubmit 이벤트에 의해 submit 버튼 클릭 시 check2() 함수가 자동 호출됨 -->
+	<form action="b.jsp" method="get" name="fr" onsubmit="return check2()">
+		<!-- 일반 텍스트 입력창 생성(name 속성명 id), 패스워드 입력창 생성(name 속성명 passwd) -->
+		<input type="text" name="id" placeholder="아이디">
+		<!-- 버튼 생성 후 버튼 클릭 시 아이디 입력창에 대한 이벤트 처리 -->
+		<!-- document.폼이름.요소이름.속성명 형식으로 접근 -->
+		<input type="button" value="focus" onclick="document.fr.id.focus()"> <!-- 해당 요소에 커서(포커스) 요청 -->
+		<input type="button" value="blur" onclick="document.fr.id.blur()"> <!-- 해당 요소에서 커서 제거 -->
+		<input type="button" value="select" onclick="document.fr.id.select()"> <!-- 해당 요소의 텍스트 블럭지정 -->
+		<br>
+		
+		<input type="password" name="passwd" placeholder="패스워드"><br>
+		
+		<textarea rows="5" cols="10" name="ta"></textarea><br>
+		
+		<input type="button" value="아이디 출력" onclick="printId()">
+		<input type="button" value="패스워드 출력" onclick="printPasswd()">
+		<input type="button" value="Textarea 출력" onclick="printTextarea()">
+		<input type="button" value="입력값 체크" onclick="check()">
+		<br>
+		
+		<!-- submit 버튼 생성(버튼 텍스트는 "전송" 으로 지정) -->
+		<!-- submit 버튼에 대해 이벤트를 처리해야하는 경우 form 태그에 onsubmit 이벤트 등록 -->
+		<input type="submit" value="전송">
+	</form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,113 @@
+@charset "UTF-8";
+table {margin-bottom: 4em;}
+
+h2>i {font-size: 0.75em;
+font-weight: normal;
+font-style: normal;}
+
+ /* 1. table-layout:fixed;  */
+#tb-l {border: 1px solid;
+width: 900px; height: 500px;
+table-layout:fixed;	 }
+
+#tb-l th, #tb-l td {
+	border: 1px solid;}
+	
+
+
+ /* 2. stripe style */
+#tb-st {border: 1px solid #999;
+width: 900px; height: 500px;}
+
+#tb-st tr:nth-of-type(2n-1) {
+background-color: #ccc;}
+
+#tb-st tr:nth-of-type(7)>td:nth-of-type(2) {
+	color: #f00;}
+
+#tb-st tr:hover {
+background-color: #5a8;	
+cursor: pointer
+/* 커서 모양을 손모양으로 */;}
+
+#tb-st th {background-color: #385;
+height:50px;
+padding-left:10px;
+text-align:left;
+font-size:1.2em;
+color: #fff;}
+
+#tb-st td {
+border-bottom:1px solid #aaa;
+padding-left:10px; }
+
+
+ /* 3. border-spacing:n; */
+.sp-box {border: 1px solid red;
+float: left;
+margin-right: 2em;}
+ 
+.clear {clear: both;} 
+ 
+ 
+.tb-sp {border: 1px solid #0a3;
+width: 500px; height: 500px; }
+
+.tb-sp th, .tb-sp td {
+	border: 1px solid;}
+	
+#tb-sp01 {border-spacing: 10px;}
+
+#tb-sp02 {border-spacing: 10px 2px;}
+
+#tb-sp03 {border-spacing: 2px 10px;}
+
+
+
+ /* 4. border-collapse */
+#tb-sp0, #tb-co {float: left;
+margin-left: 4em;}
+
+#tb-sp0 {border-spacing: 0;}
+
+#tb-co {border-collapse: collapse;}
+#tb-co:hover {
+	border-collapse: separate/* 
+	기본값. 셀들이 떨어짐 */;}
+
+
+
+ /* ~~ 모서리 라운드 테이블 */
+#tb-ro {border-collapse: collapse;
+border: none !important;}
+#tb-ro th {background-color: #09a;
+border: none !important; }
+
+/* .l-r {border-radius: 14px 0 0 0;
+         왼쪽상단 모서리를 시작으로 시계방향으로
+         순서대로 각각 적용됨.   }
+   .r-r {border-radius: 0 14px 0 0;}  */
+
+#tb-ro th:first-of-type {
+	/* A:first-of-type은 첫번째 순서의 A를
+	불러오는 순서선택자 */
+	border-radius: 14px 0 0 0;}
+	
+#tb-ro th:last-of-type {
+	/* A:last-of-type은 마지막 순서의 A를
+	불러오는 순서선택자 */	
+	border-radius:  0 14px 0 0;}	
+
+
+
+
+
+
+
+
+
+
+
+
+
+

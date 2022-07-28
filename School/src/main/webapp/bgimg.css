@@ -1,0 +1,87 @@
+@charset "UTF-8";
+
+body {font-size: 20px;
+line-height: 1.8
+/* 행간(줄간격) */;
+background-image: url("img/cat.jpg"), url("img/backpack.jpg");
+background-repeat: no-repeat; 
+background-position: right 200px, left 200px;
+background-attachment: fixed;}
+
+
+   /* [목록 앞의 모양을 불릿이미지로 지정하기] */
+      /* 방법1. 목록의 속성으로 목록 앞의 모양을 이미지로 지정 */
+#bg {list-style: url("img/gif/aniyellow.gif"); }
+ 
+      /* 방법2. 배경이미지 속성으로 목록 앞의 모양을 이미지로 지정 */
+#ul-bg {list-style: none /* 2-1. 목록의 기본 모양 제거 */;} 
+
+#ul-bg>li {/* border: 1px solid red; */
+ background-image: url("img/gif/face.gif")
+  /* 2-2. 배경이미지를 불릿이미지로 지정*/;	
+ background-repeat: no-repeat /* 2-3. 배경이미지를 하나만 나오게 */;
+ background-position: left 10px /* 2-4. 수직방향으로 위치 조절 */; 
+ padding-left: 18px /* 2-5. 글자의 위치를 우측으로 옮김 */;}
+ 
+#ul-bg>li:hover {/* 마우스오버시 다양한 변화 가능 */
+ background-position: left 13px; 
+}
+ 
+
+
+li {margin-bottom: 1.5em;}
+#ul-bg>li {margin-bottom: 3.5em;}
+
+.bg-clr {
+background-color:#0ac; }
+
+.bg-img {
+background-image: url("img/abend.jpg");}
+
+.pre {background-color: #eee;
+width: 500px;
+margin-left:100px;
+padding-bottom:1em;
+white-space:pre;}
+
+
+
+ /* 특정 영역에서의
+  background-attachment */
+ 
+#sec01 {background-color: #fff;}
+
+#sec01>p {border: 4px solid #9aa;
+background-image:url("img/drop.jpg");
+background-size:cover;
+width: 30%; 
+height: 250px;
+margin-right:2%;
+display:inline-block; 
+overflow:auto; }
+
+.sc {background-attachment: scroll;}
+.fx {background-attachment: fixed;}
+.lc {background-attachment: local;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

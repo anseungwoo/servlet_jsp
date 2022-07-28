@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/*
+	[ 이미지에 접근하는 방법 ]
+	1. images[인덱스] 형태의 배열로 접근하는 방법
+	- document.images[인덱스].속성명
+	  (사용 가능한 속성명 : src, width, height, border 등)
+	- 인덱스는 이미지 순서대로 0번부터 자동으로 부여됨
+	ex) document.images[0].src : 첫번째 이미지의 src 속성에 접근
+	
+	2. name 속성에 지정된 이름으로 접근하는 방법
+	- document.name속성명.속성명
+	- 반드시 해당 태그에 name 속성이 지정되어 있어야 한다!
+	ex) document.img.src : img 라는 이름의 name 속성을 갖는 이미지의 src 속성에 접근
+	*/
+	function func1() {
+		// 첫번째 이미지(= 0번 인덱스)의 src 속성값 출력
+// 		alert(document.images[0].src);
+		// for문을 사용하여 이미지 배열 갯수만큼 반복하면서 src 속성값 출력
+// 		for(let i = 0; i < document.images.length; i++) {
+// 			alert(document.images[i].src);
+// 		}
+		
+		// "img1" 이라는 name 속성값을 갖는 이미지에 접근
+		alert(document.img1.src);
+	}
+	
+	function func2() {
+		// 첫번째 이미지의 width 값을 400, height 값을 300 으로 변경하고, border 값을 10으로 변경
+		document.img1.width = 400;
+		document.img1.height = 300;
+		document.img1.border = 10;
+		// 이미지 파일을 "2.jpg" 로 변경
+		document.img1.src = "2.jpg";
+	}
+	
+	function func3() {
+		// name 속성이 없으므로 images 배열을 통해 접근(두번째 이미지 = 1번 인덱스)
+		document.images[1].src = "4.jpg";
+	}
+
+	function func4(imgSrc) { // 파라미터로 이미지 파일명을 전달
+		// name 속성이 없으므로 images 배열을 통해 접근(세번째 이미지 = 2번 인덱스)
+		document.images[2].src = imgSrc; // 전달받은 이미지 파일명을 사용하여 src 속성값 변경
+	}
+</script>
+</head>
+<body>
+	<h1>test27.html</h1>
+	<img src="1.jpg" width="200" height="200" border="2" title="펭수" alt="펭수없음" name="img1"><br>
+	<input type="button" value="이미지속성정보출력" onclick="func1()">
+	<input type="button" value="이미지속성정보변경" onclick="func2()"><br>
+	
+	<!-- 2.jpg 이미지를 클릭하면 func3() 함수 호출(이미지파일을 4.jpg 로 변경) -->
+	<img src="2.jpg" width="200" height="200" onclick="func3()"><br>
+	
+	<!-- 3.jpg 이미지에 마우스를 갖다대면(mouseover 또는 mouseenter) func4() 함수 호출(5.jpg 로 변경) -->
+	<!-- 마우스를 밖으로 빼면(mouseout 또는 mouseleave) func4() 함수 호출(3.jpg 로 변경) -->
+	<img src="3.jpg" width="200" height="200" 
+			onmouseover="func4('5.jpg')" onmouseout="func4('3.jpg')"><br>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

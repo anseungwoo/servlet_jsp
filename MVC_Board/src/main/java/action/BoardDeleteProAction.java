@@ -19,13 +19,11 @@ public class BoardDeleteProAction implements Action {
 		int board_num = Integer.parseInt(request.getParameter("board_num"));
 		String board_pass = request.getParameter("board_pass");
 		
-		
-		
 		// BoardDeleteProService - isBoardWriter() 메서드를 호출하여 삭제 권한 판별 요청
 		// => 파라미터 : 글번호, 패스워드    리턴타입 : boolean(isBoardWriter)
 		BoardDeleteProService service = new BoardDeleteProService();
 		boolean isBoardWriter = service.isBoardWriter(board_num, board_pass);
-		 
+		
 		// 삭제 권한 판별 결과에 따른 작업 수행
 		// 패스워드가 일치하지 않을 경우(= 권한 없을 경우)
 		// 자바스크립트를 사용하여 "삭제 권한이 없습니다!" 출력 후 이전페이지로 돌아가기

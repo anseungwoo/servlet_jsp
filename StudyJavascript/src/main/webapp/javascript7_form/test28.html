@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/*
+	자바스크립트에서 form 태그 접근 방법
+	1. 배열 사용
+	=> document.forms[인덱스].속성명 또는 document.forms[인덱스].함수명()
+	
+	2. name 속성값 사용
+	=> document.name속성명.속성명 또는 document.name속성명.함수명()
+	*/
+	function status() {
+		// form 태그의 action 속성과 method 속성값 출력
+		alert("action 속성값 : " + document.forms[0].action 
+				+ ", method 속성값 : " + document.fr.method);
+	}
+	
+	function sub() {
+		// form 태그 객체의 submit() 메서드를 호출하면
+		// form 태그 내의 action 속성에 지정된 페이지(URL 또는 파일)로 이동 작업 수행함
+		// => 이 때, form 태그 내에 포함된 요소들의 데이터도 함께 전송
+		// => 전송되는 형식 : 주소?속성명1=값1&속성명n=값n
+// 		document.fr.submit();
+		// => input type="submit" 버튼과 동일하게 동작함
+		
+		// 만약, 조건에 따라 이동할 페이지를 변경하거나 할 경우
+		// document.폼태그이름.action 속성값을 변경
+// 		if(조건식) {
+// 			document.fr.action = "b.jsp";	
+// 		} else {
+// 			document.fr.action = "c.jsp";
+// 		}
+		
+		document.fr.action = "b.jsp";
+		document.fr.submit();
+		// => form 태그 action 속성에 지정된 값이 원래 a.jsp 이나
+		//    현재 함수 내에서 b.jsp 로 변경하였으므로 실제 이동되는 페이지는 b.jsp 가 된다!
+		// => 단, submit 버튼 클릭 시 여전히 a.jsp 페이지로 이동함
+	}
+</script>
+</head>
+<body>
+	<h1>test28.html</h1>
+	<form action="a.jsp" method="get" name="fr">
+		<input type="text" name="name">
+		<input type="text" name="id">
+		<input type="button" value="확인" onclick="status()">
+		<input type="button" value="전송" onclick="sub()">
+		<!-- input type="submit" 으로 버튼을 생성 시 submit() 함수와 동일한 기능을 기본 수행 -->
+		<input type="submit" value="전송2">
+	</form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

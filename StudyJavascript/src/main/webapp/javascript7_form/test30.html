@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function printCheckbox() {
+		// 체크박스에서 name 속성이 동일한 요소는 모두 하나의 배열로 관리됨
+		// => document.폼이름.체크박스이름[인덱스].속성명
+		// => checked 속성을 사용하여 체크박스 체크 상태 확인 가능
+// 		alert(document.fr.hobby[0].value + " : " + document.fr.hobby[0].checked);
+		
+		// 체크박스 3개의 항목(게임, 독서, 등산) 중 하나라도 체크되지 않은 경우
+		// "취미를 최소 한 개 이상 선택하세요!" 출력 후 작업 중단
+		if(!document.fr.hobby[0].checked 
+				&& !document.fr.hobby[1].checked && !document.fr.hobby[2].checked) {
+			alert("취미를 최소 한 개 이상 선택하세요!");
+			return; // 현재 작업을 중단하고 돌아감
+		}
+		
+	}
+	
+	function printRadio() {
+		if(!document.fr.gender[0].checked && !document.fr.gender[1].checked) {
+			alert("성별을 반드시 선택하세요!");
+			return; // 현재 작업을 중단하고 돌아감
+		}
+	}
+	
+	function checkAll() {
+		// 전체선택 체크박스 체크 시 취미 항목 전체를 체크하고
+		//         ""        체크해제 시 취미 항목 전체를 체크 해제
+		// 1) 전체선택 체크박스 체크 여부 판별
+		// 2) 체크 상태에 따라 각 항목에 대한 체크 상태 변경
+		if(document.fr.check_all.checked) { // 단일 체크박스일 경우 배열 대신 이름만 지정
+			// 각 체크박스 checked 속성값을 true 로 변경
+// 			document.fr.hobby[0].checked = true;
+// 			document.fr.hobby[1].checked = true;
+// 			document.fr.hobby[2].checked = true;
+
+			// for...of 문을 사용하여 체크박스 체크 작업 반복
+			// => for(변수선언 of 배열명) {}
+			for(let item of document.fr.hobby) {
+				// item 변수에는 document.fr.hobby[x] 에 해당하는 체크박스가 객체 상태로 저장됨
+				item.checked = true;
+			}
+			
+			// 전체선택 체크박스의 텍스트 노드를 "전체해제" 로 변경
+			// => document 객체의 getElementById() 메서드를 호출하여
+			//    해당 태그 요소의 id 속성값을 전달
+			document.getElementById("checkAll").innerHTML = "전체해제";
+		} else {
+			// 각 체크박스 checked 속성값을 false 로 변경
+			document.fr.hobby[0].checked = false;
+			document.fr.hobby[1].checked = false;
+			document.fr.hobby[2].checked = false;
+			
+			// 전체선택 체크박스의 텍스트 노드를 "전체선택" 으로 변경
+			document.getElementById("checkAll").innerHTML = "전체선택";
+		}
+	}
+</script>
+</head>
+<body>
+	<h1>test30.html</h1>
+	<form action="b.jsp" method="get" name="fr">
+		<!-- 
+		묶음으로 관리되는(그룹화되는) 체크박스 or 라디오버튼의 name 속성은 동일하게 설정
+		=> name 속성이 같은 요소들은 데이터 전송 시 모두 배열 형태로 관리가 가능하며
+		   라디오버튼의 경우 단일 선택만 가능하도록 그룹화까지 수행됨
+		-->
+		취미 : 
+		<input type="checkbox" name="hobby" value="게임" checked="checked">게임
+		<input type="checkbox" name="hobby" value="독서">독서
+		<input type="checkbox" name="hobby" value="등산">등산
+		<input type="checkbox" name="check_all" value="전체선택" onclick="checkAll()">
+		<span id="checkAll">전체선택</span>
+		<br>
+		<input type="button" value="체크박스선택완료" onclick="printCheckbox()">
+		<hr>
+		성별 : 
+		<input type="radio" name="gender" value="남">남
+		<input type="radio" name="gender" value="여">여
+		<br>
+		<input type="button" value="라디오버튼선택완료" onclick="printRadio()">
+		<hr>
+		<input type="submit" value="전송">
+	</form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

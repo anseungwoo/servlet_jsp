@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>document 객체 기초</title>
+<script type="text/javascript">
+	/*
+	window.document 객체
+	- HTML 문서 내용을 관리하는 객체
+	- 문서 정보 확인, 문서 내용 변경 등의 다양한 작업을 수행 가능
+	- 속성(변수) : document.title, document.bgColor, document.fgColor 등
+	  함수       : document.write(), document.getElementById() 등
+	*/
+	function func1() {
+		// document 객체의 title 속성을 통해 문서 제목(title 태그 내용) 확인
+		alert(document.title);
+	}
+
+	function func2() {
+		// document 객체의 title 속성값을 변경하면 웹브라우저(문서) 제목 변경 가능
+		document.title = "제목 변경";
+	}
+
+	function func3() {
+		// document 객체의 bgColor 속성값을 확인하면 문서의 배경색 확인
+// 		alert(document.bgColor);
+		alert("배경색(bgColor) : " + document.bgColor + ", 전경색(fgColor) : " + document.fgColor);
+	}
+	
+	function func4() {
+		// document 객체의 bgColor 속성값을 변경하면 문서의 배경색 변경
+		// => 색상명 또는 RGB 코드값("#RRGGBB")으로 지정 가능
+// 		document.bgColor = "RED"; // 배경색을 빨간색으로 변경
+// 		document.bgColor = "#FF0000"; // 배경색을 빨간색(RED 값을 최대치)으로 변경
+// 		document.bgColor = "#FFFF00"; // 배경색을 노란색(RED + GREEN 최대치)으로 변경
+		document.bgColor = "yellow"; // 배경색을 노란색으로 변경
+		
+		// document 객체의 fgColor 속성값을 변경하면 문서의 전경색(주로 텍스트) 변경 가능
+		document.fgColor = "#0000FF"; // 배경색을 파란색(BLUE 값을 최대치)으로 변경
+	}
+	
+	function func5(color) {
+		// 전달받은 색상명을 사용하여 document 객체의 bgColor 값 변경
+		document.bgColor = color;
+	}
+</script>
+</head>
+<body>
+	<h1>test23.html</h1>
+	<input type="button" value="문서 제목 출력" onclick="func1()">
+	<input type="button" value="문서 제목 변경" onclick="func2()">
+	<input type="button" value="문서 색상 출력" onclick="func3()">
+	<input type="button" value="문서 색상 변경" onclick="func4()">
+	<hr>
+	
+	<!-- 라디오버튼을 사용하여 선택한 색상으로 배경색 변경(하나의 함수에서 모두 처리) -->
+	<input type="radio" value="cyan" name="bgColor" onclick="func5('cyan')">Cyan
+	<input type="radio" value="magenta" name="bgColor" onclick="func5('magenta')">Magenta
+	<input type="radio" value="gray" name="bgColor" onclick="func5('gray')">Gray
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

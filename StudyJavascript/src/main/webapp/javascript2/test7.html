@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/*
+	변수 및 함수와 연산자에 전달되는 값은 대부분 적절한 타입으로 자동 변환됨(= 묵시적 형변환)
+	상황에 따라 개발자가 의도한 타입으로 직접 변환하는 것을 명시적 형변환(= 강제 형변환)이라고 함
+	
+	< 자바스크립트에서 강제 형변환을 수행하는 방법 >
+	타입이름(데이터); // 자바의 형변환 문법((타입이름)데이터)과 소괄호 위치가 반대 구조
+	=> 주의! 타입이름(string, number 등) 첫 글자는 대문자로 지정
+	
+	1. 문자(string) 으로의 변환
+	   - 문자형이 필요할 때 자동으로 변환이 일어남
+	     ex) alert() 함수 파라미터(소괄호에 위치하는 변수)가 string 타입이므로
+	         다른 타입의 데이터를 alert() 함수에 전달 시 자동으로 string 타입 문자로 변환됨
+	   - 문자 타입(string) 으로 강제 변환 시 다음 형태로 사용 
+	     => String(데이터)
+	*/
+// 	alert(10); // 숫자 데이터 10 이 문자 데이터(string)로 자동 변환됨
+
+	var value = 1; // 정수(숫자) 데이터
+	document.write(value + " : " + typeof(value) + "<br>"); // number 출력됨
+	// number 타입 변수 value 를 string 타입으로 변환하여 다시 value 변수에 저장
+	value = String(value); // 변수 value 의 값을 string 으로 변환(1 -> "1" 로 변환됨)
+	document.write(value + " : " + typeof(value) + "<br>"); // string 출력됨
+	
+	value = true;
+	document.write(value + " : " + typeof(value) + "<br>"); // boolean 출력됨
+	// 변수 value 값을 string 으로 변환
+	value = String(value);
+	document.write(value + " : " + typeof(value) + "<br>"); // string 출력됨
+	
+	document.write("<hr>");
+	
+	/*
+	2. 숫자형(number)으로 변환
+	   - 숫자형으로의 변환은 수학과 관련된 함수 및 연산식에서 자동으로 일어남
+	     ex) 문자형태의 숫자 / 문자형태의 숫자 => 문자로된 숫자 데이터를 숫자형태로 변환 후 연산
+	         (주의! + 연산자를 통한 연산은 문자열의 경우 결합이 발생하므로 일반 연산이 불가능)
+	   - 주로, prompt() 함수 등을 통해 외부로부터 숫자 입력 시 문자로 처리되므로 변환하여 사용
+	*/
+	var strNum1 = "1234", strNum2 = "99";
+    document.write(strNum1 + " : " + typeof(strNum1) + "<br>"); // string 출력됨
+	
+//     alert(strNum1 - strNum2); // 1234 - 99 연산이 일어나며 1135 출력됨
+
+	// strNum1 변수 값을 number 타입으로 변환하여 저장 후 출력
+	strNum1 = Number(strNum1);
+	document.write(strNum1 + " : " + typeof(strNum1) + "<br>"); // string 출력됨
+	
+	document.write(Number("          1234       ") + "<br>"); // 문자형 숫자 앞뒤 공백 제거 후 변환(1234)
+	// 만약, 숫자가 아닌 문자 등이 끼어있을 경우 변환이 불가능하므로
+	// 숫자가 아니라는 의미의 NaN 값이 출력됨
+	document.write(Number("1234a") + "<br>"); // NaN(Not a Number)
+	
+	// boolean 타입 데이터 -> number 타입으로 변환(true = 1, false = 0)
+	document.write(Number(true) + "<br>"); // 1
+	document.write(Number(false) + "<br>"); // 0
+	
+	document.write("<hr>");
+	
+	/*
+	3. 논리형(boolean)으로 변환
+	   - 논리적인 연산 수행 시 자동으로 변환(결과값이 true 또는 false 가 됨)
+	   - 강제 변환 시 Boolean(데이터) 형식으로 변환
+	   - 비어있지 않다고 여겨지는 데이터 = true, 비어있다고 여겨지는 데이터 = false 로 취급됨
+	*/
+	document.write(Boolean("true") + "<br>"); // true
+	document.write(Boolean("false") + "<br>"); // true(비어있지 않은 데이터이므로 무조건 true)
+	
+	document.write(Boolean(1) + "<br>"); // true
+	document.write(Boolean(0) + "<br>"); // false
+	
+	// NaN 의 경우 Not a Number 의 의미이며 데이터로 취급되지 않으므로 false 값으로 변환됨
+	document.write(Boolean(NaN) + "<br>"); // false
+	
+	// 널스트링 역시 문자열이지만 비어있으므로 false 값으로 변환됨
+	document.write(Boolean("") + "<br>"); // false
+	
+	document.write(Boolean("1") + "<br>"); // true
+	document.write(Boolean("0") + "<br>"); // true
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

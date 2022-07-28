@@ -1,13 +1,14 @@
 <%@page import="jsp9_jdbc.Test8_1DTO"%>
-<%@page import="java.util.ArrayList"%>
 <%@page import="jsp9_jdbc.Test8_1DAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-
+    pageEncoding="UTF-8"%>
 <%
+// Test8_1DAO 객체 생성
 Test8_1DAO dao = new Test8_1DAO();
-Test8_1DTO[] dtoList = dao.selectList();
-%>
+//selectList() 메서드 호출
+//=> 파라미터 : 없음, 리턴타입 : Test8_1DTO[](arrDto) 
+Test8_1DTO[] arrDto = dao.selectList();
+%>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,25 +16,40 @@ Test8_1DTO[] dtoList = dao.selectList();
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>test4.jsp 배열[] 회원정보리스트</h1>
-
-	<h3>배열의 크기 : <%=dtoList.length %></h3>
-	<table border="1">
-		<tr>
-			<th>이름</th>
-			<th>나이</th>
-			<th>성별</th>
-			<th>취미</th>
-		</tr>
-		<%for (Test8_1DTO i : dtoList) {%>
-		<tr>
-			<td><%=i.getName() %></td>
-			<td><%=i.getAge() %></td>
-			<td><%=i.getGender() %></td>
-			<td><%=i.getHobby() %></td>
-		</tr>
-		<%}%>
-
-	</table>
+	<h1>test4_selectList.jsp</h1>
+	<h3><%=arrDto.length %> 개 레코드</h3>
+	<hr>
+	<%-- Test8_1DTO 배열 크기만큼 반복(for문) --%>
+	<%
+	for(int i = 0; i < arrDto.length; i++) {
+		// 배열에 저장되어 있는 Test8_1DTO 객체를 하나씩 꺼내서 Test8_1DTO 타입 변수에 저장
+		Test8_1DTO dto = arrDto[i]; // 1개 레코드가 저장되어 있는 Test8_1DTO 객체 꺼내기
+		
+		// Test8_1DTO 객체의 getXXX() 메서드를 호출하여 1명의 정보 출력
+		out.println(dto.getName() + " " + dto.getAge() + " " + 
+						dto.getGender() + " " + dto.getHobby() + "<br>");
+	} 
+	%>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

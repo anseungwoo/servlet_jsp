@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function checkId() {
+		let idElement = document.getElementById("id");
+		let idResult = document.getElementById("idResult");
+
+		let id = idElement.value;
+		if (id == "admin") {
+			idResult.innerHTML = "존재하는 아이디";
+			inResult.style.color = "RED";
+		} else {
+			idResult.innerHTML = ("사용 가능한 아이디");
+			idResult.style.color = "#009900";
+		}
+
+		// 		alert(id);
+		// if문을 사용하여 가져온 id 값이 "admin"인지 판별
+		// => "amdin" 과 일치할 경우 "이미 존재하는 아이디" 출력하고
+		// 아니면 , "사용 가능한 아이디" 출력
+	}
+	function checkYear(){
+		let year = document.getElementById("year").value
+		let month = document.getElementById("month").value
+		let day = document.getElementById("day").value
+		
+		let birthResult = document.getElementById("birthResult")
+		if(1950 <=year <= 2050){
+			birthResult.innerHTML = "입력받은 연도가 올바르지 않습니다.";
+			birthResult.style.color = "#990000";
+		}
+	}
+</script>
+</head>
+<body>
+	<h1>test26.html</h1>
+	<table>
+		<tr>
+			<th>아이디</th>
+		</tr>
+		<tr>
+			<td><input type="text" size="30" id="id" onchange="checkId()">
+				<span id="idResult"> </span></td>
+		</tr>
+		<tr>
+			<th>생년월일</th>
+		</tr>
+		<tr>
+			<td>
+			<input type="text" size="7" id="year" onchange="checkYear()" maxlength="4" placeholder="4자">
+			<input type="text" size="7" id="month" onchange="checkYear()">
+			<input type="text" size="7" id="day" onchange="checkYear()">
+			<br>
+				<span id="birthResult"> </span>
+				<span id="monthResult"> </span>
+				<span id="dayResult"> </span>
+				
+				</td>
+		</tr>
+	</table>
+
+</body>
+</html>

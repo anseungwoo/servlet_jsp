@@ -1,9 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>  
-<%
-// 세션 아이디 가져와서 변수에 저장
-// String sId = (String)session.getAttribute("sId");
-%>    
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,14 +39,6 @@
 </style>
 </head>
 <body>
-	<%-- 세션아이디가 없을 경우(= 비회원) 자바스크립트로 "로그인 필수!" 출력 후 로그인페이지 이동 --%>
-<%-- 	<%if(sId == null) { %> --%>
-<!-- 		<script> -->
-<!-- 			alert("로그인 필수!"); -->
-<!-- 			location.href = "../member/login_form.jsp"; -->
-<!-- 		</script> -->
-<%-- 	<%} %> --%>
-	
 	<section id="writeForm">
 		<h1>글쓰기</h1>
 		<form action="write_pro.jsp" method="post">

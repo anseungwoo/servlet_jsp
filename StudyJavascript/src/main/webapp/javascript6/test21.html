@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/*
+	[ 페이지 이동 관련 객체 ]
+	- window.location 객체(주로, window 객체명은 생략하고 location 으로 사용)
+	- location 객체의 href 속성이 웹브라우저 주소 정보 관리
+	  => 페이지 이동 방법
+	     location.href = "이동할 URL 또는 파일명";
+	- location 객체의 함수를 호출하여 주소에 대한 다양한 기능 활용 가능
+	*/
+	function func1() {
+		// location 객체의 href 속성값 확인
+		alert(location.href);
+	}
+
+	function func2() {
+		// location 객체의 href 속성값을 변경하여 주소 정보 변경
+		// => 변경된 주소로의 새로운 요청 발생 = 변경된 주소로 페이지 이동
+// 		location.href = "http://www.naver.com"; // 네이버 홈페이지로 이동
+		location.href = "test22.html"; // test22.html 파일(페이지)로 이동
+	}
+
+	function func3() {
+		// location 객체의 reload() 함수 호출하여 페이지 새로고침(F5 키와 동일)
+		location.reload();
+	}
+	
+	function func4(target) {
+		// 전달받은 target 변수값이 "cart" 일 경우 cart_page.html 페이지로 이동하고,
+		// "order" 일 경우 order_page.html 페이지로 이동
+		// => if ~ else if 문 필요
+// 		if(target == "cart") {
+// 			location.href = "cart_page.html";
+// 		} else if(target == "order") {
+// 			location.href = "order_page.html";
+// 		}
+		
+		// cart_page.html 과 order_page.html 파일명 앞부분(cart or order)은
+		// 버튼 클릭 시 전달되는 값과 동일하므로 if문 없이도 각 페이지로 이동 가능
+		location.href = target + "_page.html"; // target 과 문자열 결합을 통해 _page.html 주소 결합
+	}
+</script>
+</head>
+<body>
+	<h1>test21.html</h1>
+	<input type="button" value="주소 정보 출력" onclick="func1()">
+	<input type="button" value="주소 정보 변경" onclick="func2()">
+	<input type="button" value="주소 새로 고침" onclick="func3()"><br>
+	<input type="text">
+	<hr>
+	<!-- 복수개의 버튼을 하나의 함수에서 구분하여 각각 다른 페이지로 이동 -->
+	<input type="button" value="장바구니 이동" onclick="func4('cart')">
+	<input type="button" value="즉시구매" onclick="func4('order')">
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

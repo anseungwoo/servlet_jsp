@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>margin</title>
+<link href="style.css" rel="stylesheet">
+<link href="margin.css" rel="stylesheet">
+</head>
+<body>
+<h1>margin- 요소의 외부 여백</h1>
+
+<h2>margin의 방향별 지정 속성</h2>
+ <ul id="mg-dr">
+  <li>margin-top:n; 위에만 적용</li>
+  <li>margin-right:n; 우측에만 적용</li>
+  <li>margin-bottom:n; 아래만 적용</li>
+  <li>margin-left:n; 좌측에만 적용</li> 
+ </ul>
+
+
+<h2>margin의 값 갯수별 적용법</h2>
+ <ul id="mg-n">
+  <li>margin:n; 양사방 값 통일</li>
+  <li>margin:n n; 상하, 좌우 순으로 적용</li>
+  <li>margin:n n n; 상, 좌우, 하 순으로 적용</li>
+  <li>margin:n n n n; 상, 우, 하, 좌 순으로 적용</li>
+ </ul>
+
+ <div id="cnt">
+    [center] 
+   margin-left:auto;
+   margin-right:auto;  
+      	또는
+   margin:n auto; 
+ </div>
+
+<hr>
+<div id="box">
+ <p>inline요소는 상하 margin이 적용 안됨, 
+   좌우는 인접 요소 각각 적용. </p>
+ <nav>
+  <a href="#">1</a>
+  <a href="#">2</a>
+  <a href="#">3</a>
+  <a href="#">4</a>
+  <a href="#">5</a> 
+ </nav>
+
+ <div>div</div>
+</div>
+
+</body>
+</html>
+
+
+
+
+
+
+

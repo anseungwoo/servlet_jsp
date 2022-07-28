@@ -1,0 +1,145 @@
+@charset "UTF-8";
+
+nav#nav-l {background-color:  green;
+height: 30px;} 
+
+nav#nav-l>ul {border: 1px solid pink;
+list-style: none/* 목록앞의
+기본모양 제거 */;}
+nav#nav-l li {border: 1px solid red;
+float: left /* 메뉴들을 나란히 배치 */;
+margin-bottom: 1em;}
+
+
+   /* 우측 메뉴 */ 
+nav#nav-r>ul {border: 1px solid green;
+float: right /* 우측메뉴 구현 */;
+list-style: none;} 
+
+nav#nav-r li {border: 1px solid red;
+float: left; }
+
+
+ /*  */
+ 
+nav#nav-c>ul {border: 1px solid green;
+ list-style:none;
+ padding-left: 0 /* 목록 앞의 기본 내부여백
+  제거 */;
+ width: 600px /* 메뉴들의 크기에 맞게
+ 부모의 너비를 줄임 */; 
+ margin: 3em auto /* 좌우 여백이
+ 항상 동일하므로 정중앙에 배치 */;}
+ 
+nav#nav-c li {background-color:#000;
+border-left:5px solid #999;
+float: left /* 개별 메뉴들을 나란히 */;
+width: 120px; 
+height: 30px;
+box-sizing: border-box /* 
+요소의 크기 계산법 변경(패딩포함,테두리까지) */; 
+text-align: center;
+line-height:30px /* 영역의 높이값=행간값
+으로 내용의 수직정렬을 중앙으로 */; }
+
+nav#nav-c li:hover {background-color:#999;
+border-left:5px solid #000;
+transition:0.7s;}
+
+nav#nav-c a {/* border: 1px solid green; */
+ width: 120px; height: 30px;
+ display:block /* 크기 적용을 위해 바꿈 */;
+ text-decoration: none /* 밑줄 제거 */;
+ text-transform:capitalize /* 영문첫글자를 대문자로 */; 
+}
+
+nav#nav-c a:link, nav#nav-c a:visited {
+	color: #999;}
+nav#nav-c a:hover, nav#nav-c a:active {
+	color: #000;}
+	
+
+.clear {clear: both /* float의
+영향 제거(밀고 올라온 요소를 제자리로) */;}
+
+
+
+ /* 1. img에 float:left; */
+#sec01 {overflow:hidden
+ /* float된 자식의 영향으로
+높이값이 줄어든 부모의 형태 유지 */; }
+
+#sec01 img {
+	float: left;
+ margin-right:1em; }
+
+
+ /* 2. img에 float:right; */
+#sec02 {overflow: hidden;}
+ 
+#sec02>p {text-align: right;}
+
+#sec02>p>img {float: right;
+ margin-left: 1em;}
+
+
+
+
+
+ /* 3. p들에 float:left;적용 */
+#sec03 {overflow: hidden;}
+ 
+.p01 {background-color: #aff;
+width: 200px;
+float: left;
+margin-right: 1em;}
+
+
+ /* 4. p들에 float: right;적용 */
+#sec04 {overflow: hidden;}
+
+.p02 {background-color: #ffa;
+width: 300px;
+float: right;
+margin-left: 1em;} 
+
+
+
+ /* 5. p들에 float:left,right;적용 */
+#sec05 {overflow: hidden;}
+
+.p03 {background-color: #acc;
+ width: 20%;
+ float: left;
+ margin-right: 1em;}
+ 
+.p04 {background-color: #cac;
+ width: 25%;
+ float: right;}
+
+.p05 {background-color: #cca;
+clear: both;}
+
+.p05>b {
+ border-bottom:2px solid;	
+ color: #a00;}
+
+.p05>i {
+ white-space: pre;	
+ background-color: #fff;
+ line-height: 1.8;
+ color: #a30;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

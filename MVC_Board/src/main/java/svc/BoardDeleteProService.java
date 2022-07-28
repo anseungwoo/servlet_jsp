@@ -4,7 +4,7 @@ import java.sql.Connection;
 
 import dao.BoardDAO;
 
-import static db.JdbcUtill.*;
+import static db.JdbcUtil.*;
 
 public class BoardDeleteProService {
 

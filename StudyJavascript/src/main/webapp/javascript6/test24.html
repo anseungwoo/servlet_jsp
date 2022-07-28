@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 기본적으로 HTML 태그와 자바스크립트는 위 -> 아래로 차례대로 번역 및 실행됨 -->
+<script type="text/javascript">
+	alert("작업 - 1"); // 1번
+	
+	alert("document.body : " + document.body);
+	// => document 객체의 body 에는 body 태그 객체가 자동으로 저장되고 관리되는데
+	//    현재 자바스크립트 실행 시점은 body 태그가 로딩되기 전이므로
+	//    body 객체(HTMLBodyElement)가 생성되지 않은 상태이다.
+	//    따라서, null 값이 출력됨(= 객체 없음)
+	
+	// body 태그의 배경색을 "RED" 로 변경할 경우
+	document.body.style.background = "RED";
+	// => 아직 body 태그가 로딩되기 전이므로 body 객체를 통해 접근하여 속성값 변경 불가(실행 불가)
+</script>
+</head>
+<body>
+	<h1>test24.html</h1>
+	
+	<h3>작업 - 2</h3>
+	<script>alert("작업 - 2");</script> <!-- 2번 -->
+	
+	<h3>작업 - 3</h3>
+	<script>alert("작업 - 3");</script> <!-- 3번 -->
+	
+</body>
+</html>

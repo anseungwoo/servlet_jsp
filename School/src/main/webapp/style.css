@@ -1,0 +1,15 @@
+@charset "UTF-8";
+  /* style.css는 수업시간 
+  공용스타일 파일 */
+ 
+h1 {border-left:12px solid; 
+ background-color:#aef;
+ padding:0.3em;
+ color: #39d;}
+
+section {border: 3px solid #39d;
+margin: 3em 1em;
+padding: 1em;	}
+
+section>h2 {border-bottom:2px solid;
+	 color: #39d;}

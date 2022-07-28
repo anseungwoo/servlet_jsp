@@ -2,19 +2,39 @@ package vo;
 
 import java.sql.Date;
 
+/*
+ 게시판 게시물 하나의 정보를 저장하는 클래스 정의
+    CREATE DATABASE mvc_board2;
+
+	CREATE TABLE board (
+		board_num INT PRIMARY KEY,
+		board_name VARCHAR(20) NOT NULL,
+		board_pass VARCHAR(16) NOT NULL,
+		board_subject VARCHAR(50) NOT NULL,
+		board_content VARCHAR(2000) NOT NULL,
+		board_file VARCHAR(50) NOT NULL,
+		board_real_file VARCHAR(50) NOT NULL,
+		board_re_ref INT NOT NULL,
+		board_re_lev INT NOT NULL,
+		board_re_seq INT NOT NULL,
+		board_readcount INT NOT NULL,
+		board_date DATE NOT NULL
+	);
+ */
 public class BoardDTO {
+	// board 테이블의 각 컬럼에 대응하는 멤버변수 선언
 	private int board_num;
 	private String board_name;
 	private String board_pass;
 	private String board_subject;
 	private String board_content;
-	private String board_realFile;
-	private String board_file; 
-	private int board_readcount;
-	private Date board_date;
+	private String board_file; // 원본 파일명
+	private String board_real_file; // 실제 업로드 된 파일명(중복처리 된 파일명)
 	private int board_re_ref;
 	private int board_re_lev;
 	private int board_re_seq;
+	private int board_readcount;
+	private Date board_date; // java.sql.Date
 	
 	public int getBoard_num() {
 		return board_num;
@@ -52,24 +72,11 @@ public class BoardDTO {
 	public void setBoard_file(String board_file) {
 		this.board_file = board_file;
 	}
-	public String getBoard_realFile() {
-		return board_realFile;
+	public String getBoard_real_file() {
+		return board_real_file;
 	}
-	public void setBoard_realFile(String board_realFile) {
-		this.board_realFile = board_realFile;
-	}
-	
-	public int getBoard_readcount() {
-		return board_readcount;
-	}
-	public void setBoard_readcount(int board_readcount) {
-		this.board_readcount = board_readcount;
-	}
-	public Date getBoard_date() {
-		return board_date;
-	}
-	public void setBoard_date(Date board_date) {
-		this.board_date = board_date;
+	public void setBoard_real_file(String board_real_file) {
+		this.board_real_file = board_real_file;
 	}
 	public int getBoard_re_ref() {
 		return board_re_ref;
@@ -89,16 +96,42 @@ public class BoardDTO {
 	public void setBoard_re_seq(int board_re_seq) {
 		this.board_re_seq = board_re_seq;
 	}
+	public int getBoard_readcount() {
+		return board_readcount;
+	}
+	public void setBoard_readcount(int board_readcount) {
+		this.board_readcount = board_readcount;
+	}
+	public Date getBoard_date() {
+		return board_date;
+	}
+	public void setBoard_date(Date board_date) {
+		this.board_date = board_date;
+	}
+	
 	@Override
 	public String toString() {
 		return "BoardDTO [board_num=" + board_num + ", board_name=" + board_name + ", board_pass=" + board_pass
-				+ ", board_subject=" + board_subject + ", board_content=" + board_content + ", board_realFile="
-				+ board_realFile + ", board_originalFile=" + board_file + ", board_readcount=" + board_readcount
-				+ ", board_date=" + board_date + ", board_re_ref=" + board_re_ref + ", board_re_lev=" + board_re_lev
-				+ ", board_re_seq=" + board_re_seq + "]";
+				+ ", board_subject=" + board_subject + ", board_content=" + board_content + ", board_file=" + board_file
+				+ ", board_real_file=" + board_real_file + ", board_re_ref=" + board_re_ref + ", board_re_lev="
+				+ board_re_lev + ", board_re_seq=" + board_re_seq + ", board_readcount=" + board_readcount
+				+ ", board_date=" + board_date + "]";
 	}
 	
 	
 }
 
- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+

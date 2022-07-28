@@ -21,7 +21,7 @@ public class MemberDAO {
 		// 1단계. 드라이버 로드
 		Class.forName(driver);
 		System.out.println("드라이버 로드 성공!");
-
+		
 		// 2단계. DB 연결
 		Connection con = DriverManager.getConnection(url, user, password);
 		System.out.println("DB 연결 성공!");

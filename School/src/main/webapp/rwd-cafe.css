@@ -1,0 +1,200 @@
+@charset "UTF-8";
+
+/*  https://fonts.google.com
+
+font-family: 'Do Hyeon', sans-serif;
+font-family: 'Edu QLD Beginner', cursive;
+font-family: 'Nanum Gothic', sans-serif; */
+
+.ic {font-size: 0.7em;
+ color: #930;
+ vertical-align:-10px; }
+
+
+* {margin: 0; padding: 0;
+  /* css초기화(기본 여백 제거) */}
+
+body {font-family: 'Nanum Gothic', sans-serif;}
+
+a {text-decoration: none;
+ font-family: 'Do Hyeon', sans-serif;}
+
+nav a:link, nav a:visited {
+	color: #fff;}
+	
+nav a:hover, nav a:active {
+	color: #ff0;}
+
+h2 {font-size: 1.8em;}
+h3 {font-size: 1.3em;}
+
+p {font-size: 1.3em;
+ line-height: 2.5;}
+
+li {font-size: 1em;
+ line-height: 2;}
+
+
+ /* mobile first */
+#container {border: 1px solid red;
+	width: 100%; }
+
+header {height:300px; 
+background-image: url("img/header.jpg");
+background-size: cover
+/* 배경이미지를 영역에 최대한 맞춰서 커버 */;
+background-position: center center
+/* 배경이미지를 정중앙에 맞게 배치 */;}
+
+nav {background-color: #000;
+height: 50px;}
+
+nav>ul {
+list-style: none
+/* 목록의 기본모양 제거 */;
+padding: 10px;}
+
+nav li {display: inline-block
+/* 메뉴들을 나란히 배치 */;
+margin: 5px 15px;
+font-size: 0.8em;
+font-family: ;}
+
+section {padding: 15px 5% 10px 5%
+/* 수평은 %단위로 유동적인 값 */;
+position: relative
+/* 기준이 될 상위요소의 설정 */;}
+
+section:nth-of-type(2n) {
+/* A:nth-of-type(n)
+ A중에서 n번째에 해당하는 요소를 지정(수식도 가능) */
+	background-color: #eee;}
+
+.pg-title {position: absolute
+/* 상위요소 기준으로 자리 잡기 */;
+top:20px; left:0; 
+padding: 30px 50px;}
+
+.pg-title>h2 {margin-bottom: 30px;}
+
+.content { width: 90%;
+ padding:20px;  
+ box-sizing: border-box
+ /* 요소의 영역크기(width,height) 계산시
+ padding과 border를 포함하도록 지정 */;
+ margin: 80px auto 10px;}
+
+.photo {display: none
+/* 모바일에서는 사진 숨김 */;}
+
+.text>h3 {margin-bottom:20px;
+color: #0094ff;
+font-weight: 600;}
+
+footer {background-color: #000;
+height:100px;
+color: #fff; }
+
+footer>p {
+text-align: center;	
+line-height: 100px/* 
+행간(줄간격)=영역의 높이값 으로
+수직중앙 정렬시킴 */;
+text-transform: capitalize
+/* 영문 첫글자를 대문자로 변경 */;
+font-family: 'Edu QLD Beginner', cursive;} 
+
+
+
+
+  /* 테블릿 - 768이상 */
+
+@media screen and (min-width:768px) {
+ /* 장치종류는 screen이면서 
+  화면너비가 최소 768px부터 아래 소스가 적용 */
+ header {height:400px; }
+	
+#intro, #map {border:1px dotted #ccc;
+	float: left 
+	/* 두가지 섹션을 나란히 배치 */;
+	width: 50% /* 글자가 많을 때는
+	float을 적용해도 너비가 줄어들지 않아서
+	직접 값을 지정해서 줄임 */;
+	box-sizing: border-box
+	/* 요소의 영역크기(width,height) 계산시
+    padding과 border를 포함하도록 지정  */;
+ height: 400px;}	 
+	
+#choice	{clear: both /* float의 영향을
+해제하여 제자리로 보냄 */;}
+
+}
+
+
+
+  /* pc - 992px이상  */
+
+@media screen and (min-width:992px) {
+	
+#container {border: 1px solid #ccc;
+	width: 995px; 
+	margin: 0 auto
+ /* 고정크기를 수평 정중앙에 배치 */;}
+
+header {height:500px; }	
+
+section {padding: 15px 2% 10px 5%;}
+
+#intro, #map, #choice {/* 두가지 섹션을 다시 아래로 배치 */
+	width: 100% ;	height: 420px;}
+
+.photo {display: block
+/* 숨겼던 사진영역을 보임 */;
+margin-right:5%; }
+	
+.photo>img {width:100%;
+ max-width: 320px
+ /* 원본이미지보다 커지지않게 */; }	
+	
+.photo, .text {/* border: 1px solid skyblue; */
+ float: left /* 사진영역과 글자영역을 나란히 배치 */;
+ width: 42%; }
+
+#choice .photo, #choice .text {
+ float: right;	
+ /* 마지막 섹션만 사진영역과 글자 좌우를 바꿈 */}
+
+#choice .photo {margin-left: 5%;}
+
+#choice .photo>img {
+ border-radius: 50%
+ /* 정원으로 만듦 */;}
+
+footer {clear: both;}
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

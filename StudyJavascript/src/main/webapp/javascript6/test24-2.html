@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 기본적으로 HTML 태그와 자바스크립트는 위 -> 아래로 차례대로 번역 및 실행됨 -->
+<script type="text/javascript">
+	// window.onload 이벤트
+	// - 문서 내의 body 태그 내의 모든 내용이 로딩된 후 이벤트 발생함
+
+	// window.onload 이벤트에 대해 함수를 실행하도록 정의
+	// => 실행될 함수는 별도의 이름 없이도 onload 이벤트가 발생하면 실행되도록 익명함수로 정의 가능
+// 	window.onload = function() {
+// 		// 이 곳에 있는 alert() 함수는 언제 실행될까요?
+// 		alert("작업 - 1"); // 3번
+		// => body 태그 내의 자바스크립트 작업-2, 작업-3 이 실행된 후
+		//    onload 이벤트에 의해 작업-1 이 실행됨
+// 	}
+
+	// 일반 함수 형태로 정의한 후 body 태그에 onload 이벤트 형식으로 호출해도 동일함
+	function func1() {
+		// 이 함수(func1())는 body 태그가 로딩된 후 onload 이벤트에 의해 호출되므로
+		// body 태그 내의 요소가 로딩이 완료된 후에 호출됨
+		// => 따라서, 이 함수 내에서는 body 태그 내의 요소에 접근도 가능해짐
+		alert("작업 - 1"); // 3번(body 태그 내용이 모두 로딩된 후 실행됨)
+		
+		alert("document.body : " + document.body); // [object HTMLBodyElement] 출력됨
+		// => 현재 코드가 실행되는 시점에서 body 객체가 이미 생성되어 있음
+		
+		// body 태그의 배경색을 "RED" 로 변경할 경우
+		document.body.style.background = "RED"; // 문서 배경색이 "RED" 로 변경됨
+	}
+</script>
+</head>
+<body onload="func1()">
+	<h1>test24-2.html</h1>
+	
+	<h3>작업 - 2</h3>
+	<script>alert("작업 - 2");</script> <!-- 1번 -->
+	
+	<h3>작업 - 3</h3>
+	<script>alert("작업 - 3");</script> <!-- 2번 -->
+	
+</body>
+</html>

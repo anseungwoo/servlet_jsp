@@ -1,51 +1,71 @@
 package vo;
 
+// 페이징 처리 관련 정보를 저장하는 클래스(= DTO 역할)
 public class PageInfo {
+	private int pageNum; // 현재 페이지 번호
+	private int maxPage; // 최대 페이지 수
+	private int startPage; // 시작 페이지 번호
+	private int endPage; // 끝 페이지 번호
+	private int listCount; // 총 게시물 수
 	
-	
-	private int PageNum;
-	private int maxPage;
-	private int endPage;
-	private int startPage;
-	private int listCount;
-	public PageInfo(int pageNum, int maxPage, int endPage, int startPage, int listCount) {
+	public PageInfo(int pageNum, int maxPage, int startPage, int endPage, int listCount) {
 		super();
-		PageNum = pageNum;
+		this.pageNum = pageNum;
 		this.maxPage = maxPage;
-		this.endPage = endPage;
 		this.startPage = startPage;
+		this.endPage = endPage;
 		this.listCount = listCount;
 	}
+
 	public int getPageNum() {
-		return PageNum;
+		return pageNum;
 	}
+
 	public void setPageNum(int pageNum) {
-		PageNum = pageNum;
+		this.pageNum = pageNum;
 	}
+
 	public int getMaxPage() {
 		return maxPage;
 	}
+
 	public void setMaxPage(int maxPage) {
 		this.maxPage = maxPage;
 	}
-	public int getEndPage() {
-		return endPage;
-	}
-	public void setEndPage(int endPage) {
-		this.endPage = endPage;
-	}
+
 	public int getStartPage() {
 		return startPage;
 	}
+
 	public void setStartPage(int startPage) {
 		this.startPage = startPage;
 	}
+
+	public int getEndPage() {
+		return endPage;
+	}
+
+	public void setEndPage(int endPage) {
+		this.endPage = endPage;
+	}
+
 	public int getListCount() {
 		return listCount;
 	}
+
 	public void setListCount(int listCount) {
 		this.listCount = listCount;
 	}
 	
-
 }
+
+
+
+
+
+
+
+
+
+
+

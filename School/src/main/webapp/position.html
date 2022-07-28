@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>position</title>
+<link href="style.css" rel="stylesheet">
+<link href="position.css" rel="stylesheet">
+</head>
+<body>
+<h1>position - 요소의 위치 지정 방식</h1>
+
+<ul>
+ <li>position:static; 기본값. 위치 변동 불가</li>
+ <li>position:relative; 소스 순서대로의 위치에서 ~변경</li>
+ <li>position:absolute; 상위요소를 기준으로 ~변경</li>
+ <li>position:fixed; 브라우저를 기준으로 ~에 고정</li>
+ <li>position:sticky; relative와 fixed의 믹스</li>
+</ul>
+  
+<section id="sec04">
+ <h2>position:sticky; relative와 fixed의 믹스</h2>
+
+ <div><b>position:sticky는
+ 상위에 다른 요소가 있으면 적용 불가.</b> <br>
+  * color값의 rgba(n,n,n,n)는 
+  컬러에 투명도를 지정. a의 값을 0~1사이로 적용
+  (0일 때 완전투명)
+ </div>
+</section>
+
+<section id="sec01">
+ <h2>position:static; 기본값. 위치 변동 불가</h2>
+
+ <div>position:static;</div>
+</section>
+
+
+<section id="sec02">
+ <h2>position:relative; 소스 순서대로의 위치에서 ~변경 </h2>
+
+ <div class="rel01">position:relative;<br> left: 800px;</div>
+ <div class="rel02">position:relative;<br> right: 300px;</div>
+ <div class="rel03">position:relative;<br>bottom: 250px;</div>
+ <div class="rel04">position:relative;<br> top: 200px;</div>
+ <div class="rel05">position:relative;<br>left: 600px; bottom: 400px;</div>
+ <div class="rel06">position:relative;<br>left: 300px; top: 100px;</div> 
+</section>
+
+
+<section id="sec03">
+ <h2>position:absolute; 상위요소를 기준으로 ~변경
+  <span>(기준이 될 상위요소의 설정값은 position:relative;)</span>
+ </h2>
+
+ <div class="ab01">position:absolute;<br>left: 200px;</div>
+ <div class="ab02">position:absolute;<br>right: 200px</div>
+ <div class="ab03">position:absolute;<br>top:200px;</div>
+ <div class="ab04">position:absolute;<br>bottom: 200px;</div>
+ <div class="ab05">position:absolute;<br>right: 0; bottom: 0;</div>
+ <div class="ab06">position:absolute;<br>left: 50%; top:50%;</div>
+
+ <h3>z-index:n; 겹친 요소끼리의 순서</h3>
+  <pre style="position: absolute;
+  left:450px;bottom:10px;font-family:sans-serif;">
+  태그를 추가할 때마다 z-index값은 1씩 증가.
+  z-index값이 상대적으로 크면 겹쳤을 때 위로 올라옴.
+  (n은 음수도 가능)
+  </pre> 
+ <p class="p-1">p-1</p>
+ <p class="p-2">p-2</p>
+ <p class="p-3">p-3</p>
+ <p class="p-4">p-4</p>
+</section>
+
+
+<aside id="quick">
+ <nav>
+  <a href="#sec01">position:static;</a>
+  <a href="#sec02">position:relative;</a>
+  <a href="#sec03">position:absolute;</a>
+  <a href="#sec04">position:sticky;</a>
+  <a href="#">top</a>
+ </nav>
+</aside>
+
+
+<aside id="as">
+ <div id="text">event</div>
+ <div id="ph">
+  <img alt="ice" src="img/ice.jpg"></div>
+</aside>
+
+<h3>opacity:n; 요소의 투명도 조절</h3>
+<p>
+ 요소 자체의 불투명도를 0~1사이의 값으로 조정. <br>
+  0일 때 완전투명, 1일 때 불투명.</p>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+
+
+
+

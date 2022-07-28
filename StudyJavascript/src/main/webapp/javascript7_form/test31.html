@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	// 셀렉트 박스 선택 : document.폼이름.셀렉트박스이름
+	// 셀렉트 박스 항목 선택 : document.폼이름.셀렉트박스이름.options[인덱스]
+	function info() {
+		// fruits2 셀렉트박스에서 선택한 항목에 대한 각종 속성 출력
+// 		alert(document.fr.fruits2.options[1].value + "\n"
+// 				+ document.fr.fruits2.options[1].selected + "\n"
+// 				+ document.fr.fruits2.options[1].text);
+		
+		// 첫번째 항목("과일을 선택하세요")이 선택되어 있을 경우 메세지 출력
+		if(document.fr.fruits2.options[0].selected) {
+			alert("과일 선택 필수!");
+			document.fr.fruits2.focus(); // 셀렉트박스에 포커스 요청
+		} else {
+			alert("과일 선택됨!");
+		}
+		
+	}
+	
+	function itemSelect() {
+		// 모든 항목을 탐색하여 selected 값이 true 인 값을 찾아서 텍스트박스에 출력
+// 		alert("과목 변경");
+		
+// 		if(document.fr.subject.options[0].selected) { // 과목을 선택하지 않았을 경우
+// 			alert("과목 선택 필수!");
+// 			document.fr.selectedSubject.value = "";
+// 		} else if(document.fr.subject.options[1].selected) {
+// 			document.fr.selectedSubject.value = document.fr.subject.options[1].value;
+// 		} else if(document.fr.subject.options[2].selected) {
+// 			document.fr.selectedSubject.value = document.fr.subject.options[2].value;
+// 		} else if(document.fr.subject.options[3].selected) {
+// 			document.fr.selectedSubject.value = document.fr.subject.options[3].value;
+// 		}
+
+		if(document.fr.subject.options[0].selected) { // 과목을 선택하지 않았을 경우
+			alert("과목 선택 필수!");
+			document.fr.selectedSubject.value = "";
+		} else {
+			// 과목을 선택했을 경우 셀렉트박스의 value 속성을 통해 선택된 값에 접근 가능
+			// => 선택된 값이 셀렉트박스의 value 속성에 자동으로 저장됨
+			document.fr.selectedSubject.value = document.fr.subject.value;
+		}
+		
+	}
+	
+	function check() {
+		// 과목이 선택되지 않았을 경우 "과목 선택 필수!" 출력 후 submit 동작 취소,
+		// 아니면 submit 동작 수행
+// 		if(document.fr.subject.value.options[0].selected) {} // 0번 항목 체크 시
+		if(document.fr.subject.value == "") { // 선택된 값이 "" 일 경우
+			alert("과목 선택 필수!");
+			document.fr.subject.focus();
+			return false; // submit 동작 취소
+		}
+		
+// 		return true; // 생략 가능
+	}
+</script>
+</head>
+<body>
+	<h1>test31.html</h1>
+	<!-- form 태그. 액션은 b.jsp, get 방식 메서드 지정, 폼 이름 fr -->
+	<!-- 일반 버튼 생성("확인") 클릭 시 info() 함수 호출 -->
+	<!-- submit 버튼 생성("전송") -->
+	<form action="b.jsp" method="get" name="fr" onsubmit="return check()">
+		<!-- 
+		셀렉트 박스(Select Box) - 콤보박스(Combo box) = 풀 다운 메뉴(Pull-down menu)
+		=> 여러 개의 항목을 목록으로 작성하고 목록 중 하나를 선택하는 요소
+		=> select 태그로 목록의 틀을 생성하고, option 태그로 목록의 항목을 생성
+		-->
+		<select name="fruits"> <!-- 데이터 전송 및 접근을 위한 name 속성 설정 -->
+			<!-- option 태그의 value 속성을 통해 데이터 지정하고, 태그 사이에 표시할 텍스트 지정 -->
+			<option value="Apple">사과</option> <!-- 사과 표시되고, Apple 전송됨 -->
+			<option value="Banana" selected="selected">바나나</option>
+			<option value="Lemon">레몬</option>
+		</select>
+		
+		<select name="fruits2"> <!-- 데이터 전송 및 접근을 위한 name 속성 설정 -->
+			<!-- 주로, 선택 여부를 확인하기 위해 기본값으로 아무것도 없는 값 표시 -->
+			<option value="">과일을 선택하세요</option>
+			<option value="Apple">사과</option>
+			<option value="Banana">바나나</option>
+			<option value="Lemon">레몬</option>
+		</select>
+		
+		<!-- select 태그의 size 속성 지정 시 리스트 박스로 변경(해당 크기만큼의 항목 표시 후 스크롤) -->
+		<select name="fruits3" size="2">
+			<option value="Apple">사과</option>
+			<option value="Banana">바나나</option>
+			<option value="Lemon">레몬</option>
+		</select>
+		
+		<select name="fruits4"> <!-- 데이터 전송 및 접근을 위한 name 속성 설정 -->
+			<!-- option 태그의 disabled 속성 지정 시 해당 항목 선택 불가 -->
+			<option value="">과일을 선택하세요</option>
+			<option value="Apple">사과</option>
+			<option value="Banana" disabled="disabled">바나나</option>
+			<option value="Lemon">레몬</option>
+		</select>
+		
+		<br>
+		<input type="button" value="확인" onclick="info()">
+		
+		<hr>
+		<!-- 셀렉트박스 항목 선택 시 동작할 이벤트 : onchange -->
+		<select name="subject" onchange="itemSelect()">
+			<option value="">수강할 과목을 선택하세요</option>
+			<option value="Java">자바</option>
+			<option value="JSP">JSP</option>
+			<option value="Oracle">오라클</option>
+		</select>
+		<input type="text" name="selectedSubject">
+		<hr>
+		<input type="submit" value="전송">
+	</form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

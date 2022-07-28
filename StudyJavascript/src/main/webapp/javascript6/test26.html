@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function checkId() {
+		// 텍스트 입력 상자 객체(HTMLInputElement) 가져오기
+		let idElement = document.getElementById("id");
+// 		alert(idElement); // [object HTMLInputElement]
+
+		// 입력 상자(id)에 입력된 텍스트(value 속성값) 가져오기
+		// => id 입력항목에 접근하기 위해 idElement 변수 사용 가능하므로
+		//    변수명.속성명을 통해 특정 속성에 접근도 가능
+		let id = idElement.value; // idElement 객체의 value 속성값 가져와서 저장
+// 		alert(id);
+		
+		// 결과를 출력할 span 태그 객체 가져오기(id 속성값 "idResult")
+		let idResult = document.getElementById("idResult");
+		
+		// if문을 사용하여 가져온 id 값이 "admin" 인지 판별
+		// => "admin" 과 일치할 경우 "이미 존재하는 아이디" 출력하고
+		//    아니면, "사용 가능한 아이디" 출력
+		// => 출력되는 메세지는 alert() 함수 대신 span 태그 영역에 텍스트로 출력
+		//    (객체명.innerHTML 속성 사용)
+		if(id == "admin") {
+// 			alert("이미 존재하는 아이디");
+			idResult.innerHTML = "이미 존재하는 아이디";
+			idResult.style.color = "RED";
+		} else {
+// 			alert("사용 가능한 아이디");
+			idResult.innerHTML = "사용 가능한 아이디";
+			idResult.style.color = "GREEN";
+		}
+	}
+	
+	function checkYear() {
+		// 생년월일의 연도(year) 입력 시 값 체크
+// 		let yearElement = document.getElementById("year");
+// 		let year = yearElement.value;
+		
+		// 위의 두 문장을 한 문장으로 결합
+		let year = document.getElementById("year").value;
+// 		alert(year);
+
+		// 입력받은 연도가 1900 ~ 2050 사이가 아닐 경우
+		// "연도가 올바르지 않습니다" 메세지를 span 태그(birthResult)에 출력
+// 		let spanBirthResult = document.getElementById("birthResult");
+// 		spanBirthResult.innerHTML = "aaaaa";
+// 		if(year >= 1900 && year <= 2050) { // year 값이 1900 이상 "이고" 2000 이하일 경우
+// 			document.getElementById("birthResult").innerHTML = "";
+// 		} else { // 잘못된 연도가 입력됐을 경우
+// 			document.getElementById("birthResult").innerHTML = "연도가 올바르지 않습니다!";
+// 		}
+
+		if(!(year >= 1900 && year <= 2050)) { // 잘못된 연도가 입력됐을 경우
+			document.getElementById("birthResult").innerHTML = "연도가 올바르지 않습니다!";
+		} else { // year 값이 1900 이상 "이고" 2000 이하일 경우
+			document.getElementById("birthResult").innerHTML = "";
+		}
+		
+	}
+</script>
+</head>
+<body>
+	<h1>test26.html</h1>
+	<table>
+		<tr><th align="left">아이디</th></tr>
+		<tr>
+			<td>
+				<!-- 텍스트 입력 후 포커스 이동(내용 변경) 시 checkId() 함수 호출 -->
+				<input type="text" size="30" id="id" onchange="checkId()"><br>
+				<span id="idResult"></span>
+			</td>
+		</tr>
+		<tr><th align="left">생년월일</th></tr>
+		<tr>
+			<td>
+				<!-- 텍스트 입력 후 포커스 이동(내용 변경) 시 checkId() 함수 호출 -->
+				<input type="text" size="7" id="year" maxlength="4" placeholder="년(4자)" onchange="checkYear()">
+				<input type="text" size="7" id="month" onchange="checkYear()">
+				<input type="text" size="7" id="day" onchange="checkYear()">
+				<br>
+				<span id="birthResult"></span>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

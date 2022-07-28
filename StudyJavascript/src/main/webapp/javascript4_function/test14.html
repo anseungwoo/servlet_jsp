@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/*
+	전달인자가 있는 함수(= 매개변수를 포함하는 함수)
+	=> 함수 호출 시 외부로부터 전달되는 값을 전달인자라고 하며
+	   전달인자가 있는 함수는 선언 시 매개변수를 통해 전달인자를 전달받아 저장하도록 해야함
+	*/
+	// showMessage() 함수 정의
+	// => 외부로부터 1개의 데이터를 전달받아 저장할 수 있는 text 변수 포함하여 정의
+	//    (주의! text 변수 선언 시 var, let 등 명시하지 않음 = 변수명만 지정)
+	function showMessage(text) {
+		// 외부에서 함수 호출 시 전달된 데이터는 text 변수에 저장되며
+		// 함수 내에서 text 변수를 자유롭게 사용 가능
+		// => 전달받은 데이터의 타입에 따라 변수 text 의 타입이 결정됨
+		// => 만약, 매개변수가 있지만 전달인자가 없을 경우 undefined 가 됨
+		alert("함수에 전달된 값 : " + text + ", 데이터타입 : " + typeof(text));
+	}
+	
+	// showMessage(text) 함수 호출 시 소괄호() 내부에 전달할 데이터(= 전달인자 = Argument) 지정
+	// => 소괄호 내부에 지정된 데이터는 함수 호출 시 선언부의 매개변수(파라미터) text 에 저장됨
+// 	showMessage("안녕하세요"); // 문자 데이터 전달 시 매개변수 text 가 string 타입이 됨
+// 	showMessage(500); // 숫자 데이터 전달 시 매개변수 text 가 number 타입이 됨
+// 	showMessage(); // 오류 발생하지 않음(자바에서는 오류 발생함)
+	
+	// 전달받을 데이터가 없을 경우를 대비하여 매개변수가 있는 함수에서 변수의 기본값 설정 가능
+	// => 전달인자가 있을 경우 해당 데이터로 변수값을 설정하고, 아니면 기본값으로 사용 됨
+	// 1. 함수에서 매개변수 선언 시점에 기본값을 설정하는 방법
+// 	function showMessage2(text = "전달받은 데이터 없음") {
+// 		alert("함수에 전달된 값 : " + text + ", 데이터타입 : " + typeof(text));
+// 	}
+	
+	// 2. 함수 내에서 전달받은 값이 undefined 일 경우 기본값을 설정하는 방법(= if 문 활용) 
+	function showMessage2(text) {
+		if(text == undefined) {
+			text = "전달받은 데이터 없음";
+		}
+		
+		alert("함수에 전달된 값 : " + text + ", 데이터타입 : " + typeof(text));
+	}
+	
+// 	showMessage2(500);
+// 	showMessage2();
+
+	// --------------------------------------------------------------------------
+	// 문자 1개를 전달받아 10번 반복 출력하는 함수 print() 정의
+	// ex) "Hello, World!" 전달 시 "Hello, World!" 가 10번 반복 출력
+	function print(msg) {
+		for(let i = 1; i <= 10; i++) {
+			document.write(msg + "<br>");
+		}
+	}
+	
+	print("자바스크립트");
+	
+	document.write("<hr>");
+	
+	// 1 ~ x 까지의 합을 계산하여 출력하는 함수 sum() 정의
+	// => 전달인자 : 함수 호출 시 최대값 x 를 전달 => 매개변수 x 를 선언하여 저장
+	// ex) 함수 호출 시 sum() 함수에 100 을 전달할 경우 1 ~ 100 까지의 합 = 5050 출력
+	function sum(x) {
+		// 합계 누적을 위한 누적변수 선언 및 초기화 필요
+		let total = 0;
+		
+		for(let i = 1; i <= x; i++) {
+			// 합계 누적
+			total += i;
+		}
+		
+		document.write("1 ~ " + x + "까지의 합 : " + total + "<br>");
+	}
+	
+	sum(10);
+</script>
+
+<!-- 외부 자바스크립트 파일 test14.js 포함시키기 -->
+<script src="test14.js"></script>
+<script type="text/javascript">
+	// 정수 1개를 전달받아 정답 확인을 수행하는 checkNumGame2() 함수 호출
+	// => 함수 호출 시 정수 1개를 전달인자로 지정
+// 	checkNumGame2(10);
+	
+	// 패스워드를 전달받아 기존 패스워드 비교하여 "1234" 일 경우 "패스워드 일치!" 출력하고
+	// 아니면, "패스워드 불일치!" 출력하는 checkPassword() 함수 호출
+// 	let passwd = prompt("패스워드를 입력하세요."); // 패스워드 입력받아 저장
+// 	checkPassword(passwd); // 입력받은 패스워드를 checkPassword() 함수 호출 시 전달
+
+	// test14.js 파일의 login() 함수를 호출하여 전달인자로 아이디(id)와 패스워드(passwd) 전달
+	// ex) 아이디 : 'admin', 패스워드 : '1234'
+	// => login() 함수 내에서 아이디(id)와 패스워드(password)를 전달받아 출력
+	//    ex) 입력하신 아이디는 admin 이고, 패스워드는 1234 입니다.
+	// => 그 다음 아이디와 패스워드 판별하여 결과 출력하기
+	//    ex) 아이디가 "admin" 이고 패스워드가 "1234" 일 경우 "로그인 성공!" 출력하고
+	//        아이디가 "admin" 이 아니면 "존재하지 않는 아이디!" 출력하고
+	//        아이디가 "admin" 이 맞으나 패스워드가 "1234" 가 아닐 경우 "패스워드 틀림!" 출력하기
+	login("admin", "1234");
+	// => function login(id, pass) {}
+</script>
+
+</head>
+<body>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

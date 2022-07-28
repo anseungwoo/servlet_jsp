@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>overflow</title>
+<link href="style.css" rel="stylesheet">
+<link href="overflow.css" rel="stylesheet">
+</head>
+<body>
+<h1>overflow 영역 밖의 내용 처리법</h1>
+<ul>
+ <li>overflow:visible; 기본값. 보임</li>
+ <li>overflow:hidden; 숨김</li>
+ <li>overflow:scroll; 항상 스크롤바 생성</li>
+ <li>overflow:auto; 필요에 따라 스크롤바 생성</li>
+</ul>
+
+<section id="sec01">
+ <h2>overflow:visible; 기본값. 보임</h2>
+ 
+ <p>overflow:visible; 기본값. 보임 <br>
+  <img alt="mail" src="img/mail02.jpg"></p>
+</section>
+
+<section id="sec02">
+ <h2>overflow:hidden; 숨김</h2>
+ 
+ <p>overflow:hidden; 숨김<br>
+  <img alt="mail" src="img/mail02.jpg"></p>
+</section>
+
+<section id="sec03">
+ <h2>overflow:scroll; 항상 스크롤바 생성</h2>
+ 
+ <p>overflow:scroll; 항상 스크롤바 생성<br>
+  <img alt="mail" src="img/mail02.jpg"></p>
+</section>
+
+<section id="sec04">
+ <h2>overflow:auto; 필요에 따라 스크롤바 생성</h2>
+ 
+ <p>overflow:auto; 필요에 따라 스크롤바 생성<br>
+  <img alt="mail" src="img/mail02.jpg"></p>
+</section>
+
+<aside>
+ <h2>영역 밖의 text를 말줄임표(...)로 표시하기</h2>
+ 
+  <ul>
+   <li>white-space: nowrap; 공백처리 - 자동 줄바꿈 금지   </li>
+   <li>overflow: hidden; 영역 밖의 내용 - 숨김</li>
+   <li>text-overflow: ellipsis; 
+                   영역 밖의 text - 말줄임표(...)로 표시</li>
+  </ul>
+ 
+ <p>게시판 등에서 한정된 공간에 글자가 길어서 영역을 넘을 때
+ 영역 밖의 글자를 말줄임표로 표시하기</p>
+</aside>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

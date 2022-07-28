@@ -1,10 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    	<%
-	// 폼 파라미터(아이디, 패스워드) 가져와서 변수에 저장
-	String id = request.getParameter("id");
-	String passwd = request.getParameter("passwd");
-	%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +8,11 @@
 </head>
 <body>
 	<h1>requestPro2.jsp</h1>
-
+	<%
+	// 폼 파라미터(아이디, 패스워드) 가져와서 변수에 저장
+	String id = request.getParameter("id");
+	String passwd = request.getParameter("passwd");
+	%>
 	<h3>아이디 : <%=id %></h3>
 	<h3>패스워드 : <%=passwd %></h3>
 	

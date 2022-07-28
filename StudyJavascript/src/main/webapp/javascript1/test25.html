@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function func1(){
+		document.write("호출출");
+	}
+	/*
+	documnet.getElementById()
+	- 문서 내의 지정한 id 값에 해당하는 태그를 객체로 리턴하는 함수
+	 (id 값이 지정된 특정 값)
+	*/
+	function func1(){
+		let header1 = document.getElementById("header-1");
+		header1.innerHTML = "getElementById() 에 의한 변경";
+		let header2 = document.getElementById("header-2");
+		header2.innerHTML = "값 변경됨";
+	}
+	
+	function func2(){
+		let header = document.getElementById("header");
+		header.innerHTML = "onload 이벤트에 의한 변경";
+	}
+	
+</script>
+</head> 
+<body onload = "func2()">
+	<h1 id = "header">test25.html</h1>
+	<h1 id = "header-1">Header-1</h1>
+	<h1 id = "header-2">Header-2</h1>
+	<input type="button" value = "Header 값 변경" onclick = "func1()">
+</body>
+</html>

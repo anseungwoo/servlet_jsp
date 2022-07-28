@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 
+외부 자바스크립트 파일을 현재 파일에서 불러오기 위해서는 
+script 태그 내의 src 속성을 사용하여 불러올 자바스크립트 파일을 지정해야한다!
+<script src="경로/파일명"></script>
+-->
+<!-- <script src="test3.js"></script> 현재 test3.html 폴더 내의 test3.js 파일 지정 -->
+
+<!-- 
+외부에서 파일 등을 불러올 때 경로 지정 방식
+1. 절대 경로 : 특정 자원의 위치를 절대적인 경로로 지정(인터넷 주소, 컴퓨터 디스크 내의 위치 등)
+   => 어느 위치에서라도 접근 가능한 형식의 경로(변하지 않는 경로)
+   ex) http://192.168.2.200:8080/Javascript1/test3.js
+
+2. 상대 경로 : 특정 자원의 위치를 어떤 대상을 기준으로 지정한 경로
+   => 현재 위치에 따라 경로가 변할 수 있음
+   1) ./ : 현재 자신(파일)이 위치한 폴더(디렉토리)를 기준으로 지정(./ 생략해도 동일)
+      ex) <script src="test3.js"></script> => 현재 폴더 내의 test3.js 파일 지정
+   2) ./하위폴더명/ : 현재 자신의 파일이 위치한 폴더 내의 하위폴더를 기준으로 지정(./ 생략해도 동일)
+      ex) <script src="./inside_js/test3_1.js"></script> => 하위 폴더 inside_js 폴더 내의 test3_1.js
+   3) ../ : 현재 자신의 파일이 위치한 폴더의 1단계 상위 폴더를 기준으로 지정
+   	  ex) <script src="../js/test3_2.js"></script> => 1단계 상위 폴더(webapp) 의 js 폴더 내의 test3_2.js
+   4) / : 현재 자신의 위치를 기준으로 최상위 폴더 지정
+      => 기본적으로 웹프로젝트의 최상위 폴더는 "http://주소/" 까지이다.  
+-->
+
+<!-- 절대경로 방식으로 test3.js 파일을 지정 -->
+<script src="http://localhost:8080/StudyJavascript/javascript1/test3.js">
+	// src 속성을 사용하여 외부 자바스크립트 파일을 불러올 경우
+	// script 태그 사이에 자바스크립트 코드를 작성해도 실행되지 않는다!
+	alert("src 속성 적용된 스크립트 내의 alert()"); // 실행되지 않는 코드
+</script>
+
+<!-- 별도의 script 태그를 사용하여 코드를 작성해야함 -->
+<script type="text/javascript">
+	alert("src 속성이 적용되지 않은 스크립트 내의 alert()"); // 실행되는 코드
+</script>
+
+<!-- 절대경로 방식으로 test3_1.js 파일을 지정 -->
+<!-- <script src="http://192.168.2.200:8080/StudyJavascript/javascript1/inside_js/test3_1.js"></script> -->
+
+<!-- 상대경로 방식으로 현재 폴더 내의 inside_js 폴더에 있는 test3_1.js 파일을 지정 -->
+<!-- <script src="./inside_js/test3_1.js"></script> -->
+
+<!-- 상대경로 방식으로 현재 폴더 상위 폴더 내의 js 폴더에 있는 test3_2.js 파일을 지정 -->
+<!-- <script src="../js/test3_2.js"></script> -->
+
+
+</head>
+<body>
+	<h1>test3.html</h1>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

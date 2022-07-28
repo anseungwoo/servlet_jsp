@@ -38,9 +38,20 @@ int insertCount = dao.insert(dto); // 데이터가 저장된 TestDTO 객체를 �
 	<%} else { %>
 		<h3>INSERT 작업 실패!</h3>
 	<%} %>
+	
 	<button onclick="location.href='test2.jsp?idx=<%=idx%>'">test2.jsp 로 이동</button>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
 
 
 

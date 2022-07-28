@@ -1,0 +1,150 @@
+@charset "UTF-8";
+
+ nav li {background-color: red;
+  display: inline-block /* 메뉴를 가로로 배치 */;
+  width: 120px; height: 30px;
+  text-align: center;
+  line-height: 30px /* 행간값=높이값으로
+  수직중앙에 정렬 */;
+  vertical-align: top;}
+  
+ #sub {display: none /* 서브메뉴 숨김 */;} 
+ #mn01:hover>#sub {display: block 
+  /* 주메뉴에 오버시 서브메뉴 나타남 */;}
+ 
+ #sub>li {width: 60px; height: 20px;}
+ #sub a {width: 60px; height: 20px;
+ line-height: 20px;}
+ 
+ nav a {/* border: 1px solid blue; */
+  width: 120px; height: 30px;
+  display: block /* 링크의 영역크기 지정용 */;
+  text-decoration: none /* 글자밑줄제거 */;}
+  
+  
+ nav a:link,  nav a:visited {
+  /* 1.링크의 평상시 상태지정(초기링크,방문한링크)
+ 소스상 반드시 2보다 1이 위에 있어야하며 2만 있으면 안됨 */
+  color: #fff;}
+  
+ nav a:hover,  nav a:active {
+  /* 2.링크의 변화시 상태지정(마우스오버,활성화링크) */
+  color: #333;
+  text-indent: 0.5em;}
+
+
+
+ /* 1. display:inline; 적용*/
+#sec01>p, #sec01>div, #sec01>form {
+border: 1px solid red;
+width: 300px; height: 50px;
+margin: 30px;
+display: inline;}
+
+#sec01:hover>p, #sec01:hover>div,
+ #sec01:hover>form {display:block;}
+
+
+
+ /* 2. display:block;적용 */
+#sec02>a, #sec02>b, #sec02>span {
+	border: 1px solid blue;
+	width: 300px; height: 50px;
+	margin: 30px;
+	display: block; }
+	
+#sec02:hover>a, #sec02:hover>b, #sec02:hover>span {
+	display: inline;} 
+
+
+
+ /* 3.display:inline-block;  */
+/* 
+ 
+* {margin: 0; padding: 0; }
+ 전체선택자로 css초기화 
+ 
+ */
+#sec03>*:not(h2) {
+ /* 부정선택자 A:not(B)는
+  B를 제외한 A를 불러옴 */
+	border: 1px solid green;
+ width: 300px; height: 50px;
+ margin: 30px;	
+display: inline-block;} 
+
+#sec04, #sec05 {
+	display:inline-block; 
+	vertical-align:top
+ /* 높이값이 서로 다른 inline요소들끼리의  
+  수직방향 정렬 */; }
+
+ /* 4. display:none; 화면에서 숨김 */
+h2>span {color:#a00;
+	font-size: 0.7em;}
+
+#sec04>form {
+	background-color: #a77;
+	display: none;}
+
+#sec04>div:hover+form {
+/* 형제관계선택자 중 A+B는 인접형제선택자 
+ A의 바로 뒤에 오는 형제관계인 B를 불러옴 */
+	display: block;}
+	
+#sec04>p:hover~a {
+/* 형제관계선택자 중 A~B는 형제선택자 
+ A의 뒤에 오는 모든 형제관계 B를 불러옴 */
+	border: 3px solid #46a;}	
+	
+	
+	
+
+#sec04>b {background-color: #77a;
+	display: none;}
+
+#sec04>a:hover+b {
+ display:inline;}
+ 
+ 
+  /* 5. visibility:hidden; */
+#sec05 {background-color: #eee;}
+
+#sec05>form {
+	background-color: #a77;
+	visibility:hidden; }
+	
+#sec05:hover>form {
+	visibility: visible;}	
+
+#sec05>b {
+	background-color: #77a;
+	visibility: hidden;}
+
+#sec05:hover>b {
+	visibility: visible;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

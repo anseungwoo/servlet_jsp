@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/*
+	while 문
+	- for문과 동작 방식은 동일하나 문법적인 구조가 다른 반복문
+	  => 조건식의 위치만 동일(고정)하고 초기식과 증감식의 위치는 달라짐(유동적)
+	
+    < 기본 문법 >
+    초기식; // while 문보다 윗쪽(앞쪽)에 위치
+    
+    while(조건식) {
+ 	   // 조건식 판별 결과가 true 일 때 반복 실행할 문장들...
+       증감식; // while 문 내부에 위치
+    }
+	*/
+	
+	// for문을 사용하여 제어변수 i가 1부터 시작해서 5까지 1씩 증가하면서 반복
+	for(var i = 1; i <= 5; i++) { // 초기식; 조건식; 증감식
+		document.write("Hello, World!<br>");
+	}
+	
+	document.write("for문 종료 후 i값 = " + i);
+	document.write("<hr>");
+	
+	// while 문을 사용하여 for 문과 동일한 작업 수행
+	var i = 1; // 초기식
+	while(i <= 5) { // 조건식
+		document.write("Hello, World!<br>"); // 반복 실행할 문장
+		i++; // 증감식
+	}
+	
+	document.write("while문 종료 후 i값 = " + i);
+	document.write("<hr>");
+	
+	// 반복문을 사용하여 table 태그 작성
+	document.write("<table border='1'>");
+	document.write("<tr>");
+	document.write("<th>번호</th>");
+	document.write("<th>이름</th>");
+	document.write("<th>아이디</th>");
+	document.write("</tr>");
+	
+	// for문을 사용하여 1개 레코드(1명의 데이터) 출력 내용을 반복
+	// => 단, 반복할 데이터가 존재하지 않으므로 동일한 데이터로 반복(임시)
+	// => for문을 통해 제어변수 i가 1부터 3까지 1씩 증가하면서 반복
+// 	for(var i = 1; i <= 3; i++) {
+// 		document.write("<tr>");
+// 		document.write("<td>1</td>");
+// 		document.write("<td>홍길동</td>");
+// 		document.write("<td>hong</td>");
+// 		document.write("</tr>");
+// 	}
+	
+	// while문을 사용하여 1개 레코드(1명의 데이터) 출력 내용을 반복
+	var i = 1;
+	
+	while(i <= 3) {
+		document.write("<tr>");
+		document.write("<td>2</td>");
+		document.write("<td>이순신</td>");
+		document.write("<td>leess</td>");
+		document.write("</tr>");
+		i++;
+	}
+	
+	document.write("</table>");
+	
+</script>
+</head>
+<body>
+	<hr>
+	<table border="1">
+		<tr>
+			<th>번호</th>
+			<th>이름</th>
+			<th>아이디</th>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>홍길동</td>
+			<td>hong</td>
+		</tr>
+		<tr>
+			<td>2</td>
+			<td>이순신</td>
+			<td>leess</td>
+		</tr>
+		<tr>
+			<td>3</td>
+			<td>강감찬</td>
+			<td>kang</td>
+		</tr>
+	</table>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

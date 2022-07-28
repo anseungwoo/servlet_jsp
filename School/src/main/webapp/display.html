@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>display</title>
+<link href="style.css" rel="stylesheet">
+<link href="display.css" rel="stylesheet">
+</head>
+<body>
+<nav>
+ <ul>
+  <li id="mn01"><a href="#sec01">menu01</a>
+   <ul id="sub">
+    <li><a href="#">sub01</a></li> 
+    <li><a href="#">sub02</a></li>
+   </ul>
+  </li>
+  <li><a href="#sec02">menu02</a></li>
+  <li><a href="#sec03">menu03</a></li>
+  <li><a href="#sec04">menu04</a></li> 
+ </ul>
+</nav>
+
+
+<h1>display 요소가 나타나는 방식(성격) 지정</h1>
+<p>
+ tag를 box-model이라 하며 크게 inline과 block으로 나뉨.<br>
+ inline은 한 줄에 나란히 오며(자동으로 줄이 안바뀜) 
+ 크기 적용 불가, 상하 margin 적용 불가.<br> 
+ block은 한 줄에 나란히 올 수 없고(자동으로 줄이 바뀜)
+  크기와 양사방 margin 모두 가능.
+</p>
+
+<h2>display</h2>
+ <ul>
+  <li>display:inline; block인 요소를 inline로 바꿈</li>
+  <li>display:block; inline인 요소를 block로 바꿈</li>
+  <li>display:inline-block; 어떤 요소든지 
+      inline과 block의 성격을 합친 요소로 바꿈. <br>
+      <b>한 줄에 나란히 오면서 크기와 양사방 margin 모두 가능</b>
+  </li>
+  <li>display:none; 요소를 화면에서 숨김</li>
+ </ul>
+ 
+ <section id="sec01">
+  <h2>display:inline; block인 요소를 inline로 </h2>
+ 
+  <p>block인 p</p>
+  <div>block인 div</div>
+  <form action="">block인 form</form>
+ </section>
+ 
+ <section id="sec02">
+  <h2>display:block; inline인 요소를 block로</h2>
+  
+  <a href="#">inline인 a</a>
+  <b>inline인 b</b>
+  <span>inline인 span</span>
+ </section>
+ 
+ 
+ <section id="sec03">
+  <h2>display:inline-block; 
+  어떤 요소든지 inline과 block의 성격을 합친 요소로</h2>
+ 
+  <p>block인 p</p>
+  <div>block인 div</div>
+  <form action="">block인 form</form>
+
+  <a href="#">inline인 a</a>
+  <b>inline인 b</b>
+  <span>inline인 span</span>
+ </section>
+ 
+ <section id="sec04">
+  <h2>display:none; 요소를 화면에서 숨김 <span>(영역까지 사라짐)</span>   </h2>
+ 
+  <p>block인 p</p>
+  <div>block인 div</div>
+  <form action="">block인 form</form>
+
+  <a href="#">inline인 a</a>
+  <b>inline인 b</b>
+  <span>inline인 span</span>
+ </section> 
+ 
+ <section id="sec05">
+  <h2>visibility:hidden; <span>(영역을 남기고)</span>
+    요소를 화면에서 숨김   </h2>
+ 
+  <p>block인 p</p>
+  <div>block인 div</div>
+  <form action="">block인 form</form>
+
+  <a href="#">inline인 a</a>
+  <b>inline인 b</b>
+  <span>inline인 span</span>
+ </section>  
+ 
+ 
+ 
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

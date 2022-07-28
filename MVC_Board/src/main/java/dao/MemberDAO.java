@@ -4,62 +4,124 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
-import db.JdbcUtill;
 import vo.MemberDTO;
 
-import static db.JdbcUtill.*;
+import static db.JdbcUtil.close;
 
 
 public class MemberDAO {
-	private static MemberDAO instance =new MemberDAO();
-	private static Connection con;
-	public void setConnection(Connection con) {
-		this.con=con; 
-	}
+	// 1. 멤버변수 선언 및 인스턴스 생성
+	private static MemberDAO instance = new MemberDAO();
+	// 2. 생성자 정의
 	private MemberDAO() {}
+	// 3. Getter 정의(자동 생성)
 	public static MemberDAO getInstance() {
 		return instance;
 	}
-	public int selectMember() {
-		return 0;
+	// ----------------------------------------------------------------------------------------
+	// 외부(Service 클래스)로부터 Connection 객체를 전달받아 관리하기 위해
+	// Connection 타입 멤버변수와 Setter 메서드 정의
+	private Connection con;
+	public void setConnection(Connection con) {
+		this.con = con;
 	}
-	public int insertMember(MemberDTO dto) {
+	// ----------------------------------------------------------------------------------------
+	// 아이디 중복 체크
+	public boolean selectDuplicateId(String id) {
+		boolean isDuplicate = false;
+		
 		PreparedStatement pstmt = null;
+		ResultSet rs = null;
 		
-		System.out.println("insertMember");
-		int insertCount = 0;
-		String sql = "";
-	
 		try {
-			sql = "INSERT INTO member VALUES (?,?,?,?,?,?,?,?,now())";
+			String sql = "SELECT id FROM member WHERE id=?";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, dto.getMember_name());
-			pstmt.setString(2, dto.getMember_id());
-			pstmt.setString(3, dto.getMember_pass()); 
-			pstmt.setString(4, dto.getMember_email());
-			pstmt.setString(5, dto.getMember_post_code());
-			pstmt.setString(6, dto.getMember_address1());
-			pstmt.setString(7, dto.getMember_address2());
+			pstmt.setString(1, id);
 			
-		
-			insertCount = pstmt.executeUpdate();
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) { // 아이디가 이미 존재할 경우
+				isDuplicate = true;
+			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}finally {
-		
+			System.out.println("MemberDAO - selectDuplicateId() 메서드 오류 : " + e.getMessage());
+		} finally {
+			close(rs);
 			close(pstmt);
 		}
 		
+		return isDuplicate;
+	}
+	
+	// 회원 가입
+	public int insertMember(MemberDTO member) {
+		int insertCount = 0;
+		
+		PreparedStatement pstmt = null;
+		
+		try {
+			String sql = "INSERT INTO member VALUES (?,?,?,?,?,?,?,now())";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, member.getName());
+			pstmt.setString(2, member.getId());
+			pstmt.setString(3, member.getPasswd());
+			pstmt.setString(4, member.getEmail());
+			pstmt.setString(5, member.getPost_code());
+			pstmt.setString(6, member.getAddress1());
+			pstmt.setString(7, member.getAddress2());
+			
+			insertCount = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("MemberDAO - insertMember() 메서드 오류 : " + e.getMessage());
+		} finally {
+			close(pstmt);
+		}
 		
 		return insertCount;
+	}
+	
+	// 로그인
+	public boolean selectMember(MemberDTO member) {
+		boolean isLoginSuccess = false;
 		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			String sql = "SELECT * FROM member WHERE id=? AND passwd=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, member.getId());
+			pstmt.setString(2, member.getPasswd());
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				isLoginSuccess =  true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("MemberDAO - selectMember() 메서드 오류 : " + e.getMessage());
+		} finally {
+			close(pstmt);
+			close(rs);
+		}
+		
+		return isLoginSuccess;
 	}
-	public int selectMemberList() {
-		return 0;
-	}
-
+		
 }
+
+
+
+
+
+
+
+
+
+
+
+

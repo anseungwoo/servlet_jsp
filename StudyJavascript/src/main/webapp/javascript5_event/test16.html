@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	// alert() 함수를 사용하여 "버튼3 클릭됨" 을 출력하는 btnClick3() 함수 정의
+	// => 전달인자 없음, 리턴값 없음
+	function btnClick3() {
+		alert("버튼3 클릭됨!");
+	}
+	
+	function btnClick4() {
+		alert("버튼4 클릭됨!");
+	}
+	
+	function btnClick5(msg) {
+		alert(msg + " 클릭됨!");
+	}
+	
+	function go() {
+		// 입력 다이얼로그(prompt)를 통해 "이동할 페이지 URL 입력" 메세지를 출력하고 
+		// 입력되는 주소(URL) 을 전달받아 변수 url 에 저장
+		let url = prompt("이동할 페이지 URL 입력");
+		alert(url);
+		
+		// location.href 속성을 통해 입력받은 URL 로 이동
+		location.href = url; // 입력받은 주소가 저장된 url 변수값을 사용하여 이동
+	}
+</script>
+</head>
+<body>
+	<h1>javascript/test16.html</h1>
+	<!-- 
+	버튼을 생성하고, 버튼 클릭 시 이벤트에 대한 처리를 수행하는 기본적인 방법
+	=> input 태그의 type="button" 속성 뒤에 onclick="자바스크립트함수()"
+	-->
+	<!-- 자바스크립트 내장함수를 호출할 경우 -->
+	<input type="button" value="버튼1" onclick="alert('버튼1 클릭됨')">
+	<!-- => [버튼1] 버튼 클릭 시 alert() 함수가 호출되어 "버튼1 클릭됨" 메세지 출력됨  -->
+	<input type="button" value="버튼2" onclick="alert('버튼2 클릭됨')">
+	<!-- => [버튼2] 버튼 클릭 시 alert() 함수가 호출되어 "버튼2 클릭됨" 메세지 출력됨  -->
+	<hr>
+	
+	<!-- 자바스크립트 사용자정의 함수를 호출할 경우 -->
+	<input type="button" value="버튼3" onclick="btnClick3()">
+	<!-- => [버튼3] 버튼 클릭 시 btnClick3() 함수가 호출되어 "버튼3 클릭됨" 메세지 출력됨  -->
+	<input type="button" value="버튼4" onclick="btnClick4()">
+	<!-- => [버튼4] 버튼 클릭 시 btnClick4() 함수가 호출되어 "버튼4 클릭됨" 메세지 출력됨  -->
+	<hr>
+	
+	<!-- 자바스크립트 사용자정의 함수를 호출할 경우(함수 호출 시 전달인자를 전달하는 경우) -->
+	<input type="button" value="버튼5" onclick="btnClick5('버튼5')">
+	<!-- 기존에 정의된 함수를 다른 버튼에서도 호출 가능함 -->
+	<input type="button" value="버튼6" onclick="btnClick5('버튼6')">
+	<hr>
+	
+	<!-- '클릭' 동작 외에도 다양한 동작을 버튼에 지정 가능(버튼을 대상으로 xxx 동작을 수행) -->
+	<input type="button" value="더블버튼6" ondblclick="alert('버튼6 더블클릭됨!')">
+	<input type="button" value="버튼7(mouseover)" onmouseover="alert('버튼7 mouseover!')">
+	<input type="button" value="버튼8(mouseout)" onmouseout="alert('버튼8 mouseout!')">
+	<!-- mouseover & mouseenter, mouseout & mouseleave 이벤트는 동작 비슷함 -->
+	<!-- 하나의 컴포넌트에 복수개의 이벤트 연결 가능 -->
+	<input type="button" value="버튼9(mouseover&mouseout)" 
+			onmouseover="alert('버튼9 mouseover!')" onmouseout="alert('버튼9 mouseout!')">
+	<hr>
+	<!-- ================================================================================ -->
+	<!-- 버튼 또는 텍스트를 클릭 시 지정된 페이지로 이동하는 방법 -->
+	<!-- 1. 하이퍼링크(a 태그)를 사용하여 이동 -->
+	<!-- < 기본 문법 > <a href="이동할위치(주소)">클릭 대상이 될 텍스트 또는 태그</a> -->
+	<a href="http://www.itwillbs.co.kr">아이티윌 부산교육센터</a><br>
+	<a href="http://www.naver.com">네이버</a><br>
+	<a href="http://www.naver.com"><input type="button" value="네이버"></a><br>
+	<a href="https://nid.naver.com/nidlogin.login?mode=form&url=https%3A%2F%2Fwww.naver.com">
+		<input type="button" value="NAVER 로그인" style="color: white; background-color: #33AA00">
+	</a><br>
+	<hr>
+	
+	<!-- 2. 자바스크립트를 사용하여 이동 -->
+	<!-- < 기본 문법 > onclick 속성값으로 "location.href='이동할위치(주소)'" -->
+	<input type="button" value="아이티윌 부산교육센터" onclick="location.href='http://www.itwillbs.co.kr'">
+	<input type="button" value="네이버" onclick="location.href='http://www.naver.com'">
+	<!-- 자바스크립트를 사용하여 이동할 때 별도의 함수를 호출할 경우 -->
+	<input type="button" value="페이지 이동" onclick="go()">
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

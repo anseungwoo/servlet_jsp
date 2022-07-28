@@ -1,0 +1,193 @@
+@charset "UTF-8";
+
+html {scroll-behavior:smooth
+/* 부드러운 스크롤 이동 */;}
+
+h2>span {
+background-color:#36c;	
+font-size: 0.7em;	
+color: #fff;}
+
+section {margin: 8em 1em;}
+
+ /* 1. position:static; */
+#sec01>div {
+border: 1px solid red;
+width: 200px;
+position: static;
+left: 800px;}
+
+ /* 2. position:relative; */
+#sec02>div {border: 1px solid red;
+width: 200px;}
+
+#sec02:hover>div {position: static;}
+
+.rel01 {position: relative;
+left: 800px;}
+
+.rel02 {position: relative;
+right: 200px;
+text-align: right;}
+
+.rel03 {position: relative;
+bottom: 250px;}
+
+.rel04 {position: relative;
+top: 200px;}
+
+.rel05 {position: relative;
+left: 600px; 
+bottom: 400px;}
+
+.rel06 {position: relative;
+ left: 300px;
+ top: 100px;}
+
+
+ /* 3. position:absolute; */
+#sec03 {position: relative
+  /* 기준이 될 상위요소의 설정값 */;
+  height: 500px;}
+ 
+ 
+#sec03>div {
+border: 1px solid blue;
+width: 200px;}
+
+.ab01 {position: absolute;
+left: 200px;}
+
+.ab02 {position: absolute;
+right: 200px;}
+
+.ab03 {position: absolute;
+top:200px;}
+
+
+.ab04 {position: absolute;
+bottom: 200px;}
+
+.ab05 {position: absolute;
+right: 0; bottom: 0;}
+.ab06 {position: absolute;
+left: 50%; top:50%;}
+
+
+#sec03>p {border: 1px solid;
+width: 100px; height: 100px;
+box-sizing:border-box;
+border-radius:10px;
+margin: 0;
+position: absolute;
+left: 0; bottom: 0;}
+
+#sec03:hover>p {transition:1s;}
+
+.p-1 {background-color: #ae9;
+z-index: 102;}
+.p-2 {background-color: #a9e;
+z-index: 101;}
+.p-3 {background-color: #ea9;
+z-index: 100;}
+.p-4 {background-color: #e9a;
+z-index: 99;}
+
+
+#sec03:hover>.p-2 {
+left: 100px; }
+
+#sec03:hover>.p-3 {
+ 	left:200px; }
+
+#sec03:hover>.p-4 {
+	left: 300px;}
+
+
+
+ /* 4. position:fixed; */
+#quick {border-top:16px solid #f00;
+border-radius:16px 0 0 0 ;
+background-color: #000;	
+width: 150px;
+padding-left:0.5em;
+box-sizing:border-box;
+line-height: 2
+/* 줄간격(행간) - 글자높이의 ~배 */;
+position: fixed;
+right: 0;
+bottom: -160px;}
+
+#quick:hover {bottom:0;
+transition:0.7s;}
+
+#quick a {/* border: 1px solid; */
+display: block;}
+
+#quick a:link, #quick a:visited {
+	text-decoration:none;
+	color: #fff;}
+#quick a:hover, #quick a:active {
+	color: #f00;}
+
+
+
+ /* 5. position:sticky; */
+#sec04 {
+background-color: rgba(190,190,190,1);
+position: sticky;
+top:20px;
+z-index: 9999;}
+
+#sec04:hover {
+background-color: rgba(190,190,190,0.7)
+/* rgba(n,n,n,n)는 컬러에 투명도를 지정.
+ a의 값을 0~1사이로 적용(0일 때 완전투명)
+ */;}
+
+
+
+#as {/* border: 1px solid red; */
+width: 320px;
+height: 225px;
+margin: 5em auto;
+position: relative;
+overflow: hidden;}
+
+#text {/* border: 1px solid blue; */
+ text-transform: uppercase;
+ text-align: center;
+ font-size: 1.5em;
+ font-weight: bold;
+ color: #04a;
+ position: absolute;
+ bottom: -50px;
+ left: 140px;
+ z-index: 50;}
+
+#as:hover>#text { bottom: 100px;
+transition:0.8s;}
+
+#ph {/* border: 1px solid skyblue; */
+z-index: 49;}
+
+#ph>img {width: 150%;
+ opacity: 0.3;}
+
+#as:hover img {width: 100%;
+ opacity:1;
+ transition:1s;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

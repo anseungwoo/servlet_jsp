@@ -5,7 +5,6 @@ import java.io.PrintWriter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import svc.BoardDeleteProService;
 import svc.BoardModifyProService;
 import vo.ActionForward;
 import vo.BoardDTO;
@@ -14,59 +13,56 @@ public class BoardModifyProAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println("BoardDeleteProAction");
+		System.out.println("BoardModifyProAction");
+		
 		ActionForward forward = null;
 		
-		// 전달받은 파라미터 가져오기(페이지번호 제외)
-		int board_num = Integer.parseInt(request.getParameter("board_num"));
-		String board_pass = request.getParameter("board_pass");
-		String board_name =request.getParameter("board_name");
-		String board_subject =request.getParameter("board_subject");
-		String board_content =request.getParameter("board_content");
-		String board_file =request.getParameter("board_file");
-		BoardDTO dto=new BoardDTO();
-		dto.setBoard_name(board_name);
-		dto.setBoard_num(board_num);
-		dto.setBoard_subject(board_subject);
-		dto.setBoard_content(board_content);
-		dto.setBoard_file(board_file);
-		dto.setBoard_pass(board_pass);
+		// 파라미터 가져와서 변수에 저장
+		BoardDTO board = new BoardDTO();
+		board.setBoard_num(Integer.parseInt(request.getParameter("board_num")));
+		board.setBoard_name(request.getParameter("board_name"));
+		board.setBoard_pass(request.getParameter("board_pass"));
+		board.setBoard_subject(request.getParameter("board_subject"));
+		board.setBoard_content(request.getParameter("board_content"));
+//		System.out.println(board);
 		
-		// BoardDeleteProService - isBoardWriter() 메서드를 호출하여 삭제 권한 판별 요청
-		// => 파라미터 : 글번호, 패스워드    리턴타입 : boolean(isBoardWriter)
+		// 게시물 수정 권한 판별을 위해 전달받은 파라미터 중 패스워드 비교
+		// => BoardModifyProService 의 isBoardWriter() 메서드를 호출
+		//    파라미터 : 글번호, 패스워드    리턴타입 : boolean(isBoardWriter)
+		// => 작업 내용은 BoardDeleteProService 의 isBoardWriter() 와 동일
 		BoardModifyProService service = new BoardModifyProService();
-		boolean isBoardWriter = service.isBoardWriter(board_num, board_pass);
-		 
-		// 삭제 권한 판별 결과에 따른 작업 수행
-		// 패스워드가 일치하지 않을 경우(= 권한 없을 경우)
-		// 자바스크립트를 사용하여 "삭제 권한이 없습니다!" 출력 후 이전페이지로 돌아가기
+		boolean isBoardWriter = service.isBoardWriter(board.getBoard_num(), board.getBoard_pass());
+		
+		// 수정 가능 여부 판별(isBoardWriter 변수값 판별)
+		// => 패스워드가 일치하지 않았을 경우(= isBoardWriter 가 false)
+		//    자바스크립트를 사용하여 "수정 권한 없음" 출력 후 이전페이지로 돌아가기
+		// => 아니면, "수정 권한 있음" 출력
 		if(!isBoardWriter) {
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
-			out.println("alert('수정 권한이 없습니다!')");
+			out.println("alert('수정 권한 없음!')");
 			out.println("history.back()");
 			out.println("</script>");
-		} else { // 아니면(패스워드 일치할 경우 = 권한 있을 경우)
-			// BoardDeleteProService - removeBoard() 메서드를 호출하여 삭제 요청
-			// => 파라미터 : 글번호    리턴타입 : boolean(isDeleteSuccess)
-			// (BoardDAO - deleteBoard())
-			boolean isModfiySuccess = service.updateBoard(dto);
+		} else { // 패스워드가 일치할 경우
+			// BoardModifyProService 의 modifyBoard() 메서드 호출하여 글수정 작업 요청
+			// => 파라미터 : BoardDTO 객체    리턴타입 : boolean(isModifySuccess)
+			boolean isModifySuccess = service.modifyBoard(board);
 			
-			// 삭제 결과 판별
-			// 삭제 실패 시 자바스크립트로 "삭제 실패!" 출력 후 이전페이지로 돌아가기
-			if(!isModfiySuccess) {
+			// 글 수정 작업 결과 판별
+			// 실패 시 자바스크립트를 사용하여 "글 수정 실패!" 출력 후 이전페이지로 돌아가기
+			// 성공 시 ActionForward 객체 생성하여 BoardDetail.bo 페이지 요청
+			// => 파라미터 : 글번호, 페이지번호
+			if(!isModifySuccess) {
 				response.setContentType("text/html; charset=UTF-8");
 				PrintWriter out = response.getWriter();
 				out.println("<script>");
-				out.println("alert('수정 실패!')");
+				out.println("alert('글 수정 실패!')");
 				out.println("history.back()");
 				out.println("</script>");
 			} else {
-				// 글목록(BoardList.bo) 페이지 요청 => 페이지번호 전달
-				
 				forward = new ActionForward();
-				forward.setPath("BoardDetail.bo?pageNum=" + request.getParameter("pageNum")+"&board_num="+request.getParameter("board_num"));
+				forward.setPath("BoardDetail.bo?board_num=" + board.getBoard_num() + "&pageNum=" + request.getParameter("pageNum"));
 				forward.setRedirect(true);
 			}
 		}
@@ -75,6 +71,10 @@ public class BoardModifyProAction implements Action {
 	}
 
 }
+
+
+
+
 
 
 

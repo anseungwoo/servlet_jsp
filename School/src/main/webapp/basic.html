@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>css basic</title>
+<link href="basic.css" rel="stylesheet">
+
+<style type="text/css">
+ h1 {color: orange;}
+ 
+ h2 {color: lime;}
+ 
+ p {background-color: black;
+  padding: 1em; }
+ 
+ #p01 {width:400px; }
+ 
+ #p02 {width: 200px;}
+ 
+ .sp {background-color:white;
+  padding:3px;
+  font-size: 17px;
+  font-weight:bold;
+  color: black; }
+  
+ .spa {background-color: gray;
+  padding:3px;
+  font-size: 17px;
+  font-weight: bold; }  
+  
+ .gr {color: green;} 
+ .bl {color: blue;}
+ .re {color: red;}
+  
+</style>
+</head>
+<body style="background-color: olive;color: white;">
+<h1>css basic</h1>
+<p id="p01">
+ Cascading Style Sheets의 약자. <br>
+ HTML 요소가 화면에 표시되는 방식을 설명.
+</p>
+<!-- ctrl + F11 미리보기 실행 -->
+<!-- http://www.csszengarden.com/ 다양한 css적용사례-->
+<h2>css 문법</h2>
+ <p id="p02">선택자 {속성:속성값;}</p>
+ 
+<h2>css선택자(Selector)의 종류 대표 3가지</h2>
+ <ul>
+  <li><span class="sp">tag선택자</span> - tag그대로를 선택자로 활용. <br> 강제적용, 자동적용.</li>
+  <li><span class="sp">id선택자</span> - tag에 id를 추가하고 #id값으로 선택자로 활용. <br> 
+    id값이 중복적용 불가하므로 해당 스타일도 한번만 적용가능. 주로 구조적인 용도에 쓰임.
+  </li> 
+  <li><span class="sp">class선택자</span> - tag에 class를 추가하고 .class값으로 선택자로 활용. <br> 
+   class값이 중복적용이 가능하므로 해당 스타일도 여러번 적용가능. 주로 디자인적인 용도에 쓰임. <br>
+   class끼리 조합도 가능.
+  </li>
+ </ul>
+
+<h2>css적용방식 3가지</h2>
+ <ul>
+  <li><span class="spa gr">External 방식</span> - 외부파일 방식. <br>
+   확장자가 *.css로 끝나는 스타일파일 안에 스타일소스를 정의하고.<br> 
+   html문서의 head안에 &lt;link href="*.css" rel="stylesheet"&gt;로
+   외부스타일시트를 연결하여 적용. <br>
+   여러 웹페이지를 같은 디자인(통일성)으로 구성할 수 있고 수정도 가능(유지보수 유리) 
+  </li>
+  <li><span class="spa bl">Internal 방식</span> - 내장 방식. <br>
+   html문서의 head안에 스타일소스를 적용.<br>
+   해당 웹페이지에만 적용됨.
+  </li>
+  <li><span class="spa re">Inline 방식</span> - 인라인 방식. <br>
+   tag뒤에 바로 스타일소스를 적용. 소스가 길어지고 통일성 있는 디자인이 불가하며 유지보수에 불리.
+   <br>우선순위는 가장 높음. 본문내의 태그만 수정가능한 환경에서 주로 쓰임.
+  </li>
+ </ul>
+
+
+
+
+</body>
+</html>
+
+
+

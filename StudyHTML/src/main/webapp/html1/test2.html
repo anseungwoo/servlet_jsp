@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- form 태그에 method 속성을 명시하지 않을 경우 GET 방식(method="get") 으로 동작 -->
+	<form action="test2_result.html">
+		<!-- 폼 태그 내의 요소들을 다른 페이지로 전송하고 해당 데이터를 가져오려면 name 속성 필수! -->
+		<!-- input type="text" 등의 입력 항목은 데이터 작성하지 않으면 파라미터명만 전송됨 -->
+		<!-- check 박스 항목은 미체크 시 파라미터 자체가 전송되지 않음 -->
+		<input type="text" placeholder="아이디" name="id"><br>
+		<input type="password" placeholder="비밀번호" name="passwd"><br>
+		<input type="checkbox" id="login" name="rememberLogin"><label for="login">로그인 상태 유지</label><br>
+		<input type="submit" value="로그인">
+	</form>
+	
+	<hr>
+	
+	<!-- method 속성에 "get" 명시할 경우 입력된 데이터가 URL 파라미터로 전달됨(주소창에 표시됨) -->
+	<!-- ex) http://localhost:8080/StudyHTML/html1/test2_result.jsp?id=admin&passwd=1234 -->
+	<form action="test2_result.jsp" method="get">
+		<input type="text" placeholder="아이디" name="id"><br>
+		<input type="password" placeholder="비밀번호" name="passwd"><br>
+		<input type="checkbox" id="login" name="rememberLogin"><label for="login">로그인 상태 유지</label><br>
+		<input type="submit" value="로그인(GET)">
+	</form>
+		
+	<hr>
+	
+	<!-- method 속성에 "post" 명시할 경우 입력된 데이터가 URL(주소창)에 표시되지 않음 -->
+	<!-- ex) http://localhost:8080/StudyHTML/html1/test2_result.jsp -->
+	<form action="test2_result.jsp" method="post">
+		<input type="text" placeholder="아이디" name="id"><br>
+		<input type="password" placeholder="비밀번호" name="passwd"><br>
+		<input type="checkbox" id="login" name="rememberLogin"><label for="login">로그인 상태 유지</label><br>
+		<input type="submit" value="로그인(POST)">
+	</form>
+	
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

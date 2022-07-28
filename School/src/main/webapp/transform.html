@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>transform</title>
+<link href="style.css" rel="stylesheet">
+<link href="transform.css" rel="stylesheet">
+</head>
+<body>
+<h1>transform 요소의 변형</h1>
+ 2차원 변형, 3차원 변형
+ 
+<h2>transform의 변형함수</h2>
+<ul>
+ <li>transform:translate(); 위치 변형</li>
+ <li>transform:scale(); 크기 변형</li>
+ <li>transform:rotate(); 회전 변형</li>
+ <li>transform:skew(); 기울기 변형</li>
+</ul>
+
+<section id="sec01">
+ <h2>transform:translate(); 위치 변형</h2>
+
+ <div class="tr01">transform:translateX(1000px);</div>
+ <div class="tr02">transform:translateX(-500px);</div>
+ <div class="tr03">transform:translateY(5em);</div>
+ <div class="tr04">transform:translateY(-3em);</div>
+ <div class="tr05">transform:translate(30em,-8em);</div>
+ <div class="tr06">transform:translate(-3em,10em);</div>
+ <div class="tr07">transform:translate(100%,100%); </div>
+
+ <div class="cnt">  [center]
+ 
+  1. position: absolute;
+     left: 50%; top:50%;
+     로 상위요소(relative)의 정중앙에서 시작.
+     
+  2. transform:translate(-50%,-50%);
+     로 자신의 크기만큼 앞,위로 절반 이동하여
+     항상 정중앙에.. 
+     
+  <b>translate의 단위가 %</b>일 때
+     그 기준이 자신의 크기가 됨~      
+ </div>
+</section>
+
+<section id="sec02">
+ <h2>transform:scale(); 크기 변형</h2>
+ 
+ <div class="sc01">transform:scaleX(2)<br>
+  <img src="img/pineapple.jpg"></div>
+ <div class="sc02">transform:scaleX(0.3);  <br>
+  <img src="img/pineapple.jpg"></div>
+ <div class="sc03">transform:scaleY(2);  <br>
+  <img src="img/pineapple.jpg"></div>
+ <div class="sc04">transform:scaleY(0.3);  <br>
+  <img src="img/pineapple.jpg"></div>
+ <div class="sc05">transform:scale(0.25,0.2);<br>
+  <img src="img/pineapple.jpg"></div>
+ <div class="sc06"><b>transform:  </b><br>
+  <img src="img/pineapple.jpg"></div>
+</section>
+
+
+<section id="sec03">
+ <h2>transform:rotate(); 회전 변형</h2>
+ 
+ <div class="ro01">transform: <br>
+  <img src="img/pineapple.jpg"></div>
+ <div class="ro02">transform: <br>
+  <img src="img/pineapple.jpg"></div>
+ <div class="ro03">transform: <br>
+  <img src="img/pineapple.jpg"></div>
+ <div class="ro04">transform: <br>
+  <img src="img/pineapple.jpg"></div>
+ <div class="ro05">transform: <br>
+  <img src="img/pineapple.jpg"></div>
+ <div class="ro06">transform: <br>
+  <img src="img/pineapple.jpg"></div>
+</section>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

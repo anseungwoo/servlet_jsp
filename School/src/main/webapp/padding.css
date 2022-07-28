@@ -1,0 +1,86 @@
+@charset "UTF-8";
+
+  /* 1. padding의 방향별 지정 속성 */
+#pd-dr>li {
+	border: 1px solid #00f; }
+
+.pd-t {padding-top: 20px;}
+.pd-r {text-align: right;
+padding-right: 20px;}
+.pd-b {padding-bottom: 20px;}
+.pd-l {padding-left: 20px;}
+
+
+ /* 2. padding의 값 갯수별 적용법 */
+ #pd-n>li {border: 1px solid #004; }
+
+.pdn01 {padding: 50px; }
+.pdn02 {padding: 50px 10%;}
+.pdn03 {padding: 50px 10% 14px;}
+.pdn04 {padding: 3em 30% 1em 10%;}
+
+
+#id {padding-top: 0.5em;
+padding-left: 1em;}
+
+#password {padding: 0.3em 0.7em;}
+
+.a01 {background-color: #ccc;
+/* width: 100px; height: 30px; */
+padding: 10px 40px;
+text-decoration: none;
+color: #034;
+box-shadow: 2px 2px 3px #333;}
+
+.a01:hover {
+background-color: #034;	
+color: #ccc;
+transition:1.2s;}
+
+
+nav>a {background-color: #c7c;
+/* width: 30px;
+  인라인요소는 크기 적용 불가 */
+padding: 0 10px;}
+
+#ph>img {width: 400px;}
+
+.ph01 {border: 40px solid #389;
+padding:70px; }
+
+.ph02 {border: 1px solid #333;
+padding: 20px 20px 140px;}
+
+
+.ph03 {border: 1px solid #333;
+ border-radius:8px /* 모서리 라운딩 */;
+ padding: 24px 24px 160px;
+ box-shadow: 2px 4px 6px #333
+           /* 영역의 그림자*/;}
+           
+.ph04 {border: 12px solid #389;
+ padding: 40px;	
+ border-radius: 50% /* 
+ 모서리 라운딩을 절반 적용하여 원으로 ;*/
+}           
+           
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
