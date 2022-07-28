@@ -1,11 +1,11 @@
 package jsp15_java_mail2;
 
+import static jsp15_java_mail2.JdbcUtil.close;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-import static jsp15_java_mail2.JdbcUtil.*;
 
 public class MemberDAO {
 	// 1. 멤버변수 선언 및 인스턴스 생성
@@ -134,7 +134,59 @@ public class MemberDAO {
 		
 		return registCount;
 	}
-	
+	public boolean selectDuplicateId(String id) {
+		boolean isDuplicate = false;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			String sql = "SELECT id FROM member WHERE id=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) { // 아이디가 이미 존재할 경우
+				isDuplicate = true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("MemberDAO - selectDuplicateId() 메서드 오류 : " + e.getMessage());
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return isDuplicate;
+	}
+	public boolean selectMember(MemberDTO member) {
+		boolean isLoginSuccess = false;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			String sql = "SELECT * FROM member WHERE id=? AND passwd=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, member.getId());
+			pstmt.setString(2, member.getPasswd());
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				isLoginSuccess =  true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("MemberDAO - selectMember() 메서드 오류 : " + e.getMessage());
+		} finally {
+			close(pstmt);
+			close(rs);
+		}
+		
+		return isLoginSuccess;
+	}
 }
 
 
