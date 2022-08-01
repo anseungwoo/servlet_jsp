@@ -21,27 +21,38 @@ public class MemberLoginProAction implements Action {
 		member.setPasswd(request.getParameter("passwd"));
 		
 		MemberLoginProService service = new MemberLoginProService();
-		boolean isLoginSuccess = service.loginMember(member);
-		
-		// 로그인 실패 시 자바스크립트를 통해 "로그인 실패" 출력 후 이전페이지로 돌아가기
-		// 아니면, 세션에 로그인 아이디를 "sId" 속성으로 저장 후 메인페이지 포워딩
-		if(!isLoginSuccess) {
+		boolean isAuthenticatedUser =service.isAuthenticatedUser(member); 
+		if(!isAuthenticatedUser) {
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
-			out.println("alert('로그인 실패!')");
+			out.println("alert('이메일 인증을 먼저 수행하세요')");
 			out.println("history.back()");
 			out.println("</script>");
 		} else {
-			// request 객체로부터 HttpSession 객체(세션) 가져와서 아이디 저장
-			HttpSession session = request.getSession();
-			session.setAttribute("sId", member.getId());
+			boolean isLoginSuccess = service.loginMember(member);
 			
-			// 메인페이지로 포워딩
-			forward = new ActionForward();
-			forward.setPath("./");
-			forward.setRedirect(true);
+			// 로그인 실패 시 자바스크립트를 통해 "로그인 실패" 출력 후 이전페이지로 돌아가기
+			// 아니면, 세션에 로그인 아이디를 "sId" 속성으로 저장 후 메인페이지 포워딩
+			if(!isLoginSuccess) {
+				response.setContentType("text/html; charset=UTF-8");
+				PrintWriter out = response.getWriter();
+				out.println("<script>");
+				out.println("alert('로그인 실패!')");
+				out.println("history.back()");
+				out.println("</script>");
+			} else {
+				// request 객체로부터 HttpSession 객체(세션) 가져와서 아이디 저장
+				HttpSession session = request.getSession();
+				session.setAttribute("sId", member.getId());
+				
+				// 메인페이지로 포워딩
+				forward = new ActionForward();
+				forward.setPath("Main.auth");
+				forward.setRedirect(true);
+			}
 		}
+	
 		
 		return forward;
 	}

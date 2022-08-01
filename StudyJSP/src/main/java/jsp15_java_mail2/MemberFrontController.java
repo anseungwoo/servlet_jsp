@@ -26,8 +26,11 @@ public class MemberFrontController extends HttpServlet {
 		Action action = null;
 		// 포워딩 정보를 관리하는 ActionForward 타입 변수 선언
 		ActionForward forward = null;	
-		
-		if(command.equals("/MemberJoinForm.auth")) {
+		if (command.equals("/Main.auth")) {
+			forward = new ActionForward();
+			forward.setPath("jsp15_java_mail2/main.jsp");
+			forward.setRedirect(false);
+		}else if(command.equals("/MemberJoinForm.auth")) {
 			forward = new ActionForward();
 			forward.setPath("jsp15_java_mail2/join_form.jsp");
 			forward.setRedirect(false);
@@ -74,6 +77,17 @@ public class MemberFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		}else if(command.equals("/MemberAuth.auth")) {
+			action = new MemberAuthAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else {
+			forward = new ActionForward();
+			forward.setPath("Main.auth");
+			forward.setRedirect(true);
 		}
 		
 		// --------------------------------------------------------------------------------------

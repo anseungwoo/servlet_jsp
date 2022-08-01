@@ -17,7 +17,7 @@ public class MemberLogoutAction implements Action {
 		
 		// 메인페이지 포워딩
 		forward = new ActionForward();
-		forward.setPath("./"); 
+		forward.setPath("Main.auth"); 
 		forward.setRedirect(true);
 		
 		return forward;

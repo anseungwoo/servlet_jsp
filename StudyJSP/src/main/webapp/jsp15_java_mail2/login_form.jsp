@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h1>로그인</h1>
-	<form action="login_pro.jsp" method="post">
+	<form action="MemberLoginPro.auth" method="post">
 		<table border="1">
 			<tr>
 				<th>아이디</th><td><input type="text" name="id"></td>

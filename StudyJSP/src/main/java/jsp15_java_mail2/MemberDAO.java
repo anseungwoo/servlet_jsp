@@ -57,7 +57,7 @@ public class MemberDAO {
 	
 	// 로그인 작업 수행하는 checkUser() 메서드 정의
 	// => 파라미터 : MemberDTO 객체, 리턴타입 : boolean(isLoginSuccess)
-	public boolean checkUser(MemberDTO dto) throws Exception {
+	public boolean checkUser(MemberDTO dto) {
 		boolean isLoginSuccess = false;
 		
 		PreparedStatement pstmt = null;
@@ -186,6 +186,35 @@ public class MemberDAO {
 		}
 		
 		return isLoginSuccess;
+	}
+	public boolean isAuthenticatedUser(MemberDTO member) {
+		boolean isAuthenticatedUserSuccess = false;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			String sql = "SELECT auth_status FROM auth_member WHERE id=? AND passwd=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, member.getId());
+			pstmt.setString(2, member.getPasswd());
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				if(rs.getString(1).equals("Y")) {
+				isAuthenticatedUserSuccess =  true;
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("MemberDAO - selectMember() 메서드 오류 : " + e.getMessage());
+		} finally {
+			close(pstmt);
+			close(rs);
+		}
+		
+		
+		return isAuthenticatedUserSuccess;
 	}
 }
 
