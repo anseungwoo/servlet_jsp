@@ -79,6 +79,62 @@ transition:1s;}
 
 
  /* 3.transform:rotate(); 회전 변형 */
+#sec03, #sec04 {overflow: hidden;}
+
+#sec03>div, #sec04>div {border: 1px solid red;
+width:300px; 
+float: left; margin: 2em; }
+
+.ro01 {transform:rotate(90deg);}
+.ro02 {transform:rotate(180deg);}
+.ro03:hover {transform:rotate(360deg);
+ transition:1s;}
+ 
+.ro04:hover {
+ transform:rotateX(90deg);	
+ transition:1s;} 
+ 
+.ro05:hover {transform:rotateY(90deg); 
+  transition:1s;}
+.ro06:hover {transform:rotate(-360deg);
+ transition:1s;}
+ 
+.ro07:hover>img {transform:rotateX(-720deg);
+ transition:0.8s;}  
+ 
+.ro08:hover {transform:rotateY(540deg);
+ transition:0.8s;} 
+ 
+
+
+
+ /* 4. transform:skew(); 기울기 변형 */
+#sec04:hover>.sk01 {
+ transform:skewX(30deg);}
+#sec04:hover>.sk02 {
+ transform:skewX(-30deg);} 
+#sec04:hover>.sk03 {
+ transform:skewY(30deg);} 
+#sec04:hover>.sk04 {
+ transform:skewY(-30deg);}  
+#sec04:hover>.sk05 {
+ transform:skew(30deg,30deg);} 
+ 
+#sec04:hover>.sk06>img {
+ transform:skew(-50deg,-20deg);
+ transition:0.8s;} 
+.sk06 {overflow: hidden;}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
