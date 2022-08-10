@@ -1,0 +1,13 @@
+CREATE DATABASE mvc_board;
+CREATE TABLE member (
+	idx INT PRIMARY KEY AUTO_INCREMENT,
+	name VARCHAR(12) NOT NULL,
+	gender VARCHAR(1) NOT NULL,
+	age INT NOT NULL,
+	email VARCHAR(50) NOT NULL UNIQUE,
+	id VARCHAR(16) NOT NULL UNIQUE,
+	passwd VARCHAR(20) NOT NULL
+);
+
+INSERT INTO member VALUES (null,'홍길동','남',20,'hong@hong.com','hong','1234');
+INSERT INTO member VALUES (null,'관리자','남',99,'admin@admin.com','admin','1234');

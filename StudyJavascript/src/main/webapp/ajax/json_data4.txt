@@ -1,0 +1,34 @@
+[
+{
+
+"accountNo": "111111-11-1111",
+"ownerName": "홍길동",
+"balance": 100000,
+"agreeRcvSpam": true
+
+},
+{
+
+"accountNo": "222222-22-2222",
+"ownerName": "홍진호",
+"balance": 222222,
+"agreeRcvSpam": true
+
+},
+{
+
+"accountNo": "333333-33-3333",
+"ownerName": "홍삼산",
+"balance": 543221,
+"agreeRcvSpam": true
+
+},
+{
+
+"accountNo": "444444-44-4444",
+"ownerName": "홍사삼",
+"balance": 333333,
+"agreeRcvSpam": false
+
+}
+]
